@@ -1,0 +1,19 @@
+{% extends 'basic.html' %}
+{% block title %}投票结果{% endblock %}
+{% block content %}
+    <div class="h4">
+        <h1 class="text-center text-warning">
+            {{ question.id }}号问题的投票结果
+        </h1>
+        <h2>{{ question.question_text }}</h2>
+        <table class="table table-bordered table-striped table-hover">
+            {% for choice in question.choice_set.all %}
+                <tr>
+                    <td>{{ choice.choice_text }}</td>
+                    <td>{{ choice.votes }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a class="btn btn-primary" href="{% url 'index' %}">返回首页</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,5 @@
+[dbservers]
+db1.tedu.cn
+
+[webservers]
+web1.tedu.cn
