@@ -8,6 +8,7 @@
 # git pull
 ```
 
+- python3环境准备视频讲解：链接:https://pan.baidu.com/s/1h-FRRr3NbMAH-PeF-rrRmQ  密码:ida0
 - 我的《Python百例》：https://www.jianshu.com/c/00c61372c46a
 - 第五阶段所用到的python软件包链接: https://pan.baidu.com/s/1c-mY0hyxxYRBUdb05VUiEw 提取码: isp4 
 - pycharm2017版软件下载地址：链接:https://pan.baidu.com/s/1bKWzJRJSjdfjTkR5VPoGpA  密码:9j7c
