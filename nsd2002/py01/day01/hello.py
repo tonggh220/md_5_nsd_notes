@@ -9,4 +9,6 @@
 #
 # if 10 > 5: print('abc')
 
-input()
+a = 10
+print(a)
+print(type(a))
