@@ -308,7 +308,26 @@ IndexError: string index out of range
 'python'
 >>> s1[::2]  # 步长值为2，取切片
 'pto'
+>>> s1[1::2]
+'yhn'
 
+>>> 't' in s1          # t在s1中吗？
+True
+>>> 'th' in s1         # th在s1中吗？
+True
+>>> 'to' in s1         # to在s1中吗？
+False
+>>> 'to' not in s1     # to不在s1中吗？
+True
+
+>>> s1 + ' is good'    # 字符串拼接
+'python is good'
+>>> '*' * 30   # 字符串*重复30遍
+'******************************'
+>>> '#' * 30
+'##############################'
+>>> s1 * 3
+'pythonpythonpython'
 ```
 
 
