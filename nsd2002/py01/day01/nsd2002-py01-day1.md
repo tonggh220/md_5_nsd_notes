@@ -1,5 +1,7 @@
 # nsd2002-py01-day1
 
+python官方手册：https://docs.python.org/zh-cn/3/library/index.html
+
 ## python语法
 
 1. 用缩进表达代码逻辑：推荐缩进4个空格
@@ -246,4 +248,68 @@ False
 ```
 
 #### 字符串
+
+- python中字符串被定义为引号之间的字符集合
+- python支持使用成对的单引号或双引号
+- 无论单引号，还是双引号，表示的意义相同
+- python还支持三引号（三个连续的单引号或者双引号），可以用来包含特殊字符
+
+```python
+>>> s1 = """tom
+... jerry
+... jack
+... rose
+... """
+>>> print(s1)
+tom
+jerry
+jack
+rose
+
+>>> s1
+'tom\njerry\njack\nrose\n'
+>>> s2 = "bj\ntj\nxa\nzz"
+>>> print(s2)
+bj
+tj
+xa
+zz
+```
+
+- 常见操作
+
+```python
+>>> s1 = 'python'
+>>> len(s1)   # 取长度
+6
+>>> s1[0]     # 第一个字符，下标为0
+'p'
+>>> s1[6]     # 下标为6，超出范围，报错
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: string index out of range
+>>> s1[5]
+'n'
+>>> s1[-1]  # 负数表示从右向左，最右的一个字符
+'n'
+>>> s1[-6]  # 自右向左第6个字符
+'p'
+>>> s1[2:4]  # 切片，起始下标包含，结束下标不包含
+'th'
+>>> s1[2:6]  # 切片时，下标超出范围是允许的
+'thon'
+>>> s1[2:600]
+'thon'
+>>> s1[2:]   # 结束下标不写，表示取到结尾
+'thon'
+>>> s1[:2]   # 起始下标不写，表示从开头取
+'py'
+>>> s1[:]    # 从开头取到结尾
+'python'
+>>> s1[::2]  # 步长值为2，取切片
+'pto'
+
+```
+
+
 
