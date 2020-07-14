@@ -40,5 +40,21 @@ hao***123***abc
 username: tom
 >>> user    # 使用变量
 'tom'
+
+# input读入的数据都是字符串类型。相同类型的数据才能运算
+>>> num = input("number: ")
+number: 10
+>>> num + 5    # num是字符串，不能和数字进行运算
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: must be str, not int
+>>> type(num)    # 查看num的类型
+<class 'str'>
+>>> int(num) + 5  # int函数将字符串转成整数
+15
+>>> num + str(5)  # str函数将对象转成字符串
+'105'
+>>> num + "5"
+'105'
 ```
 
