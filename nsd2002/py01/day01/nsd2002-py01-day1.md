@@ -164,3 +164,21 @@ False    # False是关键字，表示假
 True
 ```
 
+#### 逻辑运算符
+
+```python
+# and两边表达式结果全为True，最终才为True
+>>> 10 < 20 and 20 > 15
+True
+# or两边表达式结果全为False，最终才为False
+>>> 10 < 20 or 20 > 100
+True
+>>> 100 < 20 or 20 > 100
+False
+# not是单目运算符，将真变假，将假变真
+>>> 20 > 10
+True
+>>> not 20 > 10
+False
+```
+
