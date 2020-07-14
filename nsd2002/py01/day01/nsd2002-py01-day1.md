@@ -150,3 +150,17 @@ TypeError: must be str, not int
 2
 ```
 
+#### 比较运算符
+
+```python
+# 判断是否相等使用==
+>>> 3 == 3
+True    # True是关键字，表示真
+# 判断是否不相等使用!=
+>>> 3 != 3
+False    # False是关键字，表示假
+# python支持连续比较
+>>> 10 < 20 < 30
+True
+```
+
