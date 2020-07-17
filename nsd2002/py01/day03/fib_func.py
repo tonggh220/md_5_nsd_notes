@@ -6,6 +6,8 @@ def mk_fib():
     for i in range(n - 2):
         fib.append(fib[-1] + fib[-2])
 
-    print(fib)
+    return fib
 
-mk_fib()  # 调用函数，就是将函数体内的代码执行一次
+result = mk_fib()  # 调用函数，就是将函数体内的代码执行一次
+result2 = [i * 2 for i in result]
+print(result2)
