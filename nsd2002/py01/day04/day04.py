@@ -1,5 +1,3 @@
-import shutil
-import string
+s1 = 'Python'
+sorted(s1)
 
-shutil.copyfileobj
-shutil.copy
