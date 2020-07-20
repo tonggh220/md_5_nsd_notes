@@ -1,5 +1,15 @@
+userdb = {}
+
 def register():
     "注册"
+    username = input("username: ").strip()
+    if username == '':
+        print('用户名必须非空')
+    elif username in userdb:
+        print('用户已存在')
+    else:
+        password = input("password: ")
+        userdb[username] = password
 
 def login():
     "登陆"
