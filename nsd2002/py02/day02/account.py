@@ -4,8 +4,16 @@ from time import strftime
 
 def save(fname):
     "存钱"
-    amount = int(input('金额: '))
-    comment = input('备注: ')
+    try:
+        amount = int(input('金额: '))
+        comment = input('备注: ')
+    except ValueError:
+        print('无效的金额。')
+        return
+    except (KeyboardInterrupt, EOFError):
+        print('\nBye-bye')
+        exit(1)
+
     date = strftime('%Y-%m-%d')
     # 在文件中取出所有的记录
     with open(fname, 'rb') as fobj:
@@ -21,8 +29,15 @@ def save(fname):
 
 def cost(fname):
     "开销"
-    amount = int(input('金额: '))
-    comment = input('备注: ')
+    try:
+        amount = int(input('金额: '))
+        comment = input('备注: ')
+    except ValueError:
+        print('无效的金额。')
+        return
+    except (KeyboardInterrupt, EOFError):
+        print('\nBye-bye')
+        exit(1)
     date = strftime('%Y-%m-%d')
     # 在文件中取出所有的记录
     with open(fname, 'rb') as fobj:
@@ -41,7 +56,7 @@ def query(fname):
     with open(fname, 'rb') as fobj:
         records = pickle.load(fobj)
 
-    print('%-12s%-8s%-8s%-12s%-20s' % ('date', 'save', 'cost', 'balanace', 'comment'))
+    print('%-12s%-8s%-8s%-12s%-20s' % ('date', 'save', 'cost', 'balance', 'comment'))
     for record in records:
         print('%-12s%-8s%-8s%-12s%-20s' % tuple(record))
 
@@ -60,7 +75,11 @@ def show_menu():
             pickle.dump(init_data, fobj)
 
     while 1:
-        choice = input(prompt).strip()
+        try:
+            choice = input(prompt).strip()
+        except (KeyboardInterrupt, EOFError):
+            choice = '3'
+
         if choice not in ['0', '1', '2', '3']:
             print('无效的输入，请重试。')
             continue
