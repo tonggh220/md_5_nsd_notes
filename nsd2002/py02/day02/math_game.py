@@ -30,20 +30,34 @@ def exam():
 
     # 用户作答
     prompt = '%s %s %s = ' % (nums[0], op, nums[1])
-    answer = int(input(prompt))
-    if answer == result:
-        print('不错哟!!!')
-    else:
-        print('不对哟!!!')
+    n = 0
+    while n < 3:
+        try:
+            answer = int(input(prompt))
+        except:  # 不写明异常，可以捕获所有异常，不推荐
+            print()
+            continue
 
-    print('Answer: %s%s' % (prompt, result))
+        if answer == result:
+            print('不错哟!!!')
+            break
+        print('不对哟!!!')
+        n += 1
+    else:
+        print('Answer: %s%s' % (prompt, result))
 
 def main():
     "程序的代码逻辑"
     while 1:
         exam()
         # 获取用户输入，去除两端空格再取出第一个字符
-        yn = input('Continue(y/n)? ').strip()[0]
+        try:
+            yn = input('Continue(y/n)? ').strip()[0]
+        except IndexError:
+            continue
+        except (KeyboardInterrupt, EOFError):
+            yn = 'n'
+
         if yn in 'Nn':
             print('\nBye-bye')
             break
