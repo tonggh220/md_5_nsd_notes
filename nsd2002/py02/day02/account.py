@@ -21,9 +21,29 @@ def save(fname):
 
 def cost(fname):
     "开销"
+    amount = int(input('金额: '))
+    comment = input('备注: ')
+    date = strftime('%Y-%m-%d')
+    # 在文件中取出所有的记录
+    with open(fname, 'rb') as fobj:
+        records = pickle.load(fobj)
+    # 计算最新余额
+    balance = records[-1][-2] - amount
+    # 将收入情况存入列表
+    record = [date, 0, amount, balance, comment]
+    records.append(record)
+    # 将更新后的列表再存入文件
+    with open(fname, 'wb') as fobj:
+        pickle.dump(records, fobj)
 
 def query(fname):
     "查询"
+    with open(fname, 'rb') as fobj:
+        records = pickle.load(fobj)
+
+    print('%-12s%-8s%-8s%-12s%-20s' % ('date', 'save', 'cost', 'balanace', 'comment'))
+    for record in records:
+        print('%-12s%-8s%-8s%-12s%-20s' % tuple(record))
 
 def show_menu():
     "程序执行逻辑"
