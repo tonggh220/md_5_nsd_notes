@@ -17,7 +17,12 @@ class Role:
 
 class Warrior(Role):  # 括号中的类是该类的父类，也叫基类
     # 子类将会直接继承父类所有的方法
-    pass
+    def attack(self, target):
+        print('与%s近身肉搏' % target)
+
+class Mage(Role):
+    def attack(self, target):
+        print('远程打击%s' % target)
 
 if __name__ == '__main__':
     # 实例本身将会自动作为第一个参数传递，本例中是lb
@@ -28,3 +33,7 @@ if __name__ == '__main__':
     zf = Warrior('张飞', '丈八蛇矛')
     zf.show_me()
     zf.speak('吾乃燕人张飞张冀德')
+    zf.attack('吕布')
+    zgl = Mage('诸葛亮', '羽扇')
+    zgl.show_me()
+    zgl.attack('曹操')
