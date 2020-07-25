@@ -18,7 +18,7 @@ class Department(Base):
     name = Column(String(20), unique=True)  # String(20) -> varchar(20)
 
     def __str__(self):
-        return "<部门:%s>" % self.name
+        return "部门<:%s>" % self.name
 
 class Employee(Base):
     __tablename__ = 'employees'

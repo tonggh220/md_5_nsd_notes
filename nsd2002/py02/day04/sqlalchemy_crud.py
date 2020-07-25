@@ -74,6 +74,19 @@ session = Session()  # 创建会话实例
 # )
 # session.add_all([yz, zxj, mz, cpc, xw, cy, plp, lqc, yzk, lzj, jy, lcf, zw])
 
+############################################
+# 查询
+# 把class作为参数，返回的是实例组成的查询集。可以认为查询集就是一个列表
+# qset1 = session.query(Department)
+# for dep in qset1:
+#     # print(dep)
+#     print(dep.id, dep.name)
+############################################
+# 把类变量作为参数，返回的是由元组构成的查询结果
+qset2 = session.query(Employee.name, Employee.email)
+for data in qset2:
+    print(data)
+
 # 对于增删改，务必执行确认操作
 session.commit()
 
