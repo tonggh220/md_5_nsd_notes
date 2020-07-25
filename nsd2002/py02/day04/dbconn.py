@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 
 # 创建连接数据库的引擎
@@ -19,6 +19,17 @@ class Department(Base):
 
     def __str__(self):
         return "<部门:%s>" % self.name
+
+class Employee(Base):
+    __tablename__ = 'employees'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(20))
+    birth_date = Column(Date)
+    email = Column(String(50))
+    dep_id = Column(ForeignKey('departments.id'))
+
+    def __str__(self):
+        return "<员工:%s>" % self.name
 
 if __name__ == '__main__':
     # 如果数据库中没有相关的表则创建，有的话忽略
