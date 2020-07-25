@@ -26,10 +26,19 @@ class Employee(Base):
     name = Column(String(20))
     birth_date = Column(Date)
     email = Column(String(50))
+    # 配置dep_id与departments表中的id字段是主外键关系
     dep_id = Column(ForeignKey('departments.id'))
 
     def __str__(self):
         return "<员工:%s>" % self.name
+
+class Salary(Base):
+    __tablename__ = 'salary'
+    id = Column(Integer, primary_key=True)
+    date = Column(Date)
+    emp_id = Column(ForeignKey('employees.id'))
+    basic = Column(Integer)
+    awards = Column(Integer)
 
 if __name__ == '__main__':
     # 如果数据库中没有相关的表则创建，有的话忽略
