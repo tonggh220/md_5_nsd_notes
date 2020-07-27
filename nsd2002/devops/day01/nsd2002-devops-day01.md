@@ -107,3 +107,37 @@ urllib.error.HTTPError: HTTP Error 403: Forbidden
 >>> html.read()
 ```
 
+#### 数据编码
+
+- 一般来说，URL标准中只会允许一部分ASCII字符，比如数字、字母、部分符号等
+- 其他字符需要编码
+
+```python
+>>> url = 'https://www.sogou.com/web?query=端午节'
+>>> html = request.urlopen(url)  # 报错
+>>> url = 'https://www.sogou.com/web?query=' + request.quote('中秋节')
+>>> url
+'https://www.sogou.com/web?query=%E4%B8%AD%E7%A7%8B%E8%8A%82'
+```
+
+#### 异常处理
+
+- urllib的异常保存在urllib.error模块中，捕获异常时，需导入它
+
+```python
+[root@localhost ~]# mkdir -m 000 /var/www/html/ban
+>>> url1 = 'http://127.0.0.1/ban'  # 没权限
+>>> url2 = 'http://127.0.0.1/abc'  # 没有该路径
+>>> request.urlopen(url1)
+urllib.error.HTTPError: HTTP Error 403: Forbidden
+>>> request.urlopen(url2)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+>>> from urllib import error
+>>> try:
+...   request.urlopen(url1)
+... except error.HTTPError as e:
+...   print('Error:', e)
+... 
+Error: HTTP Error 403: Forbidden
+```
+
