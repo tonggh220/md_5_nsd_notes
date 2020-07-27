@@ -13,5 +13,5 @@ class Ping:
 if __name__ == '__main__':
     ips = ['192.168.1.%s' % i for i in range(1, 255)]
     for ip in ips:
-        t = threading.Thread(target=Ping(), args=(ip,))
+        t = threading.Thread(target=Ping(), args=(ip,))  # 将Ping的实例作为参数
         t.start()  # target(*args)
