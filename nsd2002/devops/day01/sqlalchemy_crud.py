@@ -120,9 +120,19 @@ session = Session()  # 创建会话实例
 #     print(dep.id, dep.name)
 
 # 部门ID不是1、3、6的
-qset10 = session.query(Department).filter(~Department.id.in_([1, 3, 6]))
-for dep in qset10:
-    print(dep.id, dep.name)
+# qset10 = session.query(Department).filter(~Department.id.in_([1, 3, 6]))
+# for dep in qset10:
+#     print(dep.id, dep.name)
+
+# 多表查询，自动按主外键约束拼接
+# qset11 = session.query(Employee.name, Department.name).join(Department)
+# for data in qset11:
+#     print(data)
+
+# query的参数先写Department，join就写Employee。反之亦然
+qset12 = session.query(Department.name, Employee.name).join(Employee)
+for data in qset12:
+    print(data)
 
 # 对于增删改，务必执行确认操作
 session.commit()
