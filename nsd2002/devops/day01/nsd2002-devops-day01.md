@@ -18,3 +18,19 @@ else:
 print('Hello World!')
 ```
 
+- 父子是相对的，子进程还可以再生成子进程
+- 多进程编程思路
+  - 父进程只产生子进程
+  - 子进程做具体的工作
+  - 子进程做完工作后，需要通过exit彻底结束
+
+```python
+import os
+
+for i in range(3):
+    ret_val = os.fork()
+    if not ret_val:
+        print('Hello World!')
+        exit(0)
+```
+
