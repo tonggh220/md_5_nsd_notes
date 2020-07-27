@@ -130,9 +130,26 @@ session = Session()  # 创建会话实例
 #     print(data)
 
 # query的参数先写Department，join就写Employee。反之亦然
-qset12 = session.query(Department.name, Employee.name).join(Employee)
-for data in qset12:
-    print(data)
+# qset12 = session.query(Department.name, Employee.name).join(Employee)
+# for data in qset12:
+#     print(data)
+
+# 取出查询结果：all函数将所有结果存入列表
+# qset13 = session.query(Department).order_by(Department.id)
+# print(qset13.all())
+# 取出查询结果：first取出满足条件的第一个结果
+# print(qset13.first())
+
+# 修改人事部为人力资源部
+# qset14 = session.query(Department).filter(Department.name=='人事部')
+# hr = qset14.first()
+# hr.name = '人力资源部'
+
+# 删除市场部
+qset15 = session.query(Department).filter(Department.name=='市场部')
+market = qset15.first()
+session.delete(market)
+
 
 # 对于增删改，务必执行确认操作
 session.commit()
