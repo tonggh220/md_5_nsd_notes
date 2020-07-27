@@ -79,3 +79,15 @@ b'<!--[if IE'
 >>> html.readlines()
 ```
 
+#### wget模块
+
+- wget模块对urllib模块进行封装，可以方便地实现下载功能
+
+```python
+# 安装
+[root@localhost day01]# pip3 install wget
+>>> import wget
+>>> url = 'http://n.sinaimg.cn/ent/4_img/upload/eca303e9/125/w690h1035/20200724/2843-iwtqvyk9763395.jpg'
+>>> wget.download(url, '/tmp/g.jpg')
+```
+
