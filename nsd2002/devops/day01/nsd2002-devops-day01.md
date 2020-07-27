@@ -91,3 +91,19 @@ b'<!--[if IE'
 >>> wget.download(url, '/tmp/g.jpg')
 ```
 
+#### 修改请求头
+
+```python
+>>> url = 'https://www.jianshu.com/'
+>>> html = request.urlopen(url)
+... ...
+urllib.error.HTTPError: HTTP Error 403: Forbidden
+# 服务器大多都有反爬虫设置，如果发现客户端是爬虫，可能拒绝访问
+# 修改请求头，将User-Agent改为正常的浏览器
+>>> headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36'}
+# 创建请求对象
+>>> r = request.Request(url, headers=headers)
+>>> html = request.urlopen(r)  # 携带修改的请求头访问url
+>>> html.read()
+```
+
