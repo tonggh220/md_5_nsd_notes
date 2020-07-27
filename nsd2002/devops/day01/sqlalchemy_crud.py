@@ -98,8 +98,30 @@ session = Session()  # 创建会话实例
 #     print(dep.id, dep.name)
 
 # 切片
-qset3 = session.query(Department).order_by(Department.id)[2:5]
-for dep in qset3:
+# qset5 = session.query(Department).order_by(Department.id)[2:5]
+# for dep in qset5:
+#     print(dep.id, dep.name)
+
+# 过滤
+# qset6 = session.query(Department).filter(Department.id > 3)
+# for dep in qset6:
+#     print(dep.id, dep.name)
+# qset7 = session.query(Department).filter(Department.id > 3).filter(Department.id < 6)
+# for dep in qset7:
+#     print(dep.id, dep.name)
+
+# 模糊查询
+# qset8 = session.query(Employee).filter(Employee.email.like('%@tedu.cn'))
+# for emp in qset8:
+#     print(emp.name, emp.email)
+
+# qset9 = session.query(Department).filter(Department.id.in_([1, 3, 6]))
+# for dep in qset9:
+#     print(dep.id, dep.name)
+
+# 部门ID不是1、3、6的
+qset10 = session.query(Department).filter(~Department.id.in_([1, 3, 6]))
+for dep in qset10:
     print(dep.id, dep.name)
 
 # 对于增删改，务必执行确认操作
