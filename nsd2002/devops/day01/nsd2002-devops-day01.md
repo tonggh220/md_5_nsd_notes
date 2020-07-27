@@ -64,3 +64,18 @@ if __name__ == '__main__':
         t.start()  # 启动工作线程，相当于执行target()
 ```
 
+## urllib模块
+
+- 用于访问网络资源
+
+```python
+>>> from urllib import request
+>>> url = 'http://www.163.com'
+>>> html = request.urlopen(url)
+>>> html.readline()
+b' <!DOCTYPE HTML>\n'
+>>> html.read(10)
+b'<!--[if IE'
+>>> html.readlines()
+```
+
