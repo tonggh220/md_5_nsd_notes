@@ -40,9 +40,27 @@ b'id: zhangsan: no such user\n'
 - 准备邮件：使用email模块
 - 发送邮件：使用smtplib模块
 
+## JSON
 
+- JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式
+- 基于JavaScript Programming Language
+- JSON采用完全独立于语言的文本格式
+- 这些特性使JSON成为理想的数据交换语言
 
+```python
+>>> import json
+>>> d1 = {'name': 'tom', 'age': 20}  # 创建字典
+>>> json.dumps(d1)  # 将字典转成json字符串
+'{"name": "tom", "age": 20}'
+>>> jdata = json.dumps(d1)  # 将json字符串转换回字典
+>>> json.loads(jdata)
+{'name': 'tom', 'age': 20}
+>>> data = json.loads(jdata)
+>>> data['age']
+20
+```
 
+- api：Application Programming Interface应用程序编程接口。编程接口就是服务器上对外开放的一个函数，通常以http协议开放。
 
 
 
