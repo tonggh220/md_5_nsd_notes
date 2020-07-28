@@ -120,3 +120,6 @@ b'id: zhangsan: no such user\n'
 - https://www.jianshu.com/p/3c0436af6e92
 - 微信模块：itchat
 
+### zabbix
+
+- https://www.zabbix.com/documentation/3.4/zh/manual
