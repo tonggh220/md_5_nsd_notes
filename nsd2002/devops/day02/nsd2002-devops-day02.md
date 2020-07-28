@@ -100,15 +100,20 @@ b'id: zhangsan: no such user\n'
 
 - requests.get方法传参，使用params完成。
 - requests相关方法通过headers传递请求头
+- request.post发送数据时，使用data完成
 
 ### 使用阿里云开发都平台
 
 - http://www.aliyun.com -> 云市场 -> api市场
-- 查天气：搜索天气，找到“杭州网尚科技” -> 0元购买 -> 管理控制台 -> 
+- 查天气：搜索天气，找到“杭州网尚科技” -> 0元购买 -> 管理控制台
 
+### 使用钉钉机器人
 
+- https://www.jianshu.com/p/a3c62eb71ae3
+- https://im.dingtalk.com/  web登陆地址
+- https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq ： 机器人使用说明
 
-
+- 群 -> 点击机器人图标，创建一个webhook机器人
 
 
 
