@@ -96,6 +96,19 @@ b'id: zhangsan: no such user\n'
 >>> r.encoding = 'utf8'  # 修改编码
 >>> r.json()  # 获取json串转成的对象
 {'weatherinfo': {'city': '北京', 'cityid': '101010100', 'temp': '27.9', 'WD': '南风', 'WS': '小于3级' '28%', 'AP': '1002hPa', 'njd': '暂无实况', 'WSE': '<3', 'time': '17:55', 'sm': '2.1', 'isRadar': '1'adar': 'JC_RADAR_AZ9010_JB'}}
-
 ```
+
+- requests.get方法传参，使用params完成。
+- requests相关方法通过headers传递请求头
+
+### 使用阿里云开发都平台
+
+- http://www.aliyun.com -> 云市场 -> api市场
+- 查天气：搜索天气，找到“杭州网尚科技” -> 0元购买 -> 管理控制台 -> 
+
+
+
+
+
+
 
