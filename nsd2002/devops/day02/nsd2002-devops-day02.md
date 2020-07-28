@@ -61,6 +61,7 @@ b'id: zhangsan: no such user\n'
 ```
 
 - api：Application Programming Interface应用程序编程接口。编程接口就是服务器上对外开放的一个函数，通常以http协议开放。
+- 例，中国天气网查询天气情况的api：http://www.weather.com.cn/data/sk/城市代码.html
 
 
 
