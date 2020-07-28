@@ -1,4 +1,8 @@
 import paramiko
+import sys
+import os
+import getpass
+import threading
 
 def rcmd(host, port=22, user='root', passwd=None, cmds=None):
     ssh = paramiko.SSHClient()
@@ -14,4 +18,22 @@ def rcmd(host, port=22, user='root', passwd=None, cmds=None):
     ssh.close()
 
 if __name__ == '__main__':
-    rcmd('192.168.1.136', passwd='redhat', cmds='id root; id zhangsan')
+    # 判断命令行的长度，如果小于3则退出
+    if len(sys.argv) < 3:
+        print('Usage: %s ipfile commands' % sys.argv[0])
+        exit(1)
+    ipfile = sys.argv[1]
+    cmds = ' '.join(sys.argv[2:])  # 将列表中命令部分拼接为字符串
+    # 判断主机地址文件是否存在，不存在则退出
+    if not os.path.isfile(ipfile):
+        print('No such file:', ipfile)
+        exit(2)
+    # 获取密码
+    passwd = getpass.getpass()
+    # 在文件中取出ip地址，在每个ip地址上执行指令
+    with open(ipfile) as fobj:
+        for line in fobj:
+            ip = line.strip()  # 去除每行结尾的\n
+            t = threading.Thread(target=rcmd, args=(ip, 22, 'root', passwd, cmds))
+            t.start()
+    # rcmd('192.168.1.136', passwd='redhat', cmds='id root; id zhangsan')
