@@ -115,5 +115,8 @@ b'id: zhangsan: no such user\n'
 
 - 群 -> 点击机器人图标，创建一个webhook机器人
 
+### 图灵机器人
 
+- https://www.jianshu.com/p/3c0436af6e92
+- 微信模块：itchat
 
