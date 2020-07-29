@@ -96,6 +96,10 @@ SSH password:
 # 检查语法，无误后执行
 [root@localhost myansible]# ansible-playbook lamp.yml --syntax-check
 [root@localhost myansible]# ansible-playbook lamp.yml 
-
 ```
 
+## zabbix编程
+
+- adhoc模式
+- http://docs.ansible.com/ -> Ansible Documentation -> 切换版本到2.7 -> 在左侧文本框中输入python api回车进行搜索：https://docs.ansible.com/ansible/2.7/dev_guide/developing_api.html?highlight=python%20api
+- 将example部分的代码全部拷贝过来并运行
