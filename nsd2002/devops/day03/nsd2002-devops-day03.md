@@ -17,7 +17,7 @@
 
 #### 配置环境
 
-```python
+```shell
 [root@localhost nsd2020]# vim ~/.vimrc
 filetype plugin on
 let g:pydiction_location = '/root/.vim/bundle/pydiction/complete-dict'
@@ -33,6 +33,26 @@ nnoremap <C-a> <Home>
 nnoremap <C-e> <End>
 nnoremap <F2> :set nu! nu?<CR>
 nnoremap ; : 
+    
+[root@localhost day03]# mkdir myansible
+[root@localhost day03]# cd myansible
+[root@localhost myansible]# vim ansible.cfg
+[defaults]
+inventory = hosts
+remote_user = root
+host_key_checking = no  # 不检查远程主机密钥
+
+[root@localhost myansible]# vim hosts
+[dbservers]
+localhost
+
+[webservers]
+192.168.1.136
+
+[root@localhost myansible]# yum install -y sshpass
+[root@localhost myansible]# ansible all -m ping -k
+SSH password: 
+
 ```
 
 
