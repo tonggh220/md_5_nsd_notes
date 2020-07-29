@@ -52,13 +52,13 @@ localhost
 [root@localhost myansible]# yum install -y sshpass
 [root@localhost myansible]# ansible all -m ping -k
 SSH password: 
-
 ```
-
-
 
 #### ad-hoc临时命令
 
-
+```shell
+# 实现免密登陆
+[root@localhost myansible]# ansible all -m authorized_key -a "user=root state=present key={{lookup('file', '/root/.ssh/id_rsa.pub')}}" -k
+```
 
 #### playbook
