@@ -225,3 +225,29 @@ PY_BIN=$(which python3)  # 第8行改为python3
 [root@localhost myansible]# firefox /tmp/hosts.html
 ```
 
+## 编写模块
+
+```shell
+# 创建保存自定义模块的路径
+[root@localhost myansible]# mkdir /opt/mylibs
+[root@localhost myansible]# export ANSIBLE_LIBRARY=/opt/mylibs
+[root@localhost myansible]# vim /opt/mylibs/rcopy.py
+from ansible.module_utils.basic import AnsibleModule
+import shutil
+
+def main():
+    module = AnsibleModule(
+        argument_spec=dict(
+            yuan=dict(required=True, type='str'),
+            mubiao=dict(required=True, type='str')
+        )
+    )
+    shutil.copy(module.params['yuan'], module.params['mubiao'])
+    module.exit_json(changed=True)
+
+if __name__ == '__main__':
+    main()
+
+[root@localhost myansible]# ansible webservers -m rcopy -a "yuan=/etc/hosts mubiao=/var/tmp/zhuji"
+```
+
