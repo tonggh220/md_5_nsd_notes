@@ -251,3 +251,40 @@ if __name__ == '__main__':
 [root@localhost myansible]# ansible webservers -m rcopy -a "yuan=/etc/hosts mubiao=/var/tmp/zhuji"
 ```
 
+- 本地安装python模块
+
+```shell
+# 下载python的wget
+[root@localhost ~]# wget https://files.pythonhosted.org/packages/47/6a/62e288da7bcda82b935ff0c6cfe542970f04e29c756b0e147251b2fb251f/wget-3.2.zip
+# 安装wget到python2
+[root@localhost ~]# unzip wget-3.2.zip 
+[root@localhost ~]# cd wget-3.2/
+[root@localhost wget-3.2]# ls
+PKG-INFO  README.txt  setup.py  wget.py
+[root@localhost wget-3.2]# python setup.py install
+```
+
+- 编写下载模块
+
+```python
+[root@localhost myansible]# vim /opt/mylibs/download.py 
+from ansible.module_utils.basic import AnsibleModule
+import wget
+
+def main():
+    module = AnsibleModule(
+        argument_spec=dict(
+            url=dict(required=True, type='str'),
+            dest=dict(required=True, type='str')
+        )
+    )
+    wget.download(module.params['url'], module.params['dest'])
+    module.exit_json(changed=True)
+
+if __name__ == '__main__':
+    main()
+
+[root@localhost myansible]# ansible webservers -m download -a "url=http://pic1.win4000.com/wallpaper/4/584a75098f57e.jpg dest=/tmp/girl.jpg"
+
+```
+
