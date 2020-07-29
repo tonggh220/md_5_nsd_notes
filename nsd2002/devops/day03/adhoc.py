@@ -7,11 +7,13 @@ from ansible.playbook.play import Play
 from ansible.executor.task_queue_manager import TaskQueueManager
 import ansible.constants as C
 
-#
+# connections有三种连接方式，分别是local / ssh / smart
+# local: 本地执行; ssh: ssh到目标主机执行; smart: 自动选择，一般也是ssh
+# forks是一次在多少台主机上并行执行命令
 Options = namedtuple('Options', ['connection', 'module_path', 'forks', 'become', 'become_method', 'become_user', 'check', 'diff'])
-options = Options(connection='local', module_path=['/to/mymodules'], forks=10, become=None, become_method=None, become_user=None, check=False, diff=False)
+options = Options(connection='ssh', module_path=['/to/mymodules'], forks=10, become=None, become_method=None, become_user=None, check=False, diff=False)
 
-# initialize needed objects
+# DataLoader负责查找并将yaml, json, ini文件内容转换成python可以识别的数据对象
 loader = DataLoader() # Takes care of finding and reading yaml, json and ini files
 passwords = dict(vault_pass='secret')
 

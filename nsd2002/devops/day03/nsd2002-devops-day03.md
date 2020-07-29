@@ -98,7 +98,7 @@ SSH password:
 [root@localhost myansible]# ansible-playbook lamp.yml 
 ```
 
-## zabbix编程
+## ansible编程
 
 - adhoc模式
 - http://docs.ansible.com/ -> Ansible Documentation -> 切换版本到2.7 -> 在左侧文本框中输入python api回车进行搜索：https://docs.ansible.com/ansible/2.7/dev_guide/developing_api.html?highlight=python%20api
@@ -123,5 +123,63 @@ SSH password:
 20
 >>> p1.z
 30
+```
+
+- 将Playbook转为python数据对象
+
+```python
+---
+- name: configure webservers
+  hosts: webservers
+  tasks:
+    - name: install httpd
+      yum:
+        name: httpd
+        state: present
+
+    - name: enable httpd service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+- name: configure dbservers
+  hosts: dbservers
+  tasks:
+    - name: install mariadb-server
+      yum:
+        name: mariadb-server
+        state: present
+
+    - name: enable mariadb service
+      service:
+        name: mariadb
+        state: started
+        enabled: yes
+-------------------------------------------------------
+[
+    {
+        'name': 'configure webservers',
+        'hosts': 'webservers',
+        'tasks': [
+            {
+                'name': 'install httpd',
+                'yum': {
+                    'name': 'httpd',
+                    'state': 'present'
+                }
+            },
+            {
+                'name': 'enable httpd service',
+                'service': {
+                    'name': 'httpd',
+                    'state': 'started',
+                    'enabled': 'yes'
+                }
+            }
+        ]
+    },
+    {}
+]
 ```
 
