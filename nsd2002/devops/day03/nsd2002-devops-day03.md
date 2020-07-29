@@ -203,3 +203,25 @@ SSH password:
 ]
 ```
 
+### ansible-cmdb插件
+
+- 用于将通过setup收集到的远程主机信息，生成web页面
+
+```shell
+# 收集远程主机信息，并保存到/tmp/out
+[root@localhost myansible]# ansible all -m setup --tree /tmp/out
+[root@localhost myansible]# ls /tmp/out/
+192.168.1.139  localhost
+# 安装ansible-cmdb
+[root@localhost myansible]# pip3 install ansible-cmdb
+# 通过ansible-cmdb生成web页报错，找不到模块mako
+[root@localhost myansible]# ansible-cmdb /tmp/out/ > /tmp/hosts.html
+# 原因是ansible-cmdb默认使用python2，需要改成python3
+[root@localhost myansible]# which ansible-cmdb 
+/usr/local/bin/ansible-cmdb
+[root@localhost myansible]# vim $(which ansible-cmdb)
+PY_BIN=$(which python3)  # 第8行改为python3
+[root@localhost myansible]# ansible-cmdb /tmp/out/ > /tmp/hosts.html
+[root@localhost myansible]# firefox /tmp/hosts.html
+```
+
