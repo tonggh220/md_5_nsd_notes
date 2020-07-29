@@ -102,7 +102,7 @@ b'id: zhangsan: no such user\n'
 - requests相关方法通过headers传递请求头
 - request.post发送数据时，使用data完成
 
-### 使用阿里云开发都平台
+### 使用阿里云开发者平台
 
 - http://www.aliyun.com -> 云市场 -> api市场
 - 查天气：搜索天气，找到“杭州网尚科技” -> 0元购买 -> 管理控制台
