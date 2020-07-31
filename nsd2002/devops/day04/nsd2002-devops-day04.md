@@ -194,5 +194,9 @@ plan.txt
 #
 [root@dev myweb]# git commit -m "remove readme"
 
+# 查看版本库的文件
+[root@dev myweb]# git ls-files
+# 查看所有的commit
+
 ```
 
