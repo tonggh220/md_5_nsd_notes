@@ -197,6 +197,23 @@ plan.txt
 # 查看版本库的文件
 [root@dev myweb]# git ls-files
 # 查看所有的commit
+[root@dev myweb]# git log
+commit 0925d232fbd10ef34a01411eb6e6749e52c49341
+Author: zhangzhg <zhangzg@tedu.cn>
+Date:   Fri Jul 31 11:43:17 2020 +0800
+
+    remove readme
+
+commit bc2c22d43400579dba6dd222c8ced5dc56dd8e30
+Author: zhangzhg <zhangzg@tedu.cn>
+Date:   Fri Jul 31 11:42:22 2020 +0800
+
+    modify readme.md => readme
+... ...
+# 返回到某一个时间点的快照
+[root@dev myweb]# git checkout bc2c22d43400579dba6dd222c8ced5dc56dd8e30
+root@dev myweb]# ls
+plan.txt  readme
 
 ```
 
