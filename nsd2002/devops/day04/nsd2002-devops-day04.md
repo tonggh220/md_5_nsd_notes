@@ -125,5 +125,21 @@ mytest
 #
 修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
 
+# 创建.gitignore来阻止某些文件加入到跟踪
+[root@dev myweb]# echo '8-1 xxxx' > plan.txt
+[root@dev myweb]# echo '8-2 aaaa' >> plan.txt 
+[root@dev myweb]# vim .gitignore
+plan.txt
+*.swp
+.gitignore
+[root@dev myweb]# git status
+# 位于分支 master
+# 尚未暂存以备提交的变更：
+#   （使用 "git add <file>..." 更新要提交的内容）
+#   （使用 "git checkout -- <file>..." 丢弃工作区的改动）
+#
+#	修改：      readme.md
+#
+修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
 ```
 
