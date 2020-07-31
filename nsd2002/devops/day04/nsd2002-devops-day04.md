@@ -46,5 +46,53 @@ user.email=zhangzg@tedu.cn
 core.editor=vim
 ```
 
+- 电子书推荐：https://git-scm.com/book/zh/v2
+- git重要的工作区域
+  - 工作区：项目目录
+  - 暂存区：工作区和版本库之间的缓冲地带，也叫stage或index。位于.git/index
+  - 版本库：快照存储区域，工作区下的.git目录
 
+```mermaid
+graph LR
+w(工作区)--add-->s(暂存区)
+s--commit-->g(版本库)
+```
+
+- 文件状态
+  - 未跟踪：工作区中的文件，尚未执行add操作
+  - 已跟踪
+
+- 操作
+
+```shell
+# 创建版本库，方法一
+[root@dev ~]# mkdir projects; cd projects
+[root@dev projects]# git init mytest
+初始化空的 Git 版本库于 /root/projects/mytest/.git/
+[root@dev projects]# ls
+mytest
+[root@dev projects]# ls -A mytest/
+.git
+
+# 创建版本库，方法二
+[root@dev projects]# mkdir myweb; cd myweb
+[root@dev myweb]# echo 'Hello World' > readme.md
+[root@dev myweb]# git init
+初始化空的 Git 版本库于 /root/projects/myweb/.git/
+[root@dev myweb]# ls -A
+.git  readme.md
+
+# 查看文件状态
+[root@dev myweb]# git status
+# 位于分支 master
+#
+# 初始提交
+#
+# 未跟踪的文件:
+#   （使用 "git add <file>..." 以包含要提交的内容）
+#
+#	readme.md
+提交为空，但是存在尚未跟踪的文件（使用 "git add" 建立跟踪）
+
+```
 
