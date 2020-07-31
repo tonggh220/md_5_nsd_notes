@@ -310,5 +310,24 @@ Password for 'http://zzg@192.168.1.102':
 [root@dev myweb]# git push -u origin --tags  # 推送tag
 Username for 'http://192.168.1.102': zzg
 Password for 'http://zzg@192.168.1.102': 
+
+# 配置ssh免密上传
+[root@dev myweb]# ssh-keygen 
+[root@dev myweb]# cat ~/.ssh/id_rsa.pub 
+# 将查看到的公钥，粘贴到gitlab用户设置的ssh公钥中
+# 重新绑定远程仓库
+[root@dev myweb]# git remote -v
+origin	http://192.168.1.102/devops/myweb.git (fetch)
+origin	http://192.168.1.102/devops/myweb.git (push)
+[root@dev myweb]# git remote remove origin
+[root@dev myweb]# git remote -v
+[root@dev myweb]# git remote add origin git@192.168.1.102:devops/myweb.git
+# 上传测试
+[root@dev myweb]# echo '<h1>Hello World</h1>' > index.html
+[root@dev myweb]# git add .
+[root@dev myweb]# git commit -m "add index.html"
+[root@dev myweb]# git tag 2.0
+[root@dev myweb]# git push
+[root@dev myweb]# git push --tags
 ```
 
