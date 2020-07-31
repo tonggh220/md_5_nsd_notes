@@ -168,5 +168,31 @@ ebooks  nsd1912  nsd2002  README.en.md  README.md  review
 [root@localhost nsd2020]# du -sh .
 30M	.
 
+# 在git操作中，没有单独的复制，因为复制就是在工作区增加了一个文件
+# 移动/改名
+[root@dev myweb]# git mv readme.md readme
+[root@dev myweb]# git status
+# 位于分支 master
+# 要提交的变更：
+#   （使用 "git reset HEAD <file>..." 撤出暂存区）
+#
+#	重命名：    readme.md -> readme
+#
+[root@dev myweb]# git commit -m "modify readme.md => readme"
+
+# 删除
+[root@dev myweb]# git rm readme
+rm 'readme'
+[root@dev myweb]# ls
+plan.txt
+[root@dev myweb]# git status
+# 位于分支 master
+# 要提交的变更：
+#   （使用 "git reset HEAD <file>..." 撤出暂存区）
+#
+#	删除：      readme
+#
+[root@dev myweb]# git commit -m "remove readme"
+
 ```
 
