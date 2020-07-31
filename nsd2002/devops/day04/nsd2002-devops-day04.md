@@ -284,6 +284,11 @@ docker_pkgs  images
 [root@gitserver docker_gitlab]# systemctl start docker
 [root@gitserver docker_gitlab]# systemctl enable docker
 [root@gitserver docker_gitlab]# docker load -i images/gitlab_zh.tar 
-
+[root@gitserver ~]# vim /etc/ssh/sshd_config 
+Port 2022
+[root@gitserver ~]# systemctl restart sshd
+# 如果有客户端连接，需要客户端重新连接
+[root@gitserver ~]# docker run -d -h gitlab --name gitlab -p 443:443 -p 80:80 -p 22:22 --restart always -v /srv/gitlab/config:/etc/gitlab -v /srv/gitlab/logs:/var/log/gitlab -v /srv/gitlab/data:/var/opt/gitlab gitlab_zh:latest 
+[root@gitserver ~]# docker ps  # 直到状态成为healthy才可用
 ```
 
