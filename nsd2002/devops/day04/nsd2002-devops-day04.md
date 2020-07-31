@@ -222,5 +222,17 @@ plan.txt  readme
 [root@dev myweb]# ls
 plan.txt
 
+# 查看当前所在版本
+[root@dev myweb]# git rev-parse HEAD
+```
+
+- tag标记，可以将某一次提交打标记，以示本提交重要。通常用于将某次提交标记为一个版本
+
+```shell
+# 查看所有的tag
+[root@dev myweb]# git tag
+[root@dev myweb]# git tag 1.0
+[root@dev myweb]# git tag
+1.0
 ```
 
