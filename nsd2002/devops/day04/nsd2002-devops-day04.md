@@ -141,5 +141,32 @@ plan.txt
 #	修改：      readme.md
 #
 修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
+
+# 丢弃工作区改动。慎用！！！它会将工作区所有更改清理掉。
+[root@dev myweb]# git checkout -- readme.md
+[root@dev myweb]# git status
+# 位于分支 master
+无文件要提交，干净的工作区
+[root@dev myweb]# cat readme.md 
+Hello World
+
+# 技巧。如果发送的git目录太大，可以把工作区内容删除。接收方再恢复
+# 发送方
+[root@localhost ~]# cp -r nsd2020/ /tmp/
+[root@localhost tmp]# du -sh nsd2020/
+31M	nsd2020/
+[root@localhost tmp]# cd nsd2020/
+[root@localhost nsd2020]# ls
+ebooks  nsd1912  nsd2002  README.en.md  README.md  review
+[root@localhost nsd2020]# rm -rf *
+[root@localhost nsd2020]# du -sh .
+14M	.
+# 接收方
+[root@localhost nsd2020]# git checkout -- *
+[root@localhost nsd2020]# ls
+ebooks  nsd1912  nsd2002  README.en.md  README.md  review
+[root@localhost nsd2020]# du -sh .
+30M	.
+
 ```
 
