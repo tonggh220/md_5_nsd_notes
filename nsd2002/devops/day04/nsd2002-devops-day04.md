@@ -215,5 +215,12 @@ Date:   Fri Jul 31 11:42:22 2020 +0800
 root@dev myweb]# ls
 plan.txt  readme
 
+# 回到最新的master状态
+[root@dev myweb]# git checkout master
+之前的 HEAD 位置是 bc2c22d... modify readme.md => readme
+切换到分支 'master'
+[root@dev myweb]# ls
+plan.txt
+
 ```
 
