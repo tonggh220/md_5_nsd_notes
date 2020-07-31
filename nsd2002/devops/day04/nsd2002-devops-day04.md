@@ -231,6 +231,7 @@ plan.txt
 ```shell
 # 查看所有的tag
 [root@dev myweb]# git tag
+# 为现在的版本打标记为1.0
 [root@dev myweb]# git tag 1.0
 [root@dev myweb]# git tag
 1.0
