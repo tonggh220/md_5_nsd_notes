@@ -331,3 +331,6 @@ origin	http://192.168.1.102/devops/myweb.git (push)
 [root@dev myweb]# git push --tags
 ```
 
+> 下载明天要用到的软件包：https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat-stable/
+>
+> https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat-stable/jenkins-2.235.3-1.1.noarch.rpm
