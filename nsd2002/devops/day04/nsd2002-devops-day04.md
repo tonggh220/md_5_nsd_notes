@@ -300,3 +300,15 @@ Port 2022
   - 组：一般对应一个开发团队，包括成员
   - 项目：对应开发项目。可以为个人或组创建项目。
 
+- 客户端推送代码到gitlab
+
+```shell
+[root@dev myweb]# git remote add origin http://192.168.1.102/devops/myweb.git
+[root@dev myweb]# git push -u origin --all  # 推送所有分支
+Username for 'http://192.168.1.102': zzg
+Password for 'http://zzg@192.168.1.102': 
+[root@dev myweb]# git push -u origin --tags  # 推送tag
+Username for 'http://192.168.1.102': zzg
+Password for 'http://zzg@192.168.1.102': 
+```
+
