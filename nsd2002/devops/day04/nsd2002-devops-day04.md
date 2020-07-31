@@ -237,3 +237,38 @@ plan.txt
 1.0
 ```
 
+### 分支
+
+- 使用分支意味着你可以把你的工作从开发主线上分离开来，以免影响开发主线。
+
+```shell
+# 查看分支
+[root@dev myweb]# git branch 
+* master
+# 创建名为b1的分支
+[root@dev myweb]# git branch b1
+[root@dev myweb]# git branch 
+  b1
+* master  # 当前在哪个分支，前面有*标识
+# 切换分支
+[root@dev myweb]# git checkout b1
+切换到分支 'b1'
+[root@dev myweb]# git branch 
+* b1
+  master
+# 在分支上提交代码
+[root@dev myweb]# cp /etc/hosts .
+[root@dev myweb]# git add .
+[root@dev myweb]# git commit -m "add hosts"
+[root@dev myweb]# ls
+hosts  plan.txt
+# 合并b1分支到master
+[root@dev myweb]# ls
+plan.txt
+[root@dev myweb]# git checkout master
+切换到分支 'master'
+[root@dev myweb]# git merge b1 -m "merge b1 to master"
+[root@dev myweb]# ls
+hosts  plan.txt
+```
+
