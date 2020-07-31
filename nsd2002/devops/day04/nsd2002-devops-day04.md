@@ -272,3 +272,18 @@ plan.txt
 hosts  plan.txt
 ```
 
+## gitlab
+
+- 安装
+
+```shell
+[root@gitserver ~]# cd docker_gitlab/
+[root@gitserver docker_gitlab]# ls
+docker_pkgs  images
+[root@gitserver docker_gitlab]# yum install -y docker_pkgs/*rpm
+[root@gitserver docker_gitlab]# systemctl start docker
+[root@gitserver docker_gitlab]# systemctl enable docker
+[root@gitserver docker_gitlab]# docker load -i images/gitlab_zh.tar 
+
+```
+
