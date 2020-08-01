@@ -94,7 +94,32 @@ myweb
 
 构建项目时，构建过程将会通过机器人发送消息
 
+####  推送代码时自动构建项目
 
+- 修改jenkins项目配置 -> 构建触发器 -> 勾选Build when a change is pushed to GitLab. GitLab webhook URL: <http://192.168.181.103:8080/project/myweb> -> 点击 高级 -> 点击generate生成Secret token并复制它 -> 保存
+- 修改gitlab配置 -> 点击项目，如myweb -> 左边栏 设置 / 集成 -> 链接url <http://192.168.81.103:8080/project/myweb>  / 安全令牌填写jenkins中生成的Secret token ->  点击增加web钩子。在页面中间部分找到创建的web钩子，点击test -> Push events测试，返回Hook executed  successfully: HTTP 200表示成功。
+- 测试
+
+```shell
+# 在jenkins服务器上删除构建目录
+[root@localhost ~]# rm -rf /var/lib/jenkins/workspace/*
+
+# 程序员推送代码
+[root@node2 myprojects]# cd myweb/
+[root@node2 myweb]# echo 'new line.' >> index.html
+[root@node2 myweb]# git add .
+[root@node2 myweb]# git commit -m "modify index.html"
+[root@node2 myweb]# git push
+```
+
+程序员推送代码到gitlab服务器后，jenkins项目将会自动构建，并通过机器人发送构建消息。
+
+```shell
+[root@localhost ~]# ls /var/lib/jenkins/workspace/
+myweb
+```
+
+###  使用参数git parameter构建某一版本的代码
 
 
 
