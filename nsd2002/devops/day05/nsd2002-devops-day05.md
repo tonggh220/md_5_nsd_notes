@@ -64,7 +64,7 @@ Manage Jenkins -> Manage Plugins ->  Available选项卡，按ctrl+f进行搜索�
 
 - 新建任务
 
-首页 -> 新建Item -> myweb / Freestyle project -> 确定 -> 源码管理 => git / Repository URL: <http://192.168.81.102/devops/myweb.git> -> 保存
+首页 -> 新建Item -> myweb / Freestyle project -> 确定 -> 源码管理 => git / Repository URL: <http://192.168.1.102/devops/myweb.git> -> 保存
 
 ```shell
 # 在jenkins服务器上查看代码目录
@@ -96,8 +96,8 @@ myweb
 
 ####  推送代码时自动构建项目
 
-- 修改jenkins项目配置 -> 构建触发器 -> 勾选Build when a change is pushed to GitLab. GitLab webhook URL: <http://192.168.181.103:8080/project/myweb> -> 点击 高级 -> 点击generate生成Secret token并复制它 -> 保存
-- 修改gitlab配置 -> 点击项目，如myweb -> 左边栏 设置 / 集成 -> 链接url <http://192.168.81.103:8080/project/myweb>  / 安全令牌填写jenkins中生成的Secret token ->  点击增加web钩子。在页面中间部分找到创建的web钩子，点击test -> Push events测试，返回Hook executed  successfully: HTTP 200表示成功。
+- 修改jenkins项目配置 -> 构建触发器 -> 勾选Build when a change is pushed to GitLab. GitLab webhook URL: <http://192.168.1.103:8080/project/myweb> -> 点击 高级 -> 点击generate生成Secret token并复制它 -> 保存
+- 修改gitlab配置 -> 点击项目，如myweb -> 左边栏 设置 / 集成 -> 链接url <http://192.168.1.103:8080/project/myweb>  / 安全令牌填写jenkins中生成的Secret token ->  点击增加web钩子。在页面中间部分找到创建的web钩子，点击test -> Push events测试，返回Hook executed  successfully: HTTP 200表示成功。
 - 测试
 
 ```shell
@@ -120,6 +120,34 @@ myweb
 ```
 
 ###  使用参数git parameter构建某一版本的代码
+
+- 配置jenkins通过tag标签构建
+
+首页 -> 新建Item -> 名字myweb2 / Freestyle project -> 勾选This  project is parameterized参数化构建 => 添加参数 => Git Parameter (Git参数)  => Name: webver / Parameter Type: Branch or Tag / Default Value:  origin/master -> 源码管理 => Git => Repositories => Repository  url: <http://192.168.81.134/devops/myweb.git> / Branches to build: $webver -> 保存
+
+- 构建测试
+
+点击 Build with Parameters -> 选择版本 -> 开始构建
+
+####  检出代码到子目录
+
+```shell
+# 删除jenkins服务器上的代码目录
+[root@localhost ~]# rm -rf /var/lib/jenkins/workspace/myweb2/
+```
+
+在jenkins的web页面上点击配置 -> 在源码管理下面找到Addtional Behaviours -> 新增  -> Checkout to a sub-directory(检出到子目录): myweb-$webver -> 保存
+
+- 构建测试：构建两次，每次使用不同版本
+
+点击 Build with Parameters -> 选择版本 -> 开始构建
+
+```shell
+[root@localhost ~]# ls /var/lib/jenkins/workspace/myweb2/
+myweb-1.0  myweb-2.0
+```
+
+###  修改项目，实现代码打包
 
 
 
