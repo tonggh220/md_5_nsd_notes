@@ -207,10 +207,15 @@ echo -n $webver > live_ver  # 将最新版本号写入live_ver
 [root@localhost ~]# mkdir /var/www/{download,deploy}
 # /var/www/download: 用于保存下载的tar包
 # /var/www/deploy: 用于保存解压后的目录和live_ver文件
-# /var/www/html/nsd1912: web服务器软链接
+# /var/www/html/nsd2002: web服务器软链接
 ```
 
 - 编写应用服务器自动上线代码
+
+```python
+# vim deploy.py
+
+```
 
 
 
