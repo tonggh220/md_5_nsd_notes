@@ -1,6 +1,7 @@
 import os
 import requests
 import wget
+import hashlib
 
 
 def has_new_ver(ver_url, ver_fname):
@@ -20,9 +21,20 @@ def has_new_ver(ver_url, ver_fname):
         return False
 
 
-def file_ok():
+def file_ok(md5url, app_fname):
     "判断文件是否完好，完好返回True，否则为False"
-
+    m = hashlib.md5()
+    with open(app_fname, 'rb') as fobj:
+        while 1:
+            data = fobj.read(4096)
+            if not data:
+                break
+            m.update(data)
+    r = requests.get(md5url)
+    if m.hexdigest() == r.text.strip():  # 去除文件结尾的\n
+        return True
+    else:
+        return False
 
 def deploy():
     "部署软件"
@@ -42,8 +54,11 @@ if __name__ == '__main__':
     wget.download(app_url, download_dir)
 
     # 判断文件是否完好，如果损坏则删除它
-    if not file_ok():
-        os.remove()
+    md5url = app_url + '.md5'
+    app_fname = os.path.basename(app_url)
+    app_fname = os.path.join(download_dir, app_fname)
+    if not file_ok(md5url, app_fname):
+        os.remove(app_fname)
         exit(2)
 
     # 部署软件
