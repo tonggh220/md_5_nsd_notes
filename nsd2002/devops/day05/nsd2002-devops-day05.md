@@ -149,7 +149,68 @@ myweb-1.0  myweb-2.0
 
 ###  修改项目，实现代码打包
 
+- jenkins服务器通过http协议共享打包后的软件
+- jenkins服务器发布当前软件版本和前一版本
+- 计算压缩包的md5值
 
+```shell
+# 在jenkins服务器上安装httpd
+[root@localhost ~]# yum install -y httpd
+[root@localhost ~]# systemctl start httpd
+[root@localhost ~]# systemctl enable httpd
+# /var/www/html/deploy/live_ver：保存当前版本号
+# /var/www/html/deploy/last_ver：保存前一版本的版本号
+# /var/www/html/deploy/pkgs：保存软件的压缩包和它的md5值
+[root@localhost ~]# mkdir -p /var/www/html/deploy/pkgs
+[root@localhost ~]# chown -R jenkins:jenkins /var/www/html/deploy/
+```
+
+- myweb2项目 -> 配置 -> 构建 -> 增加构建项目 -> Execute shell
+
+```shell
+pkgs_dir=/var/www/html/deploy/pkgs
+# 将下载目录拷贝到web服务器目录
+cp -r myweb-$webver $pkgs_dir
+cd $pkgs_dir
+rm -rf myweb-$webver/.git  # 删除不必要的版本库文件
+# 打包
+tar czf myweb-$webver.tar.gz myweb-$webver
+rm -rf myweb-$webver  # 删除软件目录
+# 计算压缩包的md5值
+md5sum myweb-$webver.tar.gz | awk '{print $1}' > myweb-$webver.tar.gz.md5
+cd ..
+# 将live_ver的版本号写到last_ver中
+[ -f live_ver ] && cat live_ver > last_ver
+echo -n $webver > live_ver  # 将最新版本号写入live_ver
+```
+
+- 构建测试
+
+点击 Build with Parameters -> 选择版本 -> 开始构建
+
+- 访问 <http://jenkins服务器ip/deploy> 
+
+### 部署软件到应用服务器
+
+####  在web服务器上部署代码
+
+- 下载相应版本的软件包
+- 校验下载的软件包是否损坏
+- 解压软件包
+- 部署软件包到web服务器的文档目录
+
+```shell
+# 在应用服务器上执行以下操作
+[root@localhost ~]# yum install -y httpd
+[root@localhost ~]# systemctl start httpd
+[root@localhost ~]# systemctl enable httpd
+[root@localhost ~]# mkdir /var/www/{download,deploy}
+# /var/www/download: 用于保存下载的tar包
+# /var/www/deploy: 用于保存解压后的目录和live_ver文件
+# /var/www/html/nsd1912: web服务器软链接
+```
+
+- 编写应用服务器自动上线代码
 
 
 
