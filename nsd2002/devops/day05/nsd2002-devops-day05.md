@@ -54,7 +54,45 @@ java-1.8.0-openjdk-1.8.0.161-2.b14.el7.x86_64
 
 Manage Jenkins -> Manage Plugins ->  Available选项卡，按ctrl+f进行搜索并勾选Git Parameter / Localization:  Chinese(Simplified) / DingTalk / GitLab -> 点击Install without restart  -> 勾选Restart Jenkins when installation is complete and no jobs are  running
 
+##  jenkins应用
 
+- 在jenkins服务器上安装git
+
+```shell
+[root@jenkins ~]# yum install -y git
+```
+
+- 新建任务
+
+首页 -> 新建Item -> myweb / Freestyle project -> 确定 -> 源码管理 => git / Repository URL: <http://192.168.81.102/devops/myweb.git> -> 保存
+
+```shell
+# 在jenkins服务器上查看代码目录
+[root@localhost ~]# ls /var/lib/jenkins/workspace
+ls: 无法访问/var/lib/jenkins/workspace: 没有那个文件或目录
+```
+
+点击项目页面左边栏的Build Now(立即构建) -> Build History 下面的#1 -> 左边栏的控制台输出
+
+```shell
+# 在jenkins服务器上查看代码目录
+[root@localhost ~]# ls /var/lib/jenkins/workspace
+myweb
+```
+
+####  配置机器人发送消息
+
+- 项目构建过程中，可以将整个构建过程通过机器人发送消息。
+
+首页 -> Manage Jenkins -> Configure System -> 系统配置 -> 新增机器人 -> 输入名字、webhook地址以及关键字 -> 点击测试 -> 成功后保存
+
+> web登陆：<https://im.dingtalk.com/>
+
+- 修改myweb项目，用钉钉机器人发送构建过程
+
+首页 -> 点击项目 - > 左边栏 配置 -> 勾选机器人 -> 保存
+
+构建项目时，构建过程将会通过机器人发送消息
 
 
 
