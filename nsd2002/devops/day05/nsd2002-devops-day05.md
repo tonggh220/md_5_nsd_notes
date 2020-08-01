@@ -123,7 +123,7 @@ myweb
 
 - 配置jenkins通过tag标签构建
 
-首页 -> 新建Item -> 名字myweb2 / Freestyle project -> 勾选This  project is parameterized参数化构建 => 添加参数 => Git Parameter (Git参数)  => Name: webver / Parameter Type: Branch or Tag / Default Value:  origin/master -> 源码管理 => Git => Repositories => Repository  url: <http://192.168.81.134/devops/myweb.git> / Branches to build: $webver -> 保存
+首页 -> 新建Item -> 名字myweb2 / Freestyle project -> 勾选This  project is parameterized参数化构建 => 添加参数 => Git Parameter (Git参数)  => Name: webver / Parameter Type: Branch or Tag / Default Value:  origin/master -> 源码管理 => Git => Repositories => Repository  url: <http://192.168.1.102/devops/myweb.git> / Branches to build: $webver -> 保存
 
 - 构建测试
 
