@@ -33,14 +33,14 @@ java-1.8.0-openjdk-1.8.0.161-2.b14.el7.x86_64
 # 访问 http://x.x.x.x:8080
 ```
 
-- 在/var/lib/jenkins/secrets/initialAdminPassword取出密码 -> 选择插件来安装  -> 点击中间上面的“无”，不安装任何插件，点击右下角的“安装” -> 点击右下角的“使用admin继续” ->  点击“保存并完成” -> 点击"开始使用jenkins"
+- 在/var/lib/jenkins/secrets/initialAdminPassword取出密码 -> **选择插件来安装**  -> 点击中间上面的“无”，不安装任何插件，点击右下角的“安装” -> 点击右下角的“使用admin继续” ->  点击“保存并完成” -> 点击"开始使用jenkins"
 - 进入jenkins首页后，改admin密码
 
 右上角的"admin" -> configure -> password
 
 - 配置通过国内站点安装插件
 
-```
+```shell
 [root@localhost ~]# ls /var/lib/jenkins/updates/default.json 
 [root@localhost ~]# sed -i 's/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g' /var/lib/jenkins/updates/default.json && sed -i 's/http:\/\/www.google.com/https:\/\/www.baidu.com/g' /var/lib/jenkins/updates/default.json
 [root@localhost ~]# systemctl restart jenkins
@@ -52,7 +52,7 @@ java-1.8.0-openjdk-1.8.0.161-2.b14.el7.x86_64
 
 - 安装插件
 
-Manage Jenkins -> Manage Plugins ->  Available选项卡，按ctrl+f进行搜索并勾选Git Parameter / Localization  Chinese(Simplified) / DingTalk / GitLab -> 点击Install without restart  -> 勾选Restart Jenkins when installation is complete and no jobs are  running
+Manage Jenkins -> Manage Plugins ->  Available选项卡，按ctrl+f进行搜索并勾选Git Parameter / Localization:  Chinese(Simplified) / DingTalk / GitLab -> 点击Install without restart  -> 勾选Restart Jenkins when installation is complete and no jobs are  running
 
 
 
