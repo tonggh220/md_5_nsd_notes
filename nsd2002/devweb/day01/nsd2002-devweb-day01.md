@@ -141,3 +141,27 @@ ol>li*4 按tab键
     </ol>
 ```
 
+- 无序列表
+
+```html
+ul>li*4
+    <ul type="circle">
+        <li>python</li>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+    </ul>
+    <ul type="square">
+        <li>python</li>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+    </ul>
+    <ul>
+        <li>python</li>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+    </ul>
+```
+
