@@ -1,5 +1,7 @@
 # nsd2002-devweb-day01
 
+https://www.w3school.com.cn/index.html
+
 [TOC]
 
 ## web开发
@@ -200,3 +202,7 @@ ul>li*4
         </select>
 ```
 
+## CSS
+
+- 层叠样式表，也叫级联样式表
+- 实现页面的表现形式
