@@ -165,3 +165,14 @@ ul>li*4
     </ul>
 ```
 
+### 表单
+
+- 表单用于显示、收集信息，并提交信息到服务器
+
+```html
+    <form action="https://www.sogou.com/web" target="_blank">
+        <input name="query" type="text">
+        <input type="submit" value="搜狗搜索">
+    </form>
+```
+
