@@ -81,3 +81,16 @@
 </div>
 ```
 
+- 超链接：a标记
+
+```html
+<!--在新窗口打开链接-->
+<a href="http://fanyi.sogou.com" target="_blank">sogou fanyi</a>
+
+<!--页面内跳转，首先可以为目标添加一个id属性。然后就可以通过a标记跳转到目标-->
+<a href="#img1">jump to girl image</a>
+... ...
+<img id="img1" src="http://pic1.win4000.com/wallpaper/e/584fb6774ce08.jpg"><br>
+<a href="#">back to top</a> <!--返回到顶部-->
+```
+
