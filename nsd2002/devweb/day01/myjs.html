@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my js</title>
+</head>
+<body>
+<h2 id="div1"></h2>
+<div>
+    <button id="btn1">show me</button>
+</div>
+
+<script>
+    var btn1 = document.getElementById('btn1')
+    btn1.onclick = function () {
+        var div1 = document.getElementById('div1')
+        div1.innerHTML = 'Hello World!'
+    }
+</script>
+</body>
+</html>
