@@ -74,7 +74,10 @@
 [root@localhost day01]# mkdir -p static/{css,js,imgs}
 <div>
     <img src="abc/aaa.jgp" alt="如果图片无法显示，则显示此文字"> <br>
-    <img src="static/imgs/html_css.jpeg">
+    <img src="static/imgs/html_css.jpeg"> <br>
+    <img src="http://pic.people.com.cn/NMediaFile/2020/0727/MAIN202007270830000372979471030.JPG"> <br>
+    <img src="http://pic1.win4000.com/wallpaper/e/584fb6774ce08.jpg" width="500px"> <br>
+    <img src="http://pic1.win4000.com/wallpaper/e/584fb6774ce08.jpg" height="300px"> <br>
 </div>
 ```
 
