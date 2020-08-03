@@ -115,3 +115,29 @@ table>tr*5>td*3  按tab键
 </table>
 ```
 
+### 列表
+
+- 有序列表
+
+```html
+ol>li*4 按tab键
+	<ol type="a" start="5">
+        <li>python</li>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+    </ol>
+    <ol type="I" start="7">
+        <li>python</li>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+    </ol>
+    <ol>
+        <li>python</li>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+    </ol>
+```
+
