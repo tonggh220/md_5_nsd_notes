@@ -176,3 +176,27 @@ ul>li*4
     </form>
 ```
 
+- `<input type="text">`：文本框
+- `<input type="password">`：密码框
+- `<input type="radio">`：单选按钮
+- `<input type="checkbox">`：复选框
+- `<input type="submit">`：提交按钮
+- `<input type="reset">`：重置按钮
+- `<input type="hidden">`：隐藏域
+- 多行文本域
+
+```html
+<textarea name="comment" cols="50" rows="10"></textarea>
+```
+
+- 下拉列表框
+
+```html
+        <select name="q3">
+            <option value="A">html</option>
+            <option value="B">css</option>
+            <option value="C">javascript</option>
+            <option value="D">python</option>
+        </select>
+```
+
