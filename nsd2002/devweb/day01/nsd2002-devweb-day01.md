@@ -66,3 +66,15 @@
 - 换行元素：br。它是单标记
 - div：块级元素。它默认没有边距，常用于页面布局
 - span元素：行内元素。常用于将某一部分内容标记出来，以便对它进行操作。
+
+- 图像元素：img
+
+```html
+<!--一般在网站目录下有一个static目录，用于存储静态文件-->
+[root@localhost day01]# mkdir -p static/{css,js,imgs}
+<div>
+    <img src="abc/aaa.jgp" alt="如果图片无法显示，则显示此文字"> <br>
+    <img src="static/imgs/html_css.jpeg">
+</div>
+```
+
