@@ -94,3 +94,14 @@
 <a href="#">back to top</a> <!--返回到顶部-->
 ```
 
+### 表格
+
+- 表格使用table标签
+- 使用tr表示行
+- 使用td表示列（单元格）
+
+```html
+table>tr*5>td*3  按tab键
+<table border="1px" width="500px">
+```
+
