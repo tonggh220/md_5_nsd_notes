@@ -103,5 +103,15 @@
 ```html
 table>tr*5>td*3  按tab键
 <table border="1px" width="500px">
+<!--不规则单元格-->
+    <tr>
+        <td rowspan="2">aaa</td>  <!--跨两行-->
+        <td colspan="2">aaa</td>  <!--跨两列-->
+    </tr>
+    <tr>
+        <td>bbb</td>
+        <td>bbb</td>
+    </tr>
+</table>
 ```
 
