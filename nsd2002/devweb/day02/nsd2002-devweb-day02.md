@@ -213,7 +213,7 @@ js->javascript脚本
 - 为了统一，bootstrap还创建了h1到h6 class，样式与标题元素一致
 - 内联文本元素，各种加线条的文本、强调的文本
 
-```
+```html
 <mark>达内云计算 nsd2002</mark>
 <del>达内云计算 nsd2002</del>
 <s>达内云计算 nsd2002</s>
@@ -228,7 +228,7 @@ js->javascript脚本
 
 - 对齐方式
 
-```
+```html
 <p class="text-center">达内云计算 nsd2002</p>
 <p class="text-left">达内云计算 nsd2002</p>
 <p class="text-right">达内云计算 nsd2002</p>
@@ -242,7 +242,7 @@ js->javascript脚本
   - success：成功绿
   - warning：警告黄
 
-```
+```html
 <p class="text-center text-primary bg-warning">达内云计算 nsd2002</p>
 <p class="text-left text-danger bg-success">达内云计算 nsd2002</p>
 <p class="text-right text-muted bg-info">达内云计算 nsd2002</p>
@@ -250,13 +250,13 @@ js->javascript脚本
 
 ## 二、表格
 
-```
+```html
 <table class="table table-bordered table-striped table-hover">
 ```
 
 ## 三、按钮
 
-```
+```html
 <input type="submit" value="查 询"><br>
 <input class="btn btn-default btn-sm" type="submit" value="查 询"><br>
 <input class="btn btn-primary" type="submit" value="查 询"><br>
@@ -274,7 +274,7 @@ js->javascript脚本
 - 为了有很好的间距，应该把各个控件放到form-group中
 - 每个文本类型的控件，放到form-control中
 
-```
+```html
 <form action="">
     <div class="form-group">
         <label>uname: </label><input class="form-control" type="text">
@@ -290,7 +290,7 @@ js->javascript脚本
 
 - 如果希望表单只占一行，只要设置form的class
 
-```
+```html
 <form action="" class="form-inline">
     <div class="form-group">
         <label>uname: </label><input class="form-control" type="text">
@@ -306,7 +306,7 @@ js->javascript脚本
 
 ## 五、图片
 
-```
+```html
 <!-- 圆角矩形 -->
 <img class="img-rounded" src="https://img01.sogoucdn.com/app/a/100520021/c0b43a061bdb06f3b983953f41e7e8d0">
 <!-- 圆形 -->
