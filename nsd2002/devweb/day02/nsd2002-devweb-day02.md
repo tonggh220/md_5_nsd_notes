@@ -189,7 +189,7 @@
 - bootstrap是twitter公司开发的开源前端web框架
 - 可以简单的理解为它是一个大样式表。
 - 中文官方站：<http://bootcss.com>
-- 准备环境，将nsd1911班devweb/day02/目录的static目录拷贝到工作目录
+- 准备环境，将前一个班devweb/day02/目录的static目录拷贝到工作目录
 
 ```
 # ls static/
