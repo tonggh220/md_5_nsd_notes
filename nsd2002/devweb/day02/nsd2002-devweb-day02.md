@@ -48,7 +48,37 @@
 - 元素所占宽度＝元素宽度＋左右内边距＋左右边框＋左右外边距
 
 ```html
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box model</title>
+    <style>
+        #box {
+            background-color: gray;
+            width: 300px;
+            height: 300px;
+            /*padding: 10px;  !*四个方向，内边距全为10px*!*/
+            /*padding: 10px 20px;  !*上下内边距为10px，左右为20px*!*/
+            /*padding: 10px 20px 30px 40px;  !*方向为上右下左*!*/
+            padding-top: 10px;  /*上内边距*/
+            padding-right: 20px;  /*右内边距*/
+            padding-bottom: 30px;  /*下内边距*/
+            padding-left: 40px;  /*左内边距*/
+            border-top: 5px solid darkgreen;
+            border-right: 5px dotted darkorange;
+            border-bottom: 5px dashed purple;
+            /*margin: 50px;*/
+            margin: 0 auto;   /*左右外边距设置为自动，则该元素居中显示*/
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    hello world
+</div>
+</body>
+</html>
 ```
 
 
