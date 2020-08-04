@@ -214,24 +214,24 @@ js->javascript脚本
 - 内联文本元素，各种加线条的文本、强调的文本
 
 ```
-<mark>达内云计算 nsd1912</mark>
-<del>达内云计算 nsd1912</del>
-<s>达内云计算 nsd1912</s>
-<ins>达内云计算 nsd1912</ins>
-<u>达内云计算 nsd1912</u>
-<small>达内云计算 nsd1912</small>
-<strong>达内云计算 nsd1912</strong>
-<b>达内云计算 nsd1912</b>
-<em>达内云计算 nsd1912</em>
-<i>达内云计算 nsd1912</i>
+<mark>达内云计算 nsd2002</mark>
+<del>达内云计算 nsd2002</del>
+<s>达内云计算 nsd2002</s>
+<ins>达内云计算 nsd2002</ins>
+<u>达内云计算 nsd2002</u>
+<small>达内云计算 nsd2002</small>
+<strong>达内云计算 nsd2002</strong>
+<b>达内云计算 nsd2002</b>
+<em>达内云计算 nsd2002</em>
+<i>达内云计算 nsd2002</i>
 ```
 
 - 对齐方式
 
 ```
-<p class="text-center">达内云计算 nsd1904</p>
-<p class="text-left">达内云计算 nsd1904</p>
-<p class="text-right">达内云计算 nsd1904</p>
+<p class="text-center">达内云计算 nsd2002</p>
+<p class="text-left">达内云计算 nsd2002</p>
+<p class="text-right">达内云计算 nsd2002</p>
 ```
 
 - 颜色
@@ -243,9 +243,9 @@ js->javascript脚本
   - warning：警告黄
 
 ```
-<p class="text-center text-primary bg-warning">达内云计算 nsd1904</p>
-<p class="text-left text-danger bg-success">达内云计算 nsd1904</p>
-<p class="text-right text-muted bg-info">达内云计算 nsd1904</p>
+<p class="text-center text-primary bg-warning">达内云计算 nsd2002</p>
+<p class="text-left text-danger bg-success">达内云计算 nsd2002</p>
+<p class="text-right text-muted bg-info">达内云计算 nsd2002</p>
 ```
 
 ## 二、表格
