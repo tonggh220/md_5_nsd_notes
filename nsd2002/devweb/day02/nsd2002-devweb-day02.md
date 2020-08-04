@@ -327,7 +327,7 @@ js->javascript脚本
    3. col-sm-6表示小屏幕尺寸下，它占6列
 6. 还可以设置自适应屏幕大小
 
-```
+```html
 <div class="container">
     <div class="row">
         <div class="col-lg-3 bg-primary col-md-4 col-sm-6">
@@ -355,7 +355,7 @@ js->javascript脚本
 
 - 水平导航
 
-```
+```html
 <div class="container" style="margin-top: 10px">
     <ul class="nav nav-tabs">
         <li class="active"><a href="#">Home</a></li>
@@ -378,7 +378,7 @@ js->javascript脚本
 
 - 垂直导航
 
-```
+```html
 <div class="container" style="margin-top: 10px">
     <div class="row">
         <div class="col-sm-2">
@@ -403,7 +403,7 @@ js->javascript脚本
 
 - 象形字：<https://v3.bootcss.com/components/>
 
-```
+```html
 <i class="glyphicon glyphicon-trash"></i>
 <i class="glyphicon glyphicon-wrench"></i>
 ```
