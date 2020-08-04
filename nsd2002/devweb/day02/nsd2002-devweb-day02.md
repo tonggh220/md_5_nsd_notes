@@ -81,11 +81,57 @@
 </html>
 ```
 
-```html
+### 块级元素和行内元素的转换
 
+- 行内元素不能设置宽高，块级元素才可以设置
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mycss4</title>
+    <style>
+        span {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <span>Hello Word!</span><span>How Are You?</span>
+</div>
+</body>
+</html>
 ```
 
+- 块级元素至少占一行，可以通过设置浮动让它脱离文档流
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my css 5</title>
+    <style>
+        .c1, .c2 {
+            float: left;
+            width: 300px;
+        }
+        .c1 {
+            background-color: gray;
+        }
+        .c2 {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+<div class="c1">Hello World</div>
+<div class="c2">How Are You?</div>
+</body>
+</html>
+```
 
 
 
