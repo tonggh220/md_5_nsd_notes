@@ -43,3 +43,4 @@ mytest
 ```
 
 - 创建项目方法二，使用pycharm创建：file -> new project -> 弹出窗口，左侧选django；右侧在Location填入项目目录，最后的目录名为mysite
+
