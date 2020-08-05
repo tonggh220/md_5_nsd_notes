@@ -44,3 +44,53 @@ mytest
 
 - 创建项目方法二，使用pycharm创建：file -> new project -> 弹出窗口，左侧选django；右侧在Location填入项目目录，最后的目录名为mysite
 
+- 项目目录结构
+
+```shell
+[root@localhost mysite]# tree .
+.                      # 项目根目录
+├── manage.py          # 项目管理文件
+├── mysite             # 项目配置目录
+│   ├── __init__.py    # 初始化文件
+│   ├── settings.py    # 项目配置文件
+│   ├── urls.py        # 路由文件
+│   └── wsgi.py        # 部署项目到web服务器的配置文件
+└── templates          # 存放网页模板的目录
+```
+
+- 初始化项目
+
+```python
+# 为项目创建数据库
+[root@localhost pypkgs]# mysql -uroot -ptedu.cn
+MariaDB [(none)]> CREATE DATABASE dj2002 DEFAULT CHARSET utf8;
+
+# 修改项目配置文件
+# mysite/settings.py
+ALLOWED_HOSTS = ['*']   # 监听在哪些地址上
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dj2002',
+        'USER': 'root',
+        'PASSWORD': 'tedu.cn',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+}
+LANGUAGE_CODE = 'zh-hans'   # 修改语言
+TIME_ZONE = 'Asia/Shanghai'
+
+# 启动开发服务器
+[root@localhost mysite]# python3 manage.py runserver
+# 报错如下：
+... ...
+Did you install mysqlclient?
+# 解决方法
+[root@localhost mysite]# yum install -y mariadb-devel
+[root@localhost mysite]# pip3 install mysqlclient
+# 再次启动开发服务器
+[root@localhost mysite]# python3 manage.py runserver
+# 访问http://127.0.0.1:8000/
+```
+
