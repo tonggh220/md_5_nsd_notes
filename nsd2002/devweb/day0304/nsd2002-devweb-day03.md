@@ -368,11 +368,29 @@ admin.site.register(Choice)
 # 登陆到管理后台http://server_ip:8000/admin/
 ```
 
+- 修复管理后台的显示问题
 
+```python
+# 在后台管理界面添加的问题显示为Question object；添加的选项显示为Choice object
+# 修改这个问题：
+# polls/models.py
+from django.db import models
 
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField()
 
+    def __str__(self):
+        return '问题:%s' % self.question_text
 
-```shell
+class Choice(models.Model):
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return '%s=>选项:%s' % (self.question, self.choice_text)
+# 对模型的字段修改才会改变数据库，修改方法不改变，所以不用执行迁移命令
+# 访问管理后台，发现问题和选项已经按要求显示
 ```
 
