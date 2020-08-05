@@ -117,7 +117,7 @@ Superuser created successfully.
 - 应用可以集成到多个项目，实现复用
 
 ```shell
-# 创建应用
+# 创建投票应用
 [root@localhost mysite]# python3 manage.py startapp polls
 [root@localhost mysite]# ls
 manage.py  mysite  polls  templates
@@ -128,4 +128,34 @@ INSTALLED_APPS = [
     'polls',
 ]
 ```
+
+### 应用规划
+
+- 应用url名称：http://server_ip/app_name/app_url
+- 投票应用url规划：
+  - http://server_ip/polls：投票首页，用于显示所有投票项
+  - http://server_ip/polls/1：1号问题的投票详情页
+  - http://server_ip/polls/1/result：1号问题的投票结果页，展示选项所得票数
+
+- 授权，将应用的url交给应用处理
+
+```python
+# mysite/urls.py
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    # 从http://server_ip/后面开始匹配
+    # 路径是polls/，这种url交给polls应用的urls.py文件处理
+    path('polls/', include('polls.urls')),
+]
+
+# vim polls/urls.py
+from django.urls import path
+
+urlpatterns = []
+```
+
+
 
