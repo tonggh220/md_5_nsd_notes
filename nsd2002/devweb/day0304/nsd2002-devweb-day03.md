@@ -161,7 +161,44 @@ urlpatterns = []
 
 ```python
 # 编写url与函数的对应关系
+# vim polls/urls.py
+from django.urls import path
+from polls import views
 
+urlpatterns = [
+    # 从http://server_ip/polls/后面进行匹配
+    # polls/后面空的，则调用相关函数views.index
+    # name='index'是给http://server_ip/polls/起的名字
+    path('', views.index, name='index'),
+]
+
+# 编写函数
+# polls/views.py
+from django.shortcuts import render
+
+# 用户发起的请求，请求将会成为一个对象，作为第一个参数传给函数
+# 因此，函数至少需要有一个参数
+def index(request):
+    # index函数通过render函数找到一个网页模板文件，返回给客户端
+    return render(request, 'index.html')
+
+# 创建网页模板文件
+# vim templates/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投票首页</title>
+</head>
+<body>
+<h1>投票首页</h1>
+</body>
+</html>
+
+# 测试
+[root@localhost mysite]# python3 manage.py runserver
+# 访问http://127.0.0.1:8000/报404是正常的
+# 访问http://127.0.0.1:8000/polls/
 ```
 
 
