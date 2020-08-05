@@ -157,5 +157,20 @@ from django.urls import path
 urlpatterns = []
 ```
 
+- 制作投票首页：http://server_ip/polls
 
+```python
+# 编写url与函数的对应关系
+
+```
+
+
+
+
+
+
+
+```shell
+
+```
 
