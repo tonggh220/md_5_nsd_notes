@@ -242,7 +242,7 @@ def detail(request, qid):
 # 测试，访问http://server_ip/polls/数字
 ```
 
-
+- 制作投票结果页
 
 
 
