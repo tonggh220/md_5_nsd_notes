@@ -353,7 +353,19 @@ MariaDB [dj2002]> desc polls_choice;
 | votes       | int(11)      | NO   |     | NULL    |                |
 | question_id | int(11)      | NO   | MUL | NULL    |                |
 +-------------+--------------+------+-----+---------+----------------+
+```
 
+- 将模型注册到管理后台
+
+```python
+# polls/admin.py
+from django.contrib import admin
+from polls.models import Question, Choice
+
+admin.site.register(Question)
+admin.site.register(Choice)
+
+# 登陆到管理后台http://server_ip:8000/admin/
 ```
 
 
