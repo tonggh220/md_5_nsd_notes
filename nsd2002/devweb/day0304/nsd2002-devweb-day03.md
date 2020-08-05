@@ -297,9 +297,14 @@ class Question(models.Model):
 # 生成数据库中的表
 [root@localhost mysite]# python3 manage.py makemigrations
 [root@localhost mysite]# python3 manage.py migrate
-# 查看数据库
+# 查看数据库。
+# 表名构成：1. 全是小写字母；2. 应用名_类名
 MariaDB [dj2002]> show tables;
 | polls_question             |
+# 分析表结构
+# 1. 没有明确声明主键，django自动创建一个名为id的主键
+# 2. 类变量成为了字段名
+# 3. CharField对应varchar；DateTimeField对应datetie类型
 MariaDB [dj2002]> desc polls_question;
 +---------------+--------------+------+-----+---------+----------------+
 | Field         | Type         | Null | Key | Default | Extra          |
@@ -308,6 +313,27 @@ MariaDB [dj2002]> desc polls_question;
 | question_text | varchar(200) | NO   |     | NULL    |                |
 | pub_date      | datetime(6)  | NO   |     | NULL    |                |
 +---------------+--------------+------+-----+---------+----------------+
+
+# 创建选项模型
+# polls/models.py
+class Choice(models.Model):
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+    q = models.ForeignKey(Question, on_delete=models.CASCADE)
+[root@localhost mysite]# python3 manage.py makemigrations
+[root@localhost mysite]# python3 manage.py migrate
+# 分析表结构
+MariaDB [dj2002]> show tables;
+| polls_choice               |
+MariaDB [dj2002]> desc polls_choice;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int(11)      | NO   | PRI | NULL    | auto_increment |
+| choice_text | varchar(200) | NO   |     | NULL    |                |
+| votes       | int(11)      | NO   |     | NULL    |                |
+| q_id        | int(11)      | NO   | MUL | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
 
 ```
 
