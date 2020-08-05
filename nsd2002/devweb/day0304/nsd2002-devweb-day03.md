@@ -94,3 +94,19 @@ Did you install mysqlclient?
 # 访问http://127.0.0.1:8000/
 ```
 
+- 生成项目默认的数据库
+
+```shell
+# 生成数据库
+[root@localhost mysite]# python3 manage.py makemigrations
+[root@localhost mysite]# python3 manage.py migrate
+# 创建管理员用户
+[root@localhost mysite]# python3 manage.py createsuperuser
+用户名 (leave blank to use 'root'): admin
+电子邮件地址: admin@tedu.cn
+Password: 1234.com
+Password (again): 1234.com
+Superuser created successfully.
+# 访问管理后台http://127.0.0.1:8000/admin
+```
+
