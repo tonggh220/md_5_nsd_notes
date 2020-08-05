@@ -110,3 +110,22 @@ Superuser created successfully.
 # 访问管理后台http://127.0.0.1:8000/admin
 ```
 
+### 配置应用
+
+- 项目由一到多个应用构成
+- 每个应用是一个功能模块
+- 应用可以集成到多个项目，实现复用
+
+```shell
+# 创建应用
+[root@localhost mysite]# python3 manage.py startapp polls
+[root@localhost mysite]# ls
+manage.py  mysite  polls  templates
+# 集成应用到项目
+# mysite/settings.py
+INSTALLED_APPS = [
+    ... ...
+    'polls',
+]
+```
+
