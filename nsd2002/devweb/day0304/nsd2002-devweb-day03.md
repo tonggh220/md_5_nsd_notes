@@ -334,6 +334,25 @@ MariaDB [dj2002]> desc polls_choice;
 | votes       | int(11)      | NO   |     | NULL    |                |
 | q_id        | int(11)      | NO   | MUL | NULL    |                |
 +-------------+--------------+------+-----+---------+----------------+
+# 注意，在Choice模型中，q是外键，那么在表中字段名是：类变名_id
+
+# 修改外键字段的名字
+# polls/models.py
+class Choice(models.Model):
+    ... ...
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+[root@localhost mysite]# python3 manage.py makemigrations
+Did you rename choice.q to choice.question (a ForeignKey)? [y/N] y
+[root@localhost mysite]# python3 manage.py migrate
+MariaDB [dj2002]> desc polls_choice;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int(11)      | NO   | PRI | NULL    | auto_increment |
+| choice_text | varchar(200) | NO   |     | NULL    |                |
+| votes       | int(11)      | NO   |     | NULL    |                |
+| question_id | int(11)      | NO   | MUL | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
 
 ```
 
