@@ -224,7 +224,22 @@ urlpatterns = [
 # polls/views.py
 def detail(request, qid):
     # qid用于接收来自于url的参数
-    pass
+    # {'qid': qid}将成为detail.html的变量和值，即 qid=数字
+    return render(request, 'detail.html', {'qid': qid})
+
+# templates/detail.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投票详情</title>
+</head>
+<body>
+<h1>{{ qid }}号问题投票详情</h1>
+</body>
+</html>
+
+# 测试，访问http://server_ip/polls/数字
 ```
 
 
