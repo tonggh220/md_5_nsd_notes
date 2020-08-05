@@ -244,6 +244,33 @@ def detail(request, qid):
 
 - 制作投票结果页
 
+```python
+# polls/urls.py
+... ...
+    path('<int:qid>/result', views.result, name='result'),
+... ...
+
+# polls/views.py
+def result(request, qid):
+    return render(request, 'result.html', {'qid': qid})
+
+# templates/result.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投票结果</title>
+</head>
+<body>
+<h1>{{ qid }}号问题投票结果</h1>
+</body>
+</html>
+
+# 访问http://server_ip/polls/数字/result
+```
+
+
+
 
 
 ```shell
