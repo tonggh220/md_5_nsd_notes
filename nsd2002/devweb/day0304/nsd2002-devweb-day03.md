@@ -269,6 +269,48 @@ def result(request, qid):
 # 访问http://server_ip/polls/数字/result
 ```
 
+## Model模型
+
+- 模型指出了数据的唯一、明确的真实来源
+- 它包含了正在存储的数据的基本字段和行为
+- Model采用ORM
+  - Object
+  - Relationship
+  - Mapper
+  - 数据库的表和python的class映射
+  - 表中的字段与class的类变量映射
+  - 数据库的数据类型在django中都有提前定义好的，对应的class
+  - 表中的记录与class的实例映射
+- 每个模型都用一个类表示，该类继承自django.db.models.Model
+- 在投票应用中有两个类，分别是Question和Choice
+
+- 创建模型
+
+```python
+# polls/models.py
+from django.db import models
+
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField()
+
+# 生成数据库中的表
+[root@localhost mysite]# python3 manage.py makemigrations
+[root@localhost mysite]# python3 manage.py migrate
+# 查看数据库
+MariaDB [dj2002]> show tables;
+| polls_question             |
+MariaDB [dj2002]> desc polls_question;
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| id            | int(11)      | NO   | PRI | NULL    | auto_increment |
+| question_text | varchar(200) | NO   |     | NULL    |                |
+| pub_date      | datetime(6)  | NO   |     | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+
+```
+
 
 
 
