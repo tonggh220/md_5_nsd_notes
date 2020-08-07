@@ -106,7 +106,23 @@ polls.models.Question.MultipleObjectsReturned: get() returned more than one Ques
 >>> Question.objects.exclude(id=1)
 # 关键字中包含某些字符
 >>> Question.objects.filter(question_text__contains='工资')
+# 关键字以某些字符开头
+>>> Question.objects.filter(question_text__startswith='散伙饭')
+# 关键字以某些字符结尾
+>>> Question.objects.filter(question_text__endswith='?')
 
+# 更新，只要对实例重新赋值即可
+>>> q1 = Question.objects.get(question_text__contains='工资')
+>>> q1
+<Question: 问题:你期待工资有多少？>
+>>> q1.question_text = q1.question_text.replace('工资', '月薪')
+>>> q1.save()
+
+# 删除
+>>> q2 = Question.objects.get(id=5)
+>>> q2
+<Question: 问题:How are you?>
+>>> q2.delete()
 ```
 
 
