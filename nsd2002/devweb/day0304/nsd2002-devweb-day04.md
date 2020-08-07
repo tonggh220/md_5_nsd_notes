@@ -150,6 +150,7 @@ def index(request):
 ... ...
 
 # 在网页中展示问题
+# 在网页模模板中，写在{}中间的内容是模板语法，在外面的是html语法内容
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -158,7 +159,17 @@ def index(request):
 </head>
 <body>
 <h1>投票首页</h1>
-{{ questions }}
+<ol>
+    {% for question in questions %}
+        <li>
+            <a href="#">
+                {{ question.question_text }}
+            </a>
+            {{ question.pub_date }}
+        </li>
+    {% endfor %}
+</ol>
+
 </body>
 </html>
 ```
