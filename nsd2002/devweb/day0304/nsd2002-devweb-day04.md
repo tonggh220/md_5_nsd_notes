@@ -351,6 +351,40 @@ def index(request):
 {% endblock %}
 ```
 
+## 制作投票详情页
+
+```python
+# polls/views.py
+... ...
+def detail(request, qid):
+    # qid用于接收来自于url的参数
+    question = Question.objects.get(id=qid)
+    return render(request, 'detail.html', {'question': question})
+... ...
+
+# templates/detail.html
+{% extends 'basic.html' %}
+{% block title %}投票详情{% endblock %}
+{% block content %}
+    <h1 class="text-center text-warning">{{ question.id }}号问题投票详情</h1>
+    <h2>{{ question.question_text }}</h2>
+    <form class="h4" action="" method="post">
+        {% csrf_token %}   {% comment %}安全选项，防止跨站攻击{% endcomment %}
+        {% for choice in question.choice_set.all %}
+            <div class="checkbox">
+                <label>
+                    <input type="radio" name="choice_id" value="{{ choice.id }}">
+                    {{ choice.choice_text }}
+                </label>
+            </div>
+        {% endfor %}
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="提 交">
+        </div>
+    </form>
+{% endblock %}
+```
+
 
 
 
