@@ -151,6 +151,7 @@ def index(request):
 
 # 在网页中展示问题
 # 在网页模模板中，写在{}中间的内容是模板语法，在外面的是html语法内容
+# templates/index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -173,6 +174,32 @@ def index(request):
 </body>
 </html>
 ```
+
+## 引入bootstrap
+
+```python
+# 把devweb/day02/static拷贝到polls应用下
+[root@localhost mysite]# cp -r nsd2020/nsd2002/devweb/day02/static/ polls/
+# 在index.html中引入bootstrap
+# templates/index.html
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投票首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+... ...
+# 重启开发服务器
+[root@localhost mysite]# python3 manage.py runserver
+
+```
+
+
+
+
 
 
 
