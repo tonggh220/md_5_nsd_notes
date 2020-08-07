@@ -134,9 +134,39 @@ USE_TZ = False
 >>> Question.objects.filter(pub_date__month=8)
 ```
 
+## 完善投票首页
+
+```python
+# 修改函数
+# polls/views.py
+from django.shortcuts import render
+from polls.models import Question
+... ...
+def index(request):
+    # 取出所有的问题，除序排列
+    questions = Question.objects.order_by('-pub_date')
+    # index函数通过render函数找到一个网页模板文件，返回给客户端
+    return render(request, 'index.html', {'questions': questions})
+... ...
+
+# 在网页中展示问题
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投票首页</title>
+</head>
+<body>
+<h1>投票首页</h1>
+{{ questions }}
+</body>
+</html>
+```
+
 
 
 ```python
+
 
 ```
 
