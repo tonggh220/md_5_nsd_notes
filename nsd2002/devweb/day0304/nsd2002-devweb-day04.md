@@ -162,14 +162,14 @@ def index(request):
 <ol>
     {% for question in questions %}
         <li>
-            <a href="#">
+{#            <a href="/polls/{{ question.id }}">#}
+            <a href="{% url 'detail' question.id %}"  target="_blank">
                 {{ question.question_text }}
             </a>
             {{ question.pub_date }}
         </li>
     {% endfor %}
 </ol>
-
 </body>
 </html>
 ```
