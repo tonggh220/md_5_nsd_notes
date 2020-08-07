@@ -70,6 +70,22 @@
 >>> for q in qset3:
 ...   print(q.question_text, q.pub_date)
 
+# 取出指定条件的问题。get方法要求必须返回一个结果，0个或多个都将报错
+>>> Question.objects.get(id=10)  # 报错，不存在
+polls.models.Question.DoesNotExist: Question matching query does not exist.
+>>> Question.objects.get(id__gt=1)  # 报错，满足问题的条件太多
+polls.models.Question.MultipleObjectsReturned: get() returned more than one Question -- it returned 3!
+>>> q1 = Question.objects.get(id=1)
+>>> q1
+<Question: 问题:你期待工资有多少？>
+# 取出指定条件的问题。filter方法可以返回0到多个结果构成的查询集
+>>> qset1 = Question.objects.filter(id=10)
+>>> qset1
+<QuerySet []>
+>>> qset1 = Question.objects.filter(id__lt=10)
+>>> qset1
+<QuerySet [<Question: 问题:你期待工资有多少？>, <Question: 问题:你期待进入哪家公司？>, <Question: 问题:散伙饭哪里吃？>]>
+
 ```
 
 
