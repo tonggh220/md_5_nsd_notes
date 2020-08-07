@@ -94,6 +94,18 @@ polls.models.Question.MultipleObjectsReturned: get() returned more than one Ques
 <QuerySet [<Question: 问题:你期待工资有多少？>]>
 # 上面可以简写成
 >>> Question.objects.filter(id=1)
+# 大于
+>>> Question.objects.filter(id__gt=1)
+# 大于等于
+>>> Question.objects.filter(id__gte=1)
+# 小于
+>>> Question.objects.filter(id__lt=1)
+# 小于等于
+>>> Question.objects.filter(id__lt=1)
+# 不等于，使用exclude方法，exclude是排除的意思
+>>> Question.objects.exclude(id=1)
+# 关键字中包含某些字符
+>>> Question.objects.filter(question_text__contains='工资')
 
 ```
 
