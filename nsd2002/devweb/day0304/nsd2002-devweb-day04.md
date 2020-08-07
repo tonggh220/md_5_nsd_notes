@@ -55,6 +55,20 @@
 >>> c3
 <Choice: 问题:出游去哪玩？=>选项:广州>
 
+# 查询所有问题，返回所有问题实例构成的查询集。查询集与列表类似，支持下标操作、循环遍历。
+>>> qset1 = Question.objects.all()
+>>> for q in qset1:
+...   print(q.question_text, q.pub_date)
+
+# 取出全部问题，根据时间升序排列
+>>> qset2 = Question.objects.order_by('pub_date')
+>>> for q in qset2:
+...   print(q.question_text, q.pub_date)
+
+# 取出全部问题，根据时间降序排列
+>>> qset3 = Question.objects.order_by('-pub_date')
+>>> for q in qset3:
+...   print(q.question_text, q.pub_date)
 
 ```
 
