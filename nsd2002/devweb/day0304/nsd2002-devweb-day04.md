@@ -101,7 +101,7 @@ polls.models.Question.MultipleObjectsReturned: get() returned more than one Ques
 # 小于
 >>> Question.objects.filter(id__lt=1)
 # 小于等于
->>> Question.objects.filter(id__lt=1)
+>>> Question.objects.filter(id__lte=1)
 # 不等于，使用exclude方法，exclude是排除的意思
 >>> Question.objects.exclude(id=1)
 # 关键字中包含某些字符
