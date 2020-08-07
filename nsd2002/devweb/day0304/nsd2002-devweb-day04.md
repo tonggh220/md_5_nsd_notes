@@ -420,15 +420,29 @@ def vote(request, qid):
 ... ...
 ```
 
-
-
-
+## 完成投票结果页
 
 ```python
+# polls/views.py
+def result(request, qid):
+    question = Question.objects.get(id=qid)
+    return render(request, 'result.html', {'question': question})
 
+# templates/result.html
+{% extends 'basic.html' %}
+{% block title %}投票结果{% endblock %}
+{% block content %}
+    <h1 class="text-center text-warning">{{ question.id }}号问题投票结果</h1>
+    <h2>{{ question.question_text }}</h2>
+    <table class="table table-striped table-bordered table-hover h4">
+        {% for choice in question.choice_set.all %}
+            <tr>
+                <td>{{ choice.choice_text }}</td>
+                <td>{{ choice.votes }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a class="btn btn-primary" href="{% url 'index' %}">返回首页</a>
+{% endblock %}
 ```
-
-
-
-
 
