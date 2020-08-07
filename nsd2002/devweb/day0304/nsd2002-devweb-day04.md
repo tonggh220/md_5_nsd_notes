@@ -86,6 +86,15 @@ polls.models.Question.MultipleObjectsReturned: get() returned more than one Ques
 >>> qset1
 <QuerySet [<Question: 问题:你期待工资有多少？>, <Question: 问题:你期待进入哪家公司？>, <Question: 问题:散伙饭哪里吃？>]>
 
+# django的查询条件使用灵活的双下划线来表示属性或方法
+# https://docs.djangoproject.com/zh-hans/2.2/
+# https://docs.djangoproject.com/zh-hans/3.1/ref/models/querysets/#field-lookups
+# 严格匹配
+>>> Question.objects.filter(id__exact=1)
+<QuerySet [<Question: 问题:你期待工资有多少？>]>
+# 上面可以简写成
+>>> Question.objects.filter(id=1)
+
 ```
 
 
