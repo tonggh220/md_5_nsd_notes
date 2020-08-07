@@ -385,12 +385,46 @@ def detail(request, qid):
 {% endblock %}
 ```
 
+## 实现投票功能
+
+#### 思路
+
+- 投票功能需要使用函数实现
+- 通过访问url调用函数
+- 通过表单的action来指定要访问的url
+
+```python
+# polls/urls.py
+... ...
+    path('<int:qid>/vote', views.vote, name='vote'),
+... ...
+
+# polls/views.py
+from django.shortcuts import render, redirect
+... ...
+def vote(request, qid):
+    question = Question.objects.get(id=qid)
+    # request有名为POST的属性，存储用户通过Post方法提交的数据。它是一个字典对象
+    choice_id = request.POST.get('choice_id')
+    # 取出相应的选项，并把票数加1
+    choice = question.choice_set.get(id=choice_id)
+    choice.votes += 1
+    choice.save()
+    # 重定向到投票结果页, result是urls.py中定义的url名称
+    return redirect('result', qid)
+... ...
+
+# templates/detail.html
+... ...
+    <form class="h4" action="{% url 'vote' question.id %}" method="post">
+... ...
+```
+
 
 
 
 
 ```python
-
 
 ```
 

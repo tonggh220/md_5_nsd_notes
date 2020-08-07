@@ -3,7 +3,7 @@
 {% block content %}
     <h1 class="text-center text-warning">{{ question.id }}号问题投票详情</h1>
     <h2>{{ question.question_text }}</h2>
-    <form class="h4" action="" method="post">
+    <form class="h4" action="{% url 'vote' question.id %}" method="post">
         {% csrf_token %}   {% comment %}安全选项，防止跨站攻击{% endcomment %}
         {% for choice in question.choice_set.all %}
             <div class="checkbox">
