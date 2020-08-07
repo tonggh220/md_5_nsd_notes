@@ -19,12 +19,6 @@
 
 # 创建问题方法二：使用objects管理器
 # 每个模型都有一个名为objects的管理器，通过它，可以对模型进行增删改查
-
-```
-
-
-
-```python
 >>> result1 = Question.objects.get_or_create(question_text='散伙饭哪里吃？', pub_date='2020-08-10')
 >>> result1  # result是一个元组：(问题实例，True/False)
 (<Question: 问题:散伙饭哪里吃？>, True)  # 创建成功为True
@@ -34,6 +28,39 @@
 >>> q2 = result1[0]  # 在元组中取出问题实例
 >>> q2
 <Question: 问题:散伙饭哪里吃？>
+
+# 创建选项方法一：创建实例
+>>> c1 = Choice(choice_text='北戴河', question=q1)
+>>> c1.save()
+>>> c1.id
+5
+>>> c1.choice_text
+'北戴河'
+>>> c1.votes
+0
+>>> c1.question
+<Question: 问题:出游去哪玩？>
+
+# 创建选项方法二：使用objects管理器
+>>> c2 = Choice.objects.get_or_create(choice_text='杭州', question=q1)[0]
+>>> c2
+<Choice: 问题:出游去哪玩？=>选项:杭州>
+
+# 创建选项方法三：通过问题实例创建选项
+# 问题和选项之间有主外键约束，一个问题可以对应多个选项，问题的选项集就是：类名_set（小写）；选项的类名叫Choice，那么问题的选项集就叫choice_set。choice_set与objects管理器类似，通过它，可以为具体的问题选项做增删改查。
+>>> result2 = q1.choice_set.get_or_create(choice_text='广州')
+>>> result2
+(<Choice: 问题:出游去哪玩？=>选项:广州>, True)
+>>> c3 = result2[0]
+>>> c3
+<Choice: 问题:出游去哪玩？=>选项:广州>
+
+
+```
+
+
+
+```python
 
 ```
 
