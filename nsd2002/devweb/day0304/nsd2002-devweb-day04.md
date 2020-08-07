@@ -123,6 +123,15 @@ polls.models.Question.MultipleObjectsReturned: get() returned more than one Ques
 >>> q2
 <Question: 问题:How are you?>
 >>> q2.delete()
+
+# 查询时的注意事项：在mysite/settings.py中，如果USE_TZ = True，mysql不识别django的时区设置，所以在过滤月份时不正常。可以把USE_TZ改为False
+# mysite/settings.py
+... ...
+USE_TZ = False
+... ...
+[root@localhost mysite]# python3 manage.py shell
+>>> from polls.models import Question, Choice
+>>> Question.objects.filter(pub_date__month=8)
 ```
 
 
