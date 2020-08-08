@@ -99,3 +99,47 @@ STATICFILES_DIRS = [
 ```
 
 ### 编写首页应用
+
+```python
+# 授权，应用的urls交给应用处理
+# myansible/urls.py
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('index.urls')),
+]
+
+# vim index/urls.py
+from django.urls import path
+from index import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+
+# index/views.py
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'index/index.html')
+
+# mkdir templates/index
+# vim templates/index/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ansible Webadmin</title>
+</head>
+<body>
+Ansible Webadmin
+</body>
+</html>
+
+# 启动开发服务器，监听在0.0.0.0:9000端口
+[root@localhost myansible]# python3 manage.py runserver 0:9000
+
+```
+
