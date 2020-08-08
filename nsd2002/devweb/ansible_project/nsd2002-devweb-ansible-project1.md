@@ -291,8 +291,16 @@ class Host(Base):
 if __name__ == '__main__':
     session = Session()
     qset = session.query(HostGroup.groupname, Host.ip_addr).join(Host)
-    print(qset.all())
-
+    # print(qset.all())
+    result = {}
+    for g, ip in qset:
+        if g not in result:  # 组不在字典中，新建项目
+            result[g] = {}
+            result[g]['hosts'] = []
+        result[g]['hosts'].append(ip)  # 把ip地址追加到列中
+    print(result)
+    
+[root@localhost ansi_cfg]# ansible all -m ping
 ```
 
 
