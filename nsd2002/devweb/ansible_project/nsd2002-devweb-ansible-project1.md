@@ -343,5 +343,20 @@ def index(request):
 </a>
 ```
 
+### 添加主机页
+
+```python
+# webadmin/urls.py
+
+# webadmin/views.py
+
+# templates/webadmin/add_hosts.html
+
+```
+
+
+
+
+
 
 
