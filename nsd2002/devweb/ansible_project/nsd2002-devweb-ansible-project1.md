@@ -325,7 +325,7 @@ urlpatterns = [
     path('', views.index, name='webadin_index'),
 ]
 
-# mkdir templates/webadin
+# mkdir templates/webadmin
 # webadmin/views.py
 from django.shortcuts import render
 
@@ -337,7 +337,7 @@ def index(request):
 [root@localhost ansi_cfg]# ansible-cmdb /tmp/myhosts > ../templates/webadmin/index.html
 
 # 修改templates/index/index.html中主机信息的超链接
-<a href="{% url 'webadin_index' %}" target="_blank">
+<a href="{% url 'webadmin_index' %}" target="_blank">
     <img src="{% static 'imgs/linux.jpg' %}" width="150px"><br>
     主机信息
 </a>
