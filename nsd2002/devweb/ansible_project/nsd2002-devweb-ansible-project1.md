@@ -347,10 +347,63 @@ def index(request):
 
 ```python
 # webadmin/urls.py
+... ...
+    path('add_hosts', views.add_hosts, name='add_hosts'),
+... ...
 
 # webadmin/views.py
+from django.shortcuts import render
+from webadmin.models import HostGroup
+
+... ...
+
+def add_hosts(request):
+    # 在数据库中取出所有的组，发往前端
+    groups = HostGroup.objects.all()
+    return render(request, 'webadmin/add_hosts.html', {'groups': groups})
 
 # templates/webadmin/add_hosts.html
+{% extends 'basic.html' %}
+{% block title %}添加主机{% endblock %}
+{% block content %}
+    <form action="" class="form-inline h4">
+        <div class="form-group">
+            主机组: <input class="form-control" type="text" name="group">
+        </div>
+        <div class="form-group">
+            主机: <input class="form-control" type="text" name="host">
+        </div>
+        <div class="form-group">
+            ip地址: <input class="form-control" type="text" name="ip">
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="提 交">
+        </div>
+    </form>
+    <hr>
+    <table class="table table-bordered table-hover table-striped h4">
+        <thead class="bg-primary">
+            <tr>
+                <td>主机组</td>
+                <td>主机</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for group in groups %}
+                <tr>
+                    <td>{{ group.groupname }}</td>
+                    <td>
+                        {% for host in group.host_set.all %}
+                            <div>{{ host.hostname }}:{{ host.ip_addr }}</div>
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+# 修改templates/index/index.html中添加主机的超链接
+        <a href="{% url 'add_hosts' %}" target="_blank">
 
 ```
 
