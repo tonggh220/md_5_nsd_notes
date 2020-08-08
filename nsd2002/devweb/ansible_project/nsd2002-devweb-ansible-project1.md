@@ -141,5 +141,37 @@ Ansible Webadmin
 # 启动开发服务器，监听在0.0.0.0:9000端口
 [root@localhost myansible]# python3 manage.py runserver 0:9000
 
+# 使用模板继承，模板采用投票应用的basic.html
+[root@localhost myansible]# cp ../../day0304/mysite/templates/basic.html templates/
+# templates/index/index.html
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %}Ansible Webadmin{% endblock %}
+{% block content %}
+    <div class="col-md-3 text-center h4">
+        <a href="#" target="_blank">
+            <img src="{% static 'imgs/linux.jpg' %}" width="150px"><br>
+            主机信息
+        </a>
+    </div>
+    <div class="col-md-3 text-center h4">
+        <a href="#" target="_blank">
+            <img src="{% static 'imgs/linux.jpg' %}" width="150px"><br>
+            添加主机
+        </a>
+    </div>
+    <div class="col-md-3 text-center h4">
+        <a href="#" target="_blank">
+            <img src="{% static 'imgs/linux.jpg' %}" width="150px"><br>
+            添加模块
+        </a>
+    </div>
+    <div class="col-md-3 text-center h4">
+        <a href="#" target="_blank">
+            <img src="{% static 'imgs/linux.jpg' %}" width="150px"><br>
+            执行任务
+        </a>
+    </div>
+{% endblock %}
 ```
 
