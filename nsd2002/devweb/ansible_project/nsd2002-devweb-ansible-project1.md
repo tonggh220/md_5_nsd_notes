@@ -307,11 +307,40 @@ if __name__ == '__main__':
 
 ```python
 # 授权，webadmin的url交给webadmin应用处理
+# myansible/urls.py
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('webadmin/', include('webadmin.urls')),
+    path('', include('index.urls')),
+]
+
+# webadmin/urls.py
+from django.urls import path
+from webadmin import views
+
+urlpatterns = [
+    path('', views.index, name='webadin_index'),
+]
+
+# mkdir templates/webadin
+# webadmin/views.py
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'webadmin/index.html')
 
 # 通过ansible-cmdb生成主机信息页
+[root@localhost ansi_cfg]# ansible dbservers -m setup --tree /tmp/myhosts
+[root@localhost ansi_cfg]# ansible-cmdb /tmp/myhosts > ../templates/webadmin/index.html
 
-# webadmin/views.py
-
+# 修改templates/index/index.html中主机信息的超链接
+<a href="{% url 'webadin_index' %}" target="_blank">
+    <img src="{% static 'imgs/linux.jpg' %}" width="150px"><br>
+    主机信息
+</a>
 ```
 
 
