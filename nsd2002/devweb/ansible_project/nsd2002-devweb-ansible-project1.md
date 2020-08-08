@@ -303,5 +303,16 @@ if __name__ == '__main__':
 [root@localhost ansi_cfg]# ansible all -m ping
 ```
 
+### 实现主机信息页
+
+```python
+# 授权，webadmin的url交给webadmin应用处理
+
+# 通过ansible-cmdb生成主机信息页
+
+# webadmin/views.py
+
+```
+
 
 
