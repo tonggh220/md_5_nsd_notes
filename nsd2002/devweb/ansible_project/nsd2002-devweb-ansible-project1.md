@@ -232,9 +232,68 @@ for item in [HostGroup, Host, Module, Argument]:
 # 登陆到后台http://127.0.0.1:9000/admin添加几个主机和组
 ```
 
+### 配置ansible工作环境
 
+```shell
+[root@localhost myansible]# mkdir ansi_cfg
+[root@localhost myansible]# cd ansi_cfg/
+[root@localhost ansi_cfg]# vim ansible.cfg
+[defaults]
+inventory = dhosts.py   # 使用动态主机清单
+remote_user = root
+[root@localhost ansi_cfg]# touch dhosts.py
+[root@localhost ansi_cfg]# chmod +x dhosts.py
+```
 
+#### 动态主机清单
 
+- 通过python程序在数据库中取出主机和组，输出格式要求如下：
+
+```json
+{
+    "组1": {
+        "hosts": ["主机1", "主机2"]
+    },
+    "组2": {
+        "hosts": ["主机1", "主机2"]
+    }
+}
+```
+
+- 代码实现
+
+```python
+[root@localhost ansi_cfg]# vim dhosts.py
+#!/bin/python3
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+engine = create_engine(
+    'mysql+pymysql://root:tedu.cn@localhost/myansible?charset=utf8',
+     encoding='utf8',
+)
+Base = declarative_base()
+Session = sessionmaker(bind=engine)
+
+class HostGroup(Base):
+    __tablename__ = 'webadmin_hostgroup'
+    id = Column(Integer, primary_key=True)
+    groupname = Column(String(50))
+
+class Host(Base):
+    __tablename__ = 'webadmin_host'
+    id = Column(Integer, primary_key=True)
+    hostname = Column(String(50))
+    ip_addr = Column(String(11))
+    group_id = Column(Integer, ForeignKey('webadmin_hostgroup.id'))
+
+if __name__ == '__main__':
+    session = Session()
+    qset = session.query(HostGroup.groupname, Host.ip_addr).join(Host)
+    print(qset.all())
+
+```
 
 
 
