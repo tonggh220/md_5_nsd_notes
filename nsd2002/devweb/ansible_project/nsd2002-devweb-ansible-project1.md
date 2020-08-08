@@ -84,3 +84,18 @@ INSTALLED_APPS = [
 ]
 ```
 
+## 首页应用
+
+### 准备所需材料
+
+```shell
+# 拷贝静态文件到项目的根目录下
+[root@localhost myansible]# cp -r ../../day02/static/ .
+# 声明静态文件位置
+# myansible/settings.py  尾部追加
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+```
+
+### 编写首页应用
