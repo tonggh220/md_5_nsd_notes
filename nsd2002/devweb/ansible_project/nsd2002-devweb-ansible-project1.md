@@ -47,7 +47,40 @@ Python 3.6.8   # 虚拟环境中，python就是python3
   - http://127.0.0.1:8000/webadmin/add_modules/：展示、添加模块/参数
   - http://127.0.0.1:8000/webadmin/tasks/：用于在特定的主机/主机组执行管理任务
 
+### 项目初始化
 
+- 通过pycharm新建一个名为myansible的django项目
 
+```shell
+[root@localhost myansible]# mysql -uroot -ptedu.cn
+MariaDB [(none)]> CREATE DATABASE myansible DEFAULT CHARSET utf8mb4;
+# myansible/settings.py
+ALLOWED_HOSTS = ['*']
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'myansible',
+        'USER': 'root',
+        'PASSWORD': 'tedu.cn',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+}
+LANGUAGE_CODE = 'zh-hans'
+TIME_ZONE = 'Asia/Shanghai'
+USE_TZ = False
+```
 
+- 项目包含两个应用：index / webadmin
+
+```shell
+[root@localhost myansible]# python3 manage.py startapp index
+[root@localhost myansible]# python3 manage.py startapp webadmin
+# myansible/settings.py
+INSTALLED_APPS = [
+    ... ...
+    'index',
+    'webadmin',
+]
+```
 
