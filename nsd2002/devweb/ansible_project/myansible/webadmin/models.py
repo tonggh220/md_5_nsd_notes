@@ -8,7 +8,7 @@ class HostGroup(models.Model):
 
 class Host(models.Model):
     hostname = models.CharField(max_length=50)
-    ip_addr = models.CharField(max_length=11)
+    ip_addr = models.CharField(max_length=15)
     group = models.ForeignKey(HostGroup, on_delete=models.CASCADE)
 
     def __str__(self):

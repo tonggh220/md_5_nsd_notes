@@ -19,7 +19,7 @@ class Host(Base):
     __tablename__ = 'webadmin_host'
     id = Column(Integer, primary_key=True)
     hostname = Column(String(50))
-    ip_addr = Column(String(11))
+    ip_addr = Column(String(15))
     group_id = Column(Integer, ForeignKey('webadmin_hostgroup.id'))
 
 if __name__ == '__main__':
