@@ -34,7 +34,18 @@ Python 3.6.8   # 虚拟环境中，python就是python3
 (dj1env) [root@localhost myansible]# python manage.py runserver
 ```
 
+## 项目：web化运维
 
+### 项目规划
+
+- web采用django2.2.12
+- 自动化运维采用ansible2.7.17
+- 功能：
+  - http://127.0.0.1:8000/：首页，展示所有功能
+  - http://127.0.0.1:8000/webadmin/：展示被管理的主机信息
+  - http://127.0.0.1:8000/webadmin/add_hosts/：展示、添加主机/主机组
+  - http://127.0.0.1:8000/webadmin/add_modules/：展示、添加模块/参数
+  - http://127.0.0.1:8000/webadmin/tasks/：用于在特定的主机/主机组执行管理任务
 
 
 
