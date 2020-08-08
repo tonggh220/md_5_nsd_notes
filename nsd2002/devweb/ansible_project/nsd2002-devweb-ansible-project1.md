@@ -175,3 +175,66 @@ Ansible Webadmin
 {% endblock %}
 ```
 
+## webadmin应用
+
+### 数据库模型
+
+```python
+# webadmin/models.py
+from django.db import models
+
+class HostGroup(models.Model):
+    groupname = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.groupname
+
+class Host(models.Model):
+    hostname = models.CharField(max_length=50)
+    ip_addr = models.CharField(max_length=11)
+    group = models.ForeignKey(HostGroup, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "%s: %s[%s]" % (self.group, self.hostname, self.ip_addr)
+
+class Module(models.Model):
+    modulename = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.modulename
+
+class Argument(models.Model):
+    arg_text = models.CharField(max_length=100)
+    module = models.ForeignKey(Module, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '%s: %s' % (self.module, self.arg_text)
+
+
+# 生成数据库中的表
+[root@localhost myansible]# python3 manage.py makemigrations
+[root@localhost myansible]# python3 manage.py migrate
+
+# 创建管理员用户
+[root@localhost myansible]# python3 manage.py createsuperuser
+用户名 (leave blank to use 'root'): admin
+电子邮件地址: admin@tedu.cn
+Password: 1234.com
+Password (again): 1234.com
+
+# 把模型注册到管理后台
+# webadmin/admin.py
+from django.contrib import admin
+from webadmin.models import HostGroup, Host, Module, Argument
+
+for item in [HostGroup, Host, Module, Argument]:
+    admin.site.register(item)
+# 登陆到后台http://127.0.0.1:9000/admin添加几个主机和组
+```
+
+
+
+
+
+
+
