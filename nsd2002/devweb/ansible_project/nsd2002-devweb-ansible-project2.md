@@ -200,6 +200,32 @@ def tasks(request):
     </form>
 {% endblock %}
 
+# 将ansible课程部分的程序拷贝过来，作为模块使用
+[root@localhost myansible]# cp nsd2020/nsd2002/devops/day03/adhoc2.py webadmin/adhoc.py
+
+# 完善webadmin/views.py中的tasks函数
+from webadmin import adhoc
+... ...
+def tasks(request):
+    if request.method == 'POST':
+        ip = request.POST.get('ip')
+        group = request.POST.get('hostgroup')
+        module = request.POST.get('module')
+        param = request.POST.get('param')
+        if ip:  # 确定是在组还是在主机上执行任务
+            target = ip
+        elif group:
+            target = group
+        else:
+            target = None
+        if target:  # 如果target不是None，则调用ansible执行任务
+            adhoc.adhoc(['ansi_cfg/dhosts.py'], target, module, param)
+            
+    hosts = Host.objects.all()
+    groups = HostGroup.objects.all()
+    modules = Module.objects.all()
+    context = {'hosts': hosts, 'groups': groups, 'modules': modules}
+    return render(request, 'webadmin/tasks.html', context)
 
 ```
 
