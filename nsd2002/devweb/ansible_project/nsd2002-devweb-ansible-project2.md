@@ -131,14 +131,76 @@ def tasks(request):
 {% extends 'basic.html' %}
 {% block title %}执行任务{% endblock %}
 {% block content %}
-
+    <ul class="nav nav-tabs h4">
+        <li class="active">
+            <a href="#server" data-toggle="tab">主机</a>
+        </li>
+        <li>
+            <a href="#servers" data-toggle="tab">主机组</a>
+        </li>
+    </ul>
+    <form action="{% url 'tasks' %}" method="post">
+        {% csrf_token %}
+        <div class="h4 tab-content">
+            <div class="tab-pane active fade in" id="server">
+                <select class="form-control" name="ip">
+                    <option value="">无</option>
+                    {% for host in hosts %}
+                        <option value="{{ host.ip_addr }}">
+                            {{ host.hostname }}:{{ host.ip_addr }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="tab-pane fade" id="servers">
+                <select class="form-control" name="hostgroup">
+                    <option value="">无</option>
+                    {% for group in groups %}
+                        <option value="{{ group.groupname }}">
+                            {{ group.groupname }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover table-striped h4">
+            <thead class="bg-primary">
+                <tr>
+                    <td>模块</td>
+                    <td>参数</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for module in modules %}
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="radio" name="module" value="{{ module }}">
+                                {{ module }}
+                            </label>
+                        </td>
+                        <td>
+                            {% for arg in module.argument_set.all %}
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="param" value="{{ arg.arg_text }}">
+                                        {{ arg.arg_text }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="form-group text-center">
+            <input class="btn btn-primary" type="submit" value="提 交">
+            <input class="btn btn-primary" type="reset" value="重 置">
+        </div>
+    </form>
 {% endblock %}
 
-# templates/index/index.html修改执行任务的超链接
-<a href="{% url 'tasks' %}" target="_blank">
-    <img src="{% static 'imgs/linux.jpg' %}" width="150px"><br>
-    执行任务
-</a>
+
 ```
 
 
