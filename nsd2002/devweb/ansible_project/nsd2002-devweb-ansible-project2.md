@@ -226,8 +226,36 @@ def tasks(request):
     modules = Module.objects.all()
     context = {'hosts': hosts, 'groups': groups, 'modules': modules}
     return render(request, 'webadmin/tasks.html', context)
-
 ```
 
+## 添加删除参数的功能
 
+#### 思路
+
+- 删除功能，需要通过一个函数来完成
+- 通过访问url来实现调用函数的任务
+- 可以在网页的参数后面，加一个超链接，点击超链接访问url
+
+```python
+# webadmin/urls.py
+... ...
+    path('del_arg/<int:arg_id>', views.del_arg, name='del_arg'),
+... ...
+
+# templates/webadmin/add_modules.html
+<td>
+    {% for arg in module.argument_set.all %}
+        <div>
+            <div class="col-md-7">{{ arg.arg_text }}</div>
+            <div class="col-md-5">
+                <a class="btn btn-xs btn-danger" href="{% url 'del_arg' arg.id %}">
+                	delete
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</td>
+
+# 
+```
 

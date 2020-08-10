@@ -54,3 +54,6 @@ def tasks(request):
     modules = Module.objects.all()
     context = {'hosts': hosts, 'groups': groups, 'modules': modules}
     return render(request, 'webadmin/tasks.html', context)
+
+def del_arg(request, arg_id):
+    pass
