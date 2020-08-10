@@ -303,6 +303,6 @@ master=true
 [root@localhost ~]# uwsgi --ini /etc/uwsgi/uwsgi.ini 
 [root@localhost ~]# ps aux | grep wsgi
 [root@localhost ~]# ss -tlnp | grep :8000
-
+# 访问http://127.0.0.1:8000，此时样式和图片无法正常显示
 ```
 
