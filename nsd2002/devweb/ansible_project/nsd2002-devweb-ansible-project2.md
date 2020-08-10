@@ -304,5 +304,27 @@ master=true
 [root@localhost ~]# ps aux | grep wsgi
 [root@localhost ~]# ss -tlnp | grep :8000
 # 访问http://127.0.0.1:8000，此时样式和图片无法正常显示
+
+# 配置nginx，使得nginx可以将请求发给uwsgi服务
+# 将uwsgi服务改为socket通信方式，而不是http
+[root@localhost ~]# vim /etc/uwsgi/uwsgi.ini 
+[uwsgi]
+# 以http方式通信
+# http=127.0.0.1:8000
+# 以套接字socket方式通信
+socket=127.0.0.1:8000
+... ...
+[root@localhost ~]# ps aux | grep uwsgi  # 查看pid
+[root@localhost ~]# kill -9 25080
+[root@localhost ~]# uwsgi --ini /etc/uwsgi/uwsgi.ini 
+
+# 以rpm包方式安装nginx
+# EPEL官方站点：https://fedoraproject.org/wiki/EPEL/zh-cn
+# 根据官方站点说明，配置epel源，只要执行以下命令即可
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+[root@localhost ~]# ls /etc/yum.repos.d/epel*
+/etc/yum.repos.d/epel.repo  /etc/yum.repos.d/epel-testing.repo
+[root@localhost ~]# yum install -y nginx
+
 ```
 
