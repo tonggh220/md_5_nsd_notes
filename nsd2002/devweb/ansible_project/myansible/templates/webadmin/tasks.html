@@ -22,8 +22,38 @@
                     {% endfor %}
                 </select>
             </div>
-            <div class="tab-pane fade" id="servers">主机组</div>
+            <div class="tab-pane fade" id="servers">
+                <select class="form-control" name="hostgroup">
+                    <option value="">无</option>
+                    {% for group in groups %}
+                        <option value="{{ group.groupname }}">
+                            {{ group.groupname }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
         </div>
+        <table class="table table-bordered table-hover table-striped h4">
+            <thead class="bg-primary">
+                <tr>
+                    <td>模块</td>
+                    <td>参数</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for module in modules %}
+                    <tr>
+                        <td>{{ module }}</td>
+                        <td>
+                            {% for arg in module.argument_set.all %}
+                                <div>{{ arg.arg_text }}</div>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
     </form>
 {% endblock %}
 
