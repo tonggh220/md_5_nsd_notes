@@ -326,5 +326,33 @@ yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.r
 /etc/yum.repos.d/epel.repo  /etc/yum.repos.d/epel-testing.repo
 [root@localhost ~]# yum install -y nginx
 
+# 配置nginx
+[root@localhost ~]# vim /etc/nginx/nginx.conf
+... ...
+        location / {
+            uwsgi_pass 127.0.0.1:8000;
+            include /etc/nginx/uwsgi_params;
+        }
+... ...
+# 启服务验证
+[root@localhost ~]# systemctl start nginx
+# 访问http://127.0.0.1/测试，此时可以访问，但是静态文件没有加载
+
+# 收集静态文件
+[root@localhost ~]# mkdir /opt/myansible/myansible_static/static
+[root@localhost ~]# vim /opt/myansible/myansible/settings.py  尾部追加
+STATIC_ROOT = os.path.join(BASE_DIR, "myansible_static/static")
+[root@localhost ~]# cd /opt/myansible/
+[root@localhost myansible]# python3 manage.py collectstatic
+[root@localhost myansible]# ls /opt/myansible/myansible_static/static/
+admin  css  fonts  imgs  js
+
+# 修改nginx配置文件，声明静态文件内容
+[root@localhost myansible]# vim /etc/nginx/nginx.conf  # 在location /块下面添加
+        location /static {
+            root /opt/myansible/myansible_static;
+        }
+[root@localhost myansible]# systemctl restart nginx
+# 访问http://127.0.0.1/将一切正常
 ```
 
