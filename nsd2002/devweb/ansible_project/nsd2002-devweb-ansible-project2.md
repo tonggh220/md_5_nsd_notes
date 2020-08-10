@@ -256,6 +256,10 @@ def tasks(request):
     {% endfor %}
 </td>
 
-# 
+# webadmin/views.py
+def del_arg(request, arg_id):
+    arg = Argument.objects.get(id=arg_id)
+    arg.delete()
+    return redirect('add_modules')
 ```
 
