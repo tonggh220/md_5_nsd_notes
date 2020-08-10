@@ -263,3 +263,46 @@ def del_arg(request, arg_id):
     return redirect('add_modules')
 ```
 
+## 部署django
+
+### uwsgi
+
+- WSGI：Web Server Gateway Interface，Web服务器网关接口
+- uWSGI 是一个快速的、纯C语言开发的、自维护的、对开发者友好的 WSGI 服务器，旨在提供专业的 Python web应用发布和开发。
+- 配置
+
+```shell
+# 安装
+[root@localhost ~]# pip3 install uwsgi
+
+# 拷贝django站点到目标位置
+[root@localhost ~]# cp -r nsd2020/nsd2002/devweb/ansible_project/myansible/ /opt
+
+# 配置uwsgi，使之可以运行django程序
+[root@localhost ~]# mkdir /etc/uwsgi
+[root@localhost ~]# vim /etc/uwsgi/uwsgi.ini
+[uwsgi]
+# 以http方式通信
+http=127.0.0.1:8000
+# 指定项目的工作目录
+chdir=/opt/myansible
+# 指定项目中的wsgi.py配置文件，位置相对于工作目录
+wsgi-file=myansible/wsgi.py
+# 指定启动进程的数目
+process=4
+# 指定每个进程启动的线程个数
+threads=2
+# 指定服务的pid文件
+pidfile=/var/run/uwsgi.pid
+# 指定日志文件位置
+daemonize=/var/log/uwsgi.log
+# 开启主进程管理模式
+master=true
+
+# 启动uwsgi服务
+[root@localhost ~]# uwsgi --ini /etc/uwsgi/uwsgi.ini 
+[root@localhost ~]# ps aux | grep wsgi
+[root@localhost ~]# ss -tlnp | grep :8000
+
+```
+
