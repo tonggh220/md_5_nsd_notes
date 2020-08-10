@@ -109,5 +109,37 @@ def add_modules(request):
 </a>
 ```
 
+## 制作执行任务页
+
+```python
+# webadmin/urls.py
+... ...
+    path('tasks', views.tasks, name='tasks'),
+... ...
+
+# webadmin/views.py
+from webadmin.models import HostGroup, Module, Host
+... ...
+def tasks(request):
+    hosts = Host.objects.all()
+    groups = HostGroup.objects.all()
+    modules = Module.objects.all()
+    context = {'hosts': hosts, 'groups': groups, 'modules': modules}
+    return render(request, 'webadmin/tasks.html', context)
+
+# templates/webadmin/tasks.html
+{% extends 'basic.html' %}
+{% block title %}执行任务{% endblock %}
+{% block content %}
+
+{% endblock %}
+
+# templates/index/index.html修改执行任务的超链接
+<a href="{% url 'tasks' %}" target="_blank">
+    <img src="{% static 'imgs/linux.jpg' %}" width="150px"><br>
+    执行任务
+</a>
+```
+
 
 
