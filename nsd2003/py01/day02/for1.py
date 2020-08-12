@@ -10,6 +10,9 @@
 # for i in t1:
 #     print(i)
 
-d1 = {'name': 'nb', 'age': 20}
-for key in d1:
-    print(key, d1[key])
+# d1 = {'name': 'nb', 'age': 20}
+# for key in d1:
+#     print(key, d1[key])
+
+for i in range(10):
+    print(i)
