@@ -12,12 +12,22 @@
 # except EOFError:
 #     print('\nBye-bye')
 
+# try:
+#     n = int(input('number: '))
+#     result = 100 / n
+#     print(result)
+#     print('Done')
+# except (ValueError, ZeroDivisionError):
+#     print('请输入非0数字')
+# except (KeyboardInterrupt, EOFError):
+#     print('\nBye-bye')
+
 try:
     n = int(input('number: '))
     result = 100 / n
     print(result)
     print('Done')
-except (ValueError, ZeroDivisionError):
-    print('请输入非0数字')
+except (ValueError, ZeroDivisionError) as e:  # 将报错信息保存到变量e中
+    print('请输入非0数字:', e)
 except (KeyboardInterrupt, EOFError):
     print('\nBye-bye')
