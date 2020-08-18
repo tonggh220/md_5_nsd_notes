@@ -9,5 +9,9 @@ with open(logfile) as fobj:
     for line in fobj:
         # 取出一行中的前19个字符，并转成9元组时间
         t = time.strptime(line[:19], '%Y-%m-%d %H:%M:%S')
-        if t9 <= t < t12:
+        # if t9 <= t < t12:
+        #     print(line, end='')
+        if t >= t12:
+            break
+        if t >= t9:
             print(line, end='')
