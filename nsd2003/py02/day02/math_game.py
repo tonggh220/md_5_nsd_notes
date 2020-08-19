@@ -1,6 +1,26 @@
+from random import randint, choice
+
 def exam():
     '用于出题，让用户作答'
-    print('exam')
+    # 随机生成两个100以内的数字
+    nums = [randint(1, 100) for i in range(2)]
+    nums.sort(reverse=True)  # 降序排列
+    # 随机选择加法或是减法
+    op = choice('+-')
+
+    # 算出标准答案
+    if op == '+':
+        result = nums[0] + nums[1]
+    else:
+        result = nums[0] - nums[1]
+
+    # 用户作答
+    prompt = '%s %s %s = ' % (nums[0], op, nums[1])
+    answer = int(input(prompt))
+    if answer == result:
+        print('你真棒！！！')
+    else:
+        print('不对哟！！！')
 
 def main():
     while 1:
