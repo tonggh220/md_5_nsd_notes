@@ -16,11 +16,16 @@ def exam():
 
     # 用户作答
     prompt = '%s %s %s = ' % (nums[0], op, nums[1])
-    answer = int(input(prompt))
-    if answer == result:
-        print('你真棒！！！')
-    else:
+    n = 0
+    while n < 3:
+        answer = int(input(prompt))
+        if answer == result:
+            print('你真棒！！！')
+            break
         print('不对哟！！！')
+        n += 1
+    else:
+        print('%s%s' % (prompt, result))
 
 def main():
     while 1:
