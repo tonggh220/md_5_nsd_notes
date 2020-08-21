@@ -16,6 +16,3 @@ if __name__ == '__main__':
     ly = Book('论语', '孔子')  # 调用__init__
     print(ly)    # 调用__str__
     ly()
-
-
-
