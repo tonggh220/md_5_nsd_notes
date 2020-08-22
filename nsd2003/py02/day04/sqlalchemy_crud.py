@@ -48,6 +48,17 @@ session = Session()
 # )
 # session.add_all([lb, gy, zf, zgl, zy, hz, wy])
 ##################################################
+# 查询：参数如果是类名，返回的是实例集
+# qset1 = session.query(Department)
+# print(qset1)  # 此时，qset1只是一条sql语句
+# for dep in qset1:  # 取数据时，才会真正的查询数据库
+#     print(dep.id, dep.dep_name)
+# 查询：参数是类变量，返回的是元组构成的查询集
+qset2 = session.query(Employee.emp_name, Employee.email)
+for data in qset2:
+    print(data)
+
+##################################################
 # 确认
 session.commit()
 # 关闭会话
