@@ -64,10 +64,20 @@ session = Session()
 #     print(dep.id, dep.dep_name)
 
 # 过滤
-qset4 = session.query(Department).filter(Department.id>=3, Department.id<=5)
-for dep in qset4:
-    print(dep.id, dep.dep_name)
+# qset4 = session.query(Department).filter(Department.id>=3, Department.id<=5)
+# for dep in qset4:
+#     print(dep.id, dep.dep_name)
 
+# 模糊查询
+# qset5 = session.query(Employee.emp_name, Employee.email)\
+#     .filter(Employee.email.like('%@tedu.cn'))
+# for data in qset5:
+#     print(data)
+
+# in
+qset6 = session.query(Department).filter(Department.id.in_([1, 3, 5]))
+for dep in qset6:
+    print(dep.id, dep.dep_name)
 ##################################################
 # 确认
 session.commit()
