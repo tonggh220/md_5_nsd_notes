@@ -5,7 +5,9 @@ print('starting...')
 ret_val = os.fork()
 if ret_val:
     print('parent')
-    time.sleep(60)
+    result = os.waitpid(-1, 0)  # 挂起父进程,等待子进程结束，以便回收掉它
+    print(result)  # (子进程pid, 0)
+    time.sleep(30)
     print('parent done')
 else:
     print('child')
