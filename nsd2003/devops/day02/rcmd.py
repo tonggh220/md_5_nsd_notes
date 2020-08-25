@@ -1,5 +1,8 @@
 import paramiko
 import sys
+import threading
+import getpass
+import os
 
 def rcmd(host, user, passwd, port=22, cmds=None):
     ssh = paramiko.SSHClient()
@@ -16,12 +19,23 @@ def rcmd(host, user, passwd, port=22, cmds=None):
 
 if __name__ == '__main__':
     # rcmd('127.0.0.1', 'root', 'redhat', cmds='id root; id zhangsan')
+    if len(sys.argv) < 3:
+        print('Usage: %s ipfile commands' % sys.argv[0])
+        exit(1)
+
+    if not os.path.isfile(sys.argv[1]):
+        print('No such file:', sys.argv[1])
+        exit(2)
+
     ipfile = sys.argv[1]
     cmds = ' '.join(sys.argv[2:])
+    passwd = getpass.getpass()
     with open(ipfile) as fobj:
         for line in fobj:
             ip = line.strip()
-            rcmd(ip, 'root', 'redhat', 22, cmds)
+            # rcmd(ip, 'root', 'redhat', 22, cmds)
+            t = threading.Thread(target=rcmd, args=(ip, 'root', passwd, 22, cmds))
+            t.start()
 
 # vim servers.txt
 # 192.168.1.154
