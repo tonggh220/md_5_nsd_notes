@@ -134,8 +134,6 @@ if __name__ == '__main__':
 >>> pprint.pprint(data)
 ```
 
-
-
 ### 使用钉钉机器人
 
 - https://www.jianshu.com/p/a3c62eb71ae3
@@ -143,6 +141,31 @@ if __name__ == '__main__':
 - https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq ： 机器人使用说明
 
 - 群 -> 点击机器人图标，创建一个webhook机器人
+
+```python
+import requests
+import json
+
+url = '您机器人的webhook地址'
+headers = {'Content-Type': 'application/json; charset=UTF-8'}
+data = {
+    "msgtype": "text",
+    "text": {
+        "content": "好好学习天天向上 我就是我, 是不一样的烟火@156xxxx8827"
+    },
+    "at": {  # @xxxxx
+        "atMobiles": [
+
+        ],
+        "isAtAll": False   # 是否@所有人
+    }
+}
+
+r = requests.post(url, headers=headers, data=json.dumps(data))
+print(r.json())
+```
+
+
 
 ### 图灵机器人
 
