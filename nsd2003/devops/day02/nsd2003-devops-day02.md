@@ -117,14 +117,24 @@ if __name__ == '__main__':
 >>> r.text
 ```
 
-
-
 - request.post发送数据时，使用data完成
 
 ### 使用阿里云开发者平台
 
 - http://www.aliyun.com -> 云市场 -> api市场
 - 查天气：搜索天气，找到“杭州网尚科技” -> 0元购买 -> 管理控制台
+
+```python
+>>> url = 'http://jisutqybmf.market.alicloudapi.com/weather/query'
+>>> headers = {'Content-Type': 'application/json; charset=UTF-8', 'Authorization': 'APPCODE 你管理后台中查询到的appcode'}
+>>> params = {'citycode': '101010100'}
+>>> r = requests.get(url, headers=headers, params=params)
+>>> data = r.json()
+>>> import pprint
+>>> pprint.pprint(data)
+```
+
+
 
 ### 使用钉钉机器人
 
