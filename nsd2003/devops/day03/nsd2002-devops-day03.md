@@ -218,8 +218,6 @@ Vault password:
 [root@localhost myansible]# cat /tmp/hosts  # 已是明文
 ```
 
-
-
 ### ansible-cmdb插件
 
 - 用于将通过setup收集到的远程主机信息，生成web页面
