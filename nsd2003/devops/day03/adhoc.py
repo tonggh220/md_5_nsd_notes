@@ -12,8 +12,8 @@ import ansible.constants as C
 Options = namedtuple('Options', ['connection', 'module_path', 'forks', 'become', 'become_method', 'become_user', 'check', 'diff'])
 options = Options(connection='ssh', module_path=['/to/mymodules'], forks=10, become=None, become_method=None, become_user=None, check=False, diff=False)
 
-# initialize needed objects
-loader = DataLoader() # Takes care of finding and reading yaml, json and ini files
+# Dataloader负责查找读取ini/yaml/json格式的文件，并将其转换为python的数据类型
+loader = DataLoader()
 passwords = dict(vault_pass='secret')
 
 # create inventory, use path to host config file as source or hosts in a comma separated string

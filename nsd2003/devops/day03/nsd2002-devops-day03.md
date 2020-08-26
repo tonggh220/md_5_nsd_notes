@@ -203,6 +203,23 @@ SSH password:
 ]
 ```
 
+- vault password
+
+```shell
+[root@localhost myansible]# cp /etc/hosts /tmp/
+# 加密
+[root@localhost myansible]# ansible-vault encrypt /tmp/hosts 
+New Vault password: 
+Confirm New Vault password: 
+[root@localhost myansible]# cat /tmp/hosts  # 已是密文
+# 解密
+[root@localhost myansible]# ansible-vault decrypt /tmp/hosts
+Vault password: 
+[root@localhost myansible]# cat /tmp/hosts  # 已是明文
+```
+
+
+
 ### ansible-cmdb插件
 
 - 用于将通过setup收集到的远程主机信息，生成web页面
