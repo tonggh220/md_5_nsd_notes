@@ -1,0 +1,12 @@
+---
+- name: shell command
+  hosts: webservers
+  tasks:
+    - name: list content
+      shell:
+        ls
+      register: shell_out
+
+    - name: display result
+      debug:
+        msg: '{{shell_out.stdout}}'

@@ -1,0 +1,13 @@
+---
+- name: manage user
+  hosts: webservers
+  tasks:
+    - name: create user
+      user:
+        name: tom
+        state: present
+      register: shell_out
+
+    - name: display result
+      debug:
+        msg: '{{shell_out}}'
