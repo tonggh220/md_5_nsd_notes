@@ -303,3 +303,4 @@ if __name__ == '__main__':
 
 ```
 
+提前准备jenkins: https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat-stable/jenkins-2.235.1-1.1.noarch.rpm
