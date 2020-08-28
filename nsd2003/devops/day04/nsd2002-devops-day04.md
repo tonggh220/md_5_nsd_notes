@@ -114,7 +114,7 @@ mytest
 [root@dev myweb]# git commit -m "project init"
 
 # 修改文件
-[root@dev myweb]# echo '2nd line' > readme.md 
+[root@dev myweb]# echo '2nd line' >> readme.md 
 [root@dev myweb]# git status
 # 位于分支 master
 # 尚未暂存以备提交的变更：
