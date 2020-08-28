@@ -294,11 +294,12 @@ plan.txt
 [root@dev myweb]# git commit -m "add hosts"
 [root@dev myweb]# ls
 hosts  plan.txt
+
 # 合并b1分支到master
-[root@dev myweb]# ls
-plan.txt
 [root@dev myweb]# git checkout master
 切换到分支 'master'
+[root@dev myweb]# ls
+plan.txt
 [root@dev myweb]# git merge b1 -m "merge b1 to master"
 [root@dev myweb]# ls
 hosts  plan.txt
