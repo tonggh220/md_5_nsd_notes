@@ -168,6 +168,38 @@ ebooks  nsd1912  nsd2003  README.en.md  README.md  review
 [root@localhost nsd2020]# du -sh .
 30M	.
 
+# 撤出暂存区
+[root@dev myweb]# echo '3rd line.' >> readme.md 
+[root@dev myweb]# git add .
+[root@dev myweb]# git status
+# 位于分支 master
+# 要提交的变更：
+#   （使用 "git reset HEAD <file>..." 撤出暂存区）
+#
+#	修改：      readme.md
+#
+####### 此时，发现readme.md没有修改完，需要继续修改#####
+[root@dev myweb]# git reset HEAD readme.md
+重置后撤出暂存区的变更：
+M	readme.md
+[root@dev myweb]# git status
+# 位于分支 master
+# 尚未暂存以备提交的变更：
+#   （使用 "git add <file>..." 更新要提交的内容）
+#   （使用 "git checkout -- <file>..." 丢弃工作区的改动）
+#
+#	修改：      readme.md
+#
+修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
+[root@dev myweb]# cat readme.md   # 新增加的行仍然在
+Hello World!
+2nd line
+3rd line.
+[root@dev myweb]# echo '4th line.' >> readme.md 
+[root@dev myweb]# git add .
+[root@dev myweb]# git commit -m "add lines to readme.md"
+
+
 # 在git操作中，没有单独的复制，因为复制就是在工作区增加了一个文件
 # 移动/改名
 [root@dev myweb]# git mv readme.md readme
