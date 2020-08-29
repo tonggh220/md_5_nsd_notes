@@ -240,6 +240,7 @@ def has_new_ver(ver_url, ver_fname):
 
 def file_ok(md5url, app_fname):
     "判断文件是否完好，完好返回True，否则为False"
+    # 计算本地文件md5值
     m = hashlib.md5()
     with open(app_fname, 'rb') as fobj:
         while 1:
