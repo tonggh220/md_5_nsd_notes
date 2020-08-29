@@ -4,6 +4,19 @@ import os
 
 def has_new_ver(ver_url, ver_fname):
     "判断是否有新版本，有返回True，否则为False"
+    # 本地不存在版本文件，则有新版本
+    if not os.path.exists(ver_fname):
+        return True
+
+    # 如果本地版本和网上版本不一样，则有新版本
+    with open(ver_fname) as fobj:
+        local_ver = fobj.read()
+
+    r = requests.get(ver_url)
+    if local_ver != r.text:
+        return True
+    else:
+        return False
 
 def file_ok(md5url, app_fname):
     "判断文件是否完好，完好返回True，否则为False"
@@ -33,10 +46,12 @@ if __name__ == '__main__':
         os.remove(app_fname)
         exit(2)
 
-
     # 部署软件
     deploy_dir = '/var/www/deploy'
     dest = '/var/www/html/nsd2003'
     deploy(app_fname, deploy_dir, dest)
 
     # 更新live_ver文件
+    if os.path.exists(ver_fname):
+        os.remove(ver_fname)
+    wget.download(ver_url, ver_fname)
