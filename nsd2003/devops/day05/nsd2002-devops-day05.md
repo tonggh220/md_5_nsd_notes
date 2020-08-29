@@ -288,7 +288,7 @@ if __name__ == '__main__':
 
     # 判断文件是否完好，如果损坏则删除它
     md5url = app_url + '.md5'
-    app_fname = os.path.basename(app_url)
+    app_fname = app_url.split('/')[-1]
     app_fname = os.path.join(download_dir, app_fname)
     if not file_ok(md5url, app_fname):
         os.remove(app_fname)
