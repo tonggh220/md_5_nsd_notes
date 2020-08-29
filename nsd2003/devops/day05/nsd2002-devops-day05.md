@@ -42,7 +42,7 @@ java-1.8.0-openjdk-1.8.0.161-2.b14.el7.x86_64
 
 ```shell
 [root@localhost ~]# ls /var/lib/jenkins/updates/default.json 
-[root@localhost ~]# sed -i 's/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g' /var/lib/jenkins/updates/default.json && sed -i 's/http:\/\/www.google.com/https:\/\/www.baidu.com/g' /var/lib/jenkins/updates/default.json
+[root@localhost ~]# sed -i 's/https:\/\/updates.jenkins.io\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g' /var/lib/jenkins/updates/default.json && sed -i 's/http:\/\/www.google.com/https:\/\/www.baidu.com/g' /var/lib/jenkins/updates/default.json
 [root@localhost ~]# systemctl restart jenkins
 ```
 
