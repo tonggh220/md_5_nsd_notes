@@ -140,44 +140,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>nav</title>
+    <title>my css4</title>
     <style>
         .container {
-            width: 1280px;
+            width: 1200px;
             margin: 0 auto;
         }
+        .images {
+            width: 400px;
+            float: left;
+        }
+        img {
+            width: 100%;
+        }
         ul {
-            list-style-type: none;  /*去掉项目标号*/
-            margin: 0;
-            padding: 0;
+            list-style-type: none;   /*取消项目标号*/
+            padding: 0;   /*删除内边距*/
         }
         li {
-            float: left;  /*所有li左浮动，在一行显示*/
-            width: 213px;
+            float: left;
+        }
+        .empty {
+            clear: both;   /*清除浮动*/
+        }
+        a {
+            font-size: 20px;
+            text-decoration: none;   /*清除下划线*/
+            width: 200px;
+            display: block;
+            height: 50px;
             background-color: #BEBEBE;
-            height: 30px;
-            text-align: center;
-            line-height: 30px;
             border-bottom: 2px solid #900B09;
+            text-align: center;
+            line-height: 50px;
             color: white;
         }
-        li:hover {
+        a:hover {
             background-color: #900B09;
-            cursor: pointer;  /*鼠标为手型*/
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="nav">
+    <div class="row">
         <ul>
-            <li>Python</li>
-            <li>html</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Shell</li>
-            <li>Linux</li>
+            <li><a href="#">linux</a></li>
+            <li><a href="#">network</a></li>
+            <li><a href="#">python</a></li>
+            <li><a href="#">html</a></li>
+            <li><a href="#">css</a></li>
+            <li><a href="#">javascript</a></li>
         </ul>
+    </div>
+    <div class="empty"></div>
+    <div class="row">
+        <div class="images">
+            <img src="http://pic1.win4000.com/wallpaper/1/5877373858107.jpg">
+        </div>
+        <div class="images">
+            <img src="http://pic1.win4000.com/wallpaper/6/587322853ba7a.jpg">
+        </div>
+        <div class="images">
+            <img src="http://pic1.win4000.com/wallpaper/6/5873228856272.jpg">
+        </div>
     </div>
 </div>
 </body>
