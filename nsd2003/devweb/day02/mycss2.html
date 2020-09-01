@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .c1 {
+            width: 300px;   /*宽度300px*/
+            border: 1px solid purple;  /*1px紫边框*/
+        }
+        .c2 {
+            width: 100%;    /*占据所在元素的全部空间*/
+            visibility: hidden;  /*隐藏*/
+        }
+        .c1:hover .c2 {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+<div class="c1">
+    <img src="http://pic1.win4000.com/wallpaper/a/5870bc412f3be.jpg" class="c2">
+</div>
+</body>
+</html>
