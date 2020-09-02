@@ -80,6 +80,7 @@ DATABASES = {
 }
 LANGUAGE_CODE = 'zh-hans'   # 修改语言
 TIME_ZONE = 'Asia/Shanghai'
+USE_TZ = False
 
 # 启动开发服务器
 [root@localhost mysite]# python3 manage.py runserver
@@ -127,6 +128,28 @@ INSTALLED_APPS = [
     ... ...
     'polls',
 ]
+```
+
+### 启动示例
+
+- 拷贝前一班级的项目到/tmp/目录，并启动
+
+```python
+[root@localhost ~]# cp -r nsd2020/nsd2002/devweb/day0304/mysite/ /tmp
+# 创建数据库
+MariaDB [dj2003]> CREATE DATABASE dj2002 DEFAULT CHARSET utf8mb4;
+[root@localhost ~]# cd /tmp/mysite/
+[root@localhost mysite]# python3 manage.py migrate
+[root@localhost mysite]# python3 manage.py createsuperuser
+用户名 (leave blank to use 'root'): admin
+电子邮件地址: admin@tedu.cn
+Password: 
+Password (again): 
+Superuser created successfully.
+# 启动开发服务器，监听在0.0.0.0:9000
+[root@localhost mysite]# python3 manage.py runserver 0:9000
+# 访问http://127.0.0.1:9000/admin添加问题和选项
+# 访问http://127.0.0.1:9000/polls/
 ```
 
 ### 应用规划
