@@ -325,9 +325,9 @@ class Question(models.Model):
 MariaDB [dj2003]> show tables;
 | polls_question             |
 # 分析表结构
-# 1. 没有明确声明主键，django自动创建一个名为id的主键
+# 1. 没有明确声明主键，django自动创建一个名为id的主键，且自动增长
 # 2. 类变量成为了字段名
-# 3. CharField对应varchar；DateTimeField对应datetie类型
+# 3. CharField对应varchar；DateTimeField对应datetime类型
 MariaDB [dj2003]> desc polls_question;
 +---------------+--------------+------+-----+---------+----------------+
 | Field         | Type         | Null | Key | Default | Extra          |
