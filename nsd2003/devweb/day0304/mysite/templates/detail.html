@@ -3,7 +3,7 @@
 {% block content %}
     <h1 class="text-center text-warning">{{ question.id }}号问题投票详情</h1>
     <h2>{{ question.question_text }}</h2>
-    <form action="" class="h4" method="post">
+    <form action="{% url 'vote' question.id %}" class="h4" method="post">
         {% csrf_token %}
         {% for choice in question.choice_set.all %}
             <div class="radio">
