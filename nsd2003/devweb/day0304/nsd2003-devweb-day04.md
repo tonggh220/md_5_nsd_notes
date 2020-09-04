@@ -57,6 +57,10 @@
 
 # 查询所有问题，返回所有问题实例构成的查询集。查询集与列表类似，支持下标操作、循环遍历。
 >>> qset1 = Question.objects.all()
+>>> len(qset1)
+4
+>>> qset1[0]
+>>> qset1[:2]
 >>> for q in qset1:
 ...   print(q.question_text, q.pub_date)
 
