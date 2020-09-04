@@ -259,7 +259,7 @@ def index(request):
         </ol>
     </div>
     <div class="row h4 text-center">
-        tedu cloud computing &copy; <a href="#">NSD2003</a>
+        达内云计算学院 &copy; <a href="#">达内科技</a>
     </div>
 </div>
 
