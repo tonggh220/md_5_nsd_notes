@@ -218,11 +218,11 @@ def index(request):
 <body>
 <div class="container">
     <div class="row">
-        <div id="linux-carousel" class="carousel slide">
+        <div id="tedu-nsd" class="carousel slide">
             <ol class="carousel-indicators">
-                <li class="active" data-target="#linux-carousel" data-slide-to="0"></li>
-                <li data-target="#linux-carousel" data-slide-to="1"></li>
-                <li data-target="#linux-carousel" data-slide-to="2"></li>
+                <li class="active" data-target="#tedu-nsd" data-slide-to="0"></li>
+                <li data-target="#tedu-nsd" data-slide-to="1"></li>
+                <li data-target="#tedu-nsd" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
                 <div class="item active">
@@ -237,10 +237,10 @@ def index(request):
                     <img src="{% static 'imgs/third.jpg' %}">
                 </div>
             </div>
-            <a href="#linux-carousel" data-slide="prev" class="carousel-control left">
+            <a href="#tedu-nsd" data-slide="prev" class="carousel-control left">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
-            <a href="#linux-carousel" data-slide="next" class="carousel-control right">
+            <a href="#tedu-nsd" data-slide="next" class="carousel-control right">
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
         </div>
@@ -266,7 +266,7 @@ def index(request):
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script type="text/javascript">
-    $('#linux-carousel').carousel({
+    $('#tedu-nsd').carousel({
         interval : 3000
     });
 </script>
@@ -297,11 +297,11 @@ def index(request):
 <body>
 <div class="container">
     <div class="row">
-        <div id="linux-carousel" class="carousel slide">
+        <div id="tedu-nsd" class="carousel slide">
             <ol class="carousel-indicators">
-                <li class="active" data-target="#linux-carousel" data-slide-to="0"></li>
-                <li data-target="#linux-carousel" data-slide-to="1"></li>
-                <li data-target="#linux-carousel" data-slide-to="2"></li>
+                <li class="active" data-target="#tedu-nsd" data-slide-to="0"></li>
+                <li data-target="#tedu-nsd" data-slide-to="1"></li>
+                <li data-target="#tedu-nsd" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
                 <div class="item active">
@@ -316,10 +316,10 @@ def index(request):
                     <img src="{% static 'imgs/third.jpg' %}">
                 </div>
             </div>
-            <a href="#linux-carousel" data-slide="prev" class="carousel-control left">
+            <a href="#tedu-nsd" data-slide="prev" class="carousel-control left">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
-            <a href="#linux-carousel" data-slide="next" class="carousel-control right">
+            <a href="#tedu-nsd" data-slide="next" class="carousel-control right">
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
         </div>
@@ -335,7 +335,7 @@ def index(request):
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script type="text/javascript">
-    $('#linux-carousel').carousel({
+    $('#tedu-nsd').carousel({
         interval : 3000
     });
 </script>
