@@ -114,6 +114,12 @@ polls.models.Question.MultipleObjectsReturned: get() returned more than one Ques
 >>> Question.objects.filter(question_text__startswith='散伙饭')
 # 关键字以某些字符结尾
 >>> Question.objects.filter(question_text__endswith='?')
+# 查找9月的问题
+>>> Question.objects.filter(pub_date__month=9)
+# 查找9月1号的问题
+>>> Question.objects.filter(pub_date__month=9, pub_date__day=1)
+>>> for q in Question.objects.filter(pub_date__month=9, pub_date__day=1):
+...   print(q.question_text, q.pub_date)
 
 # 更新，只要对实例重新赋值即可
 >>> q1 = Question.objects.get(question_text__contains='工资')
