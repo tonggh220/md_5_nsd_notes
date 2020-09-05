@@ -33,13 +33,13 @@ MariaDB [(none)]> CREATE DATABASE myansible DEFAULT CHARSET utf8mb4;
 
 ```shell
 [root@localhost myansible]# mysql -uroot -ptedu.cn
-MariaDB [(none)]> CREATE DATABASE myansible DEFAULT CHARSET utf8mb4;
+MariaDB [(none)]> CREATE DATABASE myansible2 DEFAULT CHARSET utf8mb4;
 # myansible/settings.py
 ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'myansible',
+        'NAME': 'myansible2',
         'USER': 'root',
         'PASSWORD': 'tedu.cn',
         'HOST': '127.0.0.1',
