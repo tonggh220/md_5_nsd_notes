@@ -388,12 +388,6 @@ def add_hosts(request):
 {% endblock %}
 # 修改templates/index/index.html中添加主机的超链接
         <a href="{% url 'add_hosts' %}" target="_blank">
-
 ```
-
-
-
-
-
 
 
