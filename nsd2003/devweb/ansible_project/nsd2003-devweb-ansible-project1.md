@@ -321,6 +321,10 @@ def index(request):
     <img src="{% static 'imgs/linux.jpg' %}" width="150px"><br>
     主机信息
 </a>
+
+# 附：如果网页显示因为访问不到jquery导致问题，可以更改jquery的链接
+# templates/webadmin/index.html
+# 将src="https://code.jquery.com/jquery-1.10.2.min.js"改为src="http://cdn.tmooc.cn/tmooc-web/js/jquery-2.1.1.js"
 ```
 
 ### 添加主机页
