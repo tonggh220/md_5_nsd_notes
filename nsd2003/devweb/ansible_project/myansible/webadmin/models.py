@@ -5,7 +5,7 @@ class HostGroup(models.Model):
 
     def __str__(self):
         return self.groupname
-    
+
 class Host(models.Model):
     hostname = models.CharField('主机', max_length=50)
     ip_addr = models.CharField('IP地址', max_length=15)
