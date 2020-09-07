@@ -35,18 +35,26 @@
         <table class="table table-bordered table-hover table-striped">
             <thead class="bg-primary">
                 <tr>
-                    <th>主机组</th>
-                    <th>主机</th>
+                    <th>模块</th>
+                    <th>参数</th>
                 </tr>
             </thead>
             <tbody>
-                {% for group in groups %}
+                {% for module in modules %}
                     <tr>
-                        <td>{{ group.groupname }}</td>
                         <td>
-                            {% for host in group.host_set.all %}
-                                <div>
-                                    {{ host.hostname }}:{{ host.ip_addr }}
+                            <label>
+                                <input type="radio" name="module" value="{{ module.modulename }}">
+                                {{ module.modulename }}
+                            </label>
+                        </td>
+                        <td>
+                            {% for arg in module.argument_set.all %}
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="param" value="{{ arg.arg_text }}">
+                                        {{ arg.arg_text }}
+                                    </label>
                                 </div>
                             {% endfor %}
                         </td>
