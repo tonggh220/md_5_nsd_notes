@@ -7,7 +7,9 @@
         </li>
         <li><a href="#servers" data-toggle="tab">主机组</a></li>
     </ul>
-    <div class="tab-content">
+    <form action="{% url 'tasks' %}" method="post">
+        {% csrf_token %}
+        <div class="tab-content">
         <div class="tab-pane active fade in" id="server">
             主机
         </div>
@@ -15,26 +17,31 @@
             主机组
         </div>
     </div>
-    <table class="table table-bordered table-hover table-striped">
-    <thead class="bg-primary">
-        <tr>
-            <th>主机组</th>
-            <th>主机</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for group in groups %}
-            <tr>
-                <td>{{ group.groupname }}</td>
-                <td>
-                    {% for host in group.host_set.all %}
-                        <div>
-                            {{ host.hostname }}:{{ host.ip_addr }}
-                        </div>
-                    {% endfor %}
-                </td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="bg-primary">
+                <tr>
+                    <th>主机组</th>
+                    <th>主机</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for group in groups %}
+                    <tr>
+                        <td>{{ group.groupname }}</td>
+                        <td>
+                            {% for host in group.host_set.all %}
+                                <div>
+                                    {{ host.hostname }}:{{ host.ip_addr }}
+                                </div>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="form-group text-center">
+            <input class="btn btn-primary" type="submit" value="执 行">
+            <input class="btn btn-primary" type="reset" value="重 置">
+        </div>
+    </form>
 {% endblock %}
