@@ -27,8 +27,11 @@
                     <td>{{ module.modulename }}</td>
                     <td>
                         {% for arg in module.argument_set.all %}
-                            <div>
+                            <div class="col-sm-7">
                                 {{ arg.arg_text }}
+                            </div>
+                            <div class="col-sm-5">
+                                <a href="{% url 'del_arg' arg.id %}" class="btn btn-danger btn-xs">delete</a>
                             </div>
                         {% endfor %}
                     </td>
