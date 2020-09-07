@@ -339,7 +339,7 @@ yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.r
 # 访问http://127.0.0.1/测试，此时可以访问，但是静态文件没有加载
 
 # 收集静态文件
-[root@localhost ~]# mkdir /opt/myansible/myansible_static/static
+[root@localhost ~]# mkdir -p /opt/myansible/myansible_static/static
 [root@localhost ~]# vim /opt/myansible/myansible/settings.py  尾部追加
 STATIC_ROOT = os.path.join(BASE_DIR, "myansible_static/static")
 [root@localhost ~]# cd /opt/myansible/
