@@ -27,3 +27,6 @@ def add_modules(request):
                 m.argument_set.get_or_create(arg_text=param)
     modules = Module.objects.all()
     return render(request, 'webadmin/add_modules.html', {'modules': modules})
+
+def tasks(request):
+    return render(request, 'webadmin/tasks.html')
