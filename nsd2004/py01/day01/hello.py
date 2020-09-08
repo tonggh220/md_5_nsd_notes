@@ -1,9 +1,16 @@
-print('Hello World!')
+# print('Hello World!')
+#
+# if 3 > 0:
+#     print('yes')
+#
+# s1 = 'abcdefghijklmnopqrstuvwxyz' + \
+#     '0123456789'
+#
+# print(s1)
 
-if 3 > 0:
-    print('yes')
+user = input('username: ')
+print(user)
 
-s1 = 'abcdefghijklmnopqrstuvwxyz' + \
-    '0123456789'
 
-print(s1)
+
+
