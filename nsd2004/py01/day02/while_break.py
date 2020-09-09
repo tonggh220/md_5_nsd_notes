@@ -5,6 +5,7 @@ result = random.randint(1, 100)
 i = 0
 
 while i < 7:
+    i += 1
     answer = int(input('guess the number: '))
     if answer > result:
         print('猜大了')
