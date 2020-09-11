@@ -1,4 +1,4 @@
 import star
 
-print(star.hi)
-star.pstar()
+# print(star.hi)
+# star.pstar()
