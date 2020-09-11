@@ -14,7 +14,12 @@
 #     print()  # 默认结尾打印回车
 
 # 第1行打印1个hello，第2行2个，第3行3个，第i行i个
-for i in range(1, 4):
+# for i in range(1, 4):
+#     for j in range(1, i + 1):
+#         print('Hello', end='\t')
+#     print()  # 默认结尾打印回车
+
+for i in range(1, 10):
     for j in range(1, i + 1):
-        print('Hello', end='\t')
-    print()  # 默认结尾打印回车
+        print('%sx%s=%s' % (j, i, i * j), end='\t')
+    print()
