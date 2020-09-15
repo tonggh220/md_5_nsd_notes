@@ -35,6 +35,33 @@
 #     print('\nBye-bye')
 
 
+# try:
+#     n = int(input('number: '))
+#     result = 100 / n
+# except (ValueError, ZeroDivisionError) as e:
+#     print('请输入非0数字:', e)
+# except (KeyboardInterrupt, EOFError):
+#     print('\nBye-bye')
+# else:
+#     print(result)
+#
+# print('Done')
+
+
+# try:
+#     n = int(input('number: '))
+#     result = 100 / n
+# except (ValueError, ZeroDivisionError) as e:
+#     print('请输入非0数字:', e)
+# except (KeyboardInterrupt, EOFError):
+#     print('\nBye-bye')
+#     exit(1)
+# else:
+#     print(result)
+#
+# print('Done')
+
+
 try:
     n = int(input('number: '))
     result = 100 / n
@@ -42,7 +69,8 @@ except (ValueError, ZeroDivisionError) as e:
     print('请输入非0数字:', e)
 except (KeyboardInterrupt, EOFError):
     print('\nBye-bye')
+    exit(1)
 else:
     print(result)
-
-print('Done')
+finally:
+    print('Done')
