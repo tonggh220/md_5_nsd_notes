@@ -4,6 +4,17 @@ from time import strftime
 
 def save(fname):
     "用于记录收入"
+    date = strftime('%Y-%m-%d')
+    amount = int(input('金额: '))
+    comment = input('备注: ')
+    # 在文件中取出全部的收支记录
+    with open(fname, 'rb') as fobj:
+        records = pickle.load(fobj)
+    balance = records[-1][-2] + amount  # 计算最新余额
+    record = [date, amount, 0, balance, comment]  # 构建最新一笔记录
+    records.append(record)
+    with open(fname, 'wb') as fobj:
+        pickle.dump(records, fobj)
 
 def cost(fname):
     "用于记录开销"
