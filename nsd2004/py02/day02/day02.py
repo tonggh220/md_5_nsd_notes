@@ -33,10 +33,3 @@ if __name__ == '__main__':
     print(list(result1))
     result2 = map(lambda x: 100 + x, nums)
     print(list(result2))
-
-
-
-
-
-
-
