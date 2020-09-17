@@ -26,6 +26,6 @@ if __name__ == '__main__':
     print(ji.wname, ji.type, ji.strength)
     # 实例本身将会自动作为第一个参数传递，本例中是lb
     lb = Role('吕布', ji)  # 实例化，创建具体的对象
-    # print(lb.name, lb.weapon)
+    print(lb.name, lb.weapon.wname, lb.weapon.type, lb.weapon.strength)
     # lb.show_me()
     # lb.speak('马中赤兔，人中吕布')
