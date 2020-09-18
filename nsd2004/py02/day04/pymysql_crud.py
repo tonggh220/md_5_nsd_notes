@@ -1,3 +1,4 @@
+# Create / Retrieve / Update / Delete
 import pymysql
 
 # 创建到数据库的连接
@@ -13,13 +14,13 @@ conn = pymysql.connect(
 cur = conn.cursor()
 
 # 编写sql语句
-create_dep = """CREATE TABLE departments(
-id INT, dep_name VARCHAR (20),
-PRIMARY KEY(id)
-)"""
+insert1 = "INSERT INTO departments VALUES(%s, %s)"
 
-# 执行sql语句
-cur.execute(create_dep)
+# 插入一行数据
+cur.execute(insert1, (1, '人事部'))
+# 插入多行数据
+cur.executemany(insert1, [(2, '运维部'), (3, '开发部'), (4, '测试部'), (5, '财务部')])
+
 
 # 确认
 conn.commit()
