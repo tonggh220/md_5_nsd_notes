@@ -17,10 +17,21 @@ cur = conn.cursor()
 insert1 = "INSERT INTO departments VALUES(%s, %s)"
 
 # 插入一行数据
-cur.execute(insert1, (1, '人事部'))
+# cur.execute(insert1, (1, '人事部'))
 # 插入多行数据
-cur.executemany(insert1, [(2, '运维部'), (3, '开发部'), (4, '测试部'), (5, '财务部')])
-
+# cur.executemany(insert1, [(2, '运维部'), (3, '开发部'), (4, '测试部'), (5, '财务部')])
+##########################################
+# 查询
+select1 = "SELECT id, dep_name FROM departments"
+cur.execute(select1)
+result1 = cur.fetchone()  # 取出一行数据
+result2 = cur.fetchmany(2)  # 继续取出2行数据
+result3 = cur.fetchall()  # 继续取出剩余全部数据
+print(result1)
+print('*' * 30)
+print(result2)
+print('*' * 30)
+print(result3)
 
 # 确认
 conn.commit()
