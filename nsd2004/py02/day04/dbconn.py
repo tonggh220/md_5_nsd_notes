@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
 # 创建连接数据库的引擎
 engine = create_engine(
@@ -8,6 +9,7 @@ engine = create_engine(
     encoding='utf8',
     # echo=True  # 在屏幕上输出调试信息，生产环境不要打开
 )
+Session = sessionmaker(bind=engine)  # 创建到数据库的会话连接类
 Base = declarative_base()  # 生成映射类的基类
 
 # 声明映射类
