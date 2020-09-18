@@ -65,10 +65,20 @@ session = Session()
 #     print(dep.id, dep.dep_name)
 
 # 降序排列
-qset4 = session.query(Department).order_by(-Department.id)
-for dep in qset4:
-    print(dep.id, dep.dep_name)
-
+# qset4 = session.query(Department).order_by(-Department.id)
+# for dep in qset4:
+#     print(dep.id, dep.dep_name)
+##################################################
+# 过滤
+# qset5 = session.query(Department).filter(Department.id>=3, Department.id<=5)
+# for dep in qset5:
+#     print(dep.id, dep.dep_name)
+##################################################
+# 模糊查询
+qset6 = session.query(Employee.emp_name, Employee.email)\
+    .filter(Employee.email.like('%@tedu.cn'))
+for data in qset6:
+    print(data)
 
 ##################################################
 # 确认
