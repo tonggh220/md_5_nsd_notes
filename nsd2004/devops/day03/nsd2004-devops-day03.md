@@ -238,6 +238,13 @@ Vault password:
 PY_BIN=$(which python3)  # 第8行改为python3
 [root@localhost myansible]# ansible-cmdb /tmp/out/ > /tmp/hosts.html
 [root@localhost myansible]# firefox /tmp/hosts.html
+注：如果网页按钮无法正常使用，则
+[root@localhost myansible]# vim /tmp/hosts.html  # 修改
+找到以下内容：
+      <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+改为：
+      <script type="text/javascript" charset="utf8" src="http://cdn.tmooc.cn/tmooc-web/js/jquery-2.1.1.js"></script>
+... ...
 ```
 
 ## 编写模块
