@@ -11,7 +11,7 @@ import ansible.constants as C
 # smart表示智能判断，通常也是ssh
 Options = namedtuple('Options',
                      ['connection', 'module_path', 'forks', 'become', 'become_method', 'become_user', 'check', 'diff'])
-options = Options(connection='local', module_path=['/to/mymodules'], forks=10, become=None, become_method=None,
+options = Options(connection='ssh', module_path=['/to/mymodules'], forks=10, become=None, become_method=None,
                   become_user=None, check=False, diff=False)
 
 # Dataloader负责读取yaml/ini/json格式的文件，并将其转换成python能够识别的形式
@@ -28,19 +28,19 @@ variable_manager = VariableManager(loader=loader, inventory=inventory)
 # 创建代表我们的工作（包括任务）的数据结构，这基本上是我们的YAML加载程序在内部执行的操作。
 play_source = dict(
     name="Ansible Play",
-    hosts='dbservers',  # 在哪些主机上执行任务
+    hosts='webservers',  # 在哪些主机上执行任务
     gather_facts='no',
     tasks=[
-        dict(action=dict(module='shell', args='ls'), register='shell_out'),
+        dict(action=dict(module='user', args='name=tom state=present'), register='shell_out'),
         dict(action=dict(module='debug', args=dict(msg='{{shell_out.stdout}}')))
     ]
 )
 
-# Create play object, playbook objects use .load instead of init or new methods,
-# this will also automatically create the task objects from the info provided in play_source
+# 创建播放对象，剧本对象使用.load代替init或新方法，
+# 这还将根据play_source中提供的信息自动创建任务对象
 play = Play().load(play_source, variable_manager=variable_manager, loader=loader)
 
-# Run it - instantiate task queue manager, which takes care of forking and setting up all objects to iterate over host list and tasks
+# 运行它-实例化任务队列管理器，它负责分叉和设置所有对象以遍历主机列表和任务
 tqm = None
 try:
     tqm = TaskQueueManager(
