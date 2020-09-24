@@ -32,7 +32,7 @@ play_source = dict(
     gather_facts='no',
     tasks=[
         dict(action=dict(module='user', args='name=tom state=present'), register='shell_out'),
-        dict(action=dict(module='debug', args=dict(msg='{{shell_out.stdout}}')))
+        dict(action=dict(module='debug', args=dict(msg='{{shell_out}}')))
     ]
 )
 
