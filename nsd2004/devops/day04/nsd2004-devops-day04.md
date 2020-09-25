@@ -23,7 +23,7 @@ dev--提交-->ops(运维部)
 
 ```mermaid
 graph LR
-dev(程序员)--提交-->scm(git)
+dev(程序员)--提交-->scm(git服务器)
 jenkins(jenkins)--克隆-->scm
 app1(应用服务器)--下载-->jenkins
 app2(应用服务器)--下载-->jenkins
@@ -154,7 +154,7 @@ Hello World
 # 发送方
 [root@localhost ~]# cp -r nsd2020/ /tmp/
 [root@localhost tmp]# du -sh nsd2020/
-31M	nsd2020/
+47M	nsd2020/
 [root@localhost tmp]# cd nsd2020/
 [root@localhost nsd2020]# ls
 ebooks  nsd1912  nsd2003  README.en.md  README.md  review
@@ -166,7 +166,7 @@ ebooks  nsd1912  nsd2003  README.en.md  README.md  review
 [root@localhost nsd2020]# ls
 ebooks  nsd1912  nsd2003  README.en.md  README.md  review
 [root@localhost nsd2020]# du -sh .
-30M	.
+46M	.
 
 # 撤出暂存区
 [root@dev myweb]# echo '3rd line.' >> readme.md 
