@@ -165,7 +165,7 @@ myweb-1.0  myweb-2.0
 [root@localhost ~]# chown -R jenkins:jenkins /var/www/html/deploy/
 ```
 
-- myweb2项目 -> 配置 -> 构建 -> 增加构建项目 -> Execute shell
+- myweb2项目 -> 配置 -> 构建 -> 增加构建步骤 -> Execute shell
 
 ```shell
 pkgs_dir=/var/www/html/deploy/pkgs
