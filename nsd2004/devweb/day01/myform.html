@@ -7,8 +7,15 @@
 <body>
 <form action="">
     <div>列表不属于哪种数据类型？</div>
-    <p><input type="radio" name="q1" value="A"> A. 序列</p>
-    <p><input type="radio" name="q1" value="B"> B. 可变</p>
+    <p>
+        <label>
+            <input type="radio" name="q1" value="A"> A. 序列
+        </label>
+    </p>
+    <p>
+        <input id="q1b" type="radio" name="q1" value="B">
+        <label for="q1b"> B. 可变</label>
+    </p>
     <p><input type="radio" name="q1" value="C"> C. 标量</p>
     <p><input type="submit" value="提 交"></p>
 </form>
