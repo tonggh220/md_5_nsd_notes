@@ -14,19 +14,44 @@
         .c1 {
             color: purple;
         }
+        p.c2 {
+            background-color: gray;
+        }
+        div .c1 {
+            font-style: italic;
+        }
+        #id1 {
+            font-weight: bold;
+        }
+        .c2, #id1 {
+            text-align: right;
+        }
+        a:link {     /*访问前*/
+            text-decoration: none;
+        }
+        a:visited {   /*访问后*/
+            color: gray;
+        }
+        a:hover {     /*鼠标悬停*/
+            font-size: 1.3em;   /*字体大小为原来的1.3倍*/
+        }
     </style>
 </head>
 <body>
 <h1>达内云计算 cloud computing</h1>
 <hr>
+<div>
+    <a href="http://www.redhat.com" target="_blank">redhat</a>
+</div>
+<hr>
 <div class="c1">达内云计算 cloud computing</div>
-<div>达内云计算 cloud computing</div>
+<div class="c2">达内云计算 cloud computing</div>
 <div>达内云计算 <span class="c1">cloud computing</span></div>
+<div id="id1">达内云计算 cloud computing</div>
 <div>达内云计算 cloud computing</div>
-<div>达内云计算 cloud computing</div>
-<p>达内云计算 cloud computing</p>
+<p class="c2">达内云计算 cloud computing</p>
 <p class="c1">达内云计算 cloud computing</p>
-<p>达内云计算 cloud computing</p>
+<p>达内云计算 <span class="c1">cloud computing</span></p>
 <p>达内云计算 cloud computing</p>
 <p>达内云计算 cloud computing</p>
 </body>
