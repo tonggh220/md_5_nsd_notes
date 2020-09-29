@@ -140,39 +140,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>my css4</title>
+    <title>nav</title>
     <style>
         .container {
             width: 1200px;
             margin: 0 auto;
         }
-        .images {
-            width: 400px;
-            float: left;
-        }
-        img {
-            width: 100%;
-        }
         ul {
-            list-style-type: none;   /*取消项目标号*/
-            padding: 0;   /*删除内边距*/
+            list-style-type: none;
+            padding: 0;
         }
         li {
             float: left;
         }
-        .empty {
-            clear: both;   /*清除浮动*/
-        }
         a {
             font-size: 20px;
-            text-decoration: none;   /*清除下划线*/
             width: 200px;
             display: block;
-            height: 50px;
+            text-decoration: none;
             background-color: #BEBEBE;
-            border-bottom: 2px solid #900B09;
-            text-align: center;
+            height: 50px;
             line-height: 50px;
+            text-align: center;
+            border-bottom: 2px solid #900B09;
             color: white;
         }
         a:hover {
@@ -182,27 +172,15 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
+    <div class="nav">
         <ul>
-            <li><a href="#">linux</a></li>
-            <li><a href="#">network</a></li>
-            <li><a href="#">python</a></li>
-            <li><a href="#">html</a></li>
-            <li><a href="#">css</a></li>
-            <li><a href="#">javascript</a></li>
+            <li><a href="#">LINUX</a></li>
+            <li><a href="#">NETWORK</a></li>
+            <li><a href="#">PYTHON</a></li>
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JAVASCRIPT</a></li>
         </ul>
-    </div>
-    <div class="empty"></div>
-    <div class="row">
-        <div class="images">
-            <img src="http://pic1.win4000.com/wallpaper/1/5877373858107.jpg">
-        </div>
-        <div class="images">
-            <img src="http://pic1.win4000.com/wallpaper/6/587322853ba7a.jpg">
-        </div>
-        <div class="images">
-            <img src="http://pic1.win4000.com/wallpaper/6/5873228856272.jpg">
-        </div>
     </div>
 </div>
 </body>
