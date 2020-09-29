@@ -35,9 +35,24 @@
         a:hover {     /*鼠标悬停*/
             font-size: 1.3em;   /*字体大小为原来的1.3倍*/
         }
+        .c3 {
+            width: 200px;
+            height: 400px;
+        }
+        img {
+            width: 100%;   /*占据父元素全部大小*/
+            visibility: hidden;   /*隐藏*/
+        }
+        .c3:hover img {   /*设置鼠标悬停在.c3上img的样式*/
+            visibility: visible;   /*可见*/
+        }
     </style>
 </head>
 <body>
+<div class="c3">
+    <img src="http://pic-bucket.ws.126.net/photo/0003/2020-09-17/FMN8JA1900AJ0003NOS.jpg">
+</div>
+
 <h1>达内云计算 cloud computing</h1>
 <hr>
 <div>
