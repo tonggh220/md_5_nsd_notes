@@ -135,9 +135,9 @@ INSTALLED_APPS = [
 - 拷贝前一班级的项目到/tmp/目录，并启动
 
 ```python
-[root@localhost ~]# cp -r nsd2020/nsd2002/devweb/day0304/mysite/ /tmp
+[root@localhost ~]# cp -r nsd2020/nsd2003/devweb/day0304/mysite/ /tmp
 # 创建数据库
-MariaDB [dj2004]> CREATE DATABASE dj2002 DEFAULT CHARSET utf8mb4;
+MariaDB [dj2004]> CREATE DATABASE dj2003 DEFAULT CHARSET utf8mb4;
 [root@localhost ~]# cd /tmp/mysite/
 [root@localhost mysite]# python3 manage.py migrate
 [root@localhost mysite]# python3 manage.py createsuperuser
