@@ -11,8 +11,9 @@ def index(request):
 
 def detail(request, qid):
     # qid用于接收来自于url的参数
+    question = Question.objects.get(id=qid)
     # {'qid': qid}将成为detail.html的变量和值，即 qid=数字
-    return render(request, 'detail.html', {'qid': qid})
+    return render(request, 'detail.html', {'question': question})
 
 def result(request, qid):
     return render(request, 'result.html', {'qid': qid})
