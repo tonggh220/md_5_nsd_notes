@@ -12,4 +12,5 @@ urlpatterns = [
     # path函数也可以替换为正则表达式，如上面的写法，也可以写为：
     # re_path(r'^(\d+)$', views.detail, name='detail'),
     path('<int:qid>/result', views.result, name='result'),
+    path('<int:qid>/vote', views.vote, name='vote'),
 ]
