@@ -175,8 +175,8 @@ def tasks(request):
                     <tr>
                         <td>
                             <label>
-                                <input type="radio" name="module" value="{{ module }}">
-                                {{ module }}
+                                <input type="radio" name="module" value="{{ module.modulename }}">
+                                {{ module.modulename }}
                             </label>
                         </td>
                         <td>
