@@ -9,8 +9,29 @@
             <a href="#servers" data-toggle="tab">主机组</a>
         </li>
     </ul>
-    <div class="tab-content h4">
-        <div class="tab-pane active fade in" id="server">主机</div>
-        <div class="tab-pane fade" id="servers">主机组</div>
-    </div>
+    <form action="{% url 'tasks' %}" method="post">
+        {% csrf_token %}
+        <div class="tab-content h4">
+            <div class="tab-pane active fade in" id="server">
+                <select class="form-control" name="ip">
+                    <option value="">无</option>
+                    {% for host in hosts %}
+                        <option value="{{ host.ip_addr }}">
+                            {{ host.hostname }}:{{ host.ip_addr }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="tab-pane fade" id="servers">
+                <select name="hostgroup" class="form-control">
+                    <option value="">无</option>
+                    {% for group in groups %}
+                        <option value="{{ group.groupname }}">
+                            {{ group.groupname }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </form>
 {% endblock %}
