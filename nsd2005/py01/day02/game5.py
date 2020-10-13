@@ -31,5 +31,5 @@ while 1:
         cwin += 1
         print("\033[31;1mYou LOSE!!!\033[0m")
 
-    if pwin == 2 or cwin == 0:
+    if pwin == 2 or cwin == 2:
         break
