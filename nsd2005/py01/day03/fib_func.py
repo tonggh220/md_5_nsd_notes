@@ -1,4 +1,4 @@
-def mk_fib(n):
+def mk_fib(n=10):
     fib = [0, 1]
 
     for i in range(n - 2):
@@ -6,7 +6,7 @@ def mk_fib(n):
 
     return fib
 
-a = mk_fib(10)
+a = mk_fib()
 print(a)
 n = int(input("长度: "))
 b = mk_fib(n)
