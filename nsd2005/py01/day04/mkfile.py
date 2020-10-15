@@ -7,11 +7,20 @@ def get_fname():
         if not os.path.exists(fname):
             break
         print("文件已存在，请重试。")
-    
+
     return fname
 
 def get_content():
     "用于获取用户输入的多行文本"
+    content = []
+    print("请输入内容，在单独的一行上输入end结束！")
+    while 1:
+        line = input("(end to quit)> ")
+        if line == "end":
+            break
+        content.append(line)
+
+    return content
 
 def wfile(fname, content):
     "用于将内容content写入文件fname"
