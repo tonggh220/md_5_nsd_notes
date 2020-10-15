@@ -24,6 +24,8 @@ def get_content():
 
 def wfile(fname, content):
     "用于将内容content写入文件fname"
+    with open(fname, 'w') as fobj:
+        fobj.writelines(content)
 
 if __name__ == '__main__':
     # 获取文件名
