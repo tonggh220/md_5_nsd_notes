@@ -1,10 +1,26 @@
+userdb = {}
+
 def register():
     '用于新用户注册'
-    print('register')
+    username = input("username: ").strip()
+    if username == "":  # 如果用户名为空
+        print("用户名不能为空")
+    elif username in userdb:
+        print("用户已存在。")
+    else:
+        password = input("password: ")
+        userdb[username] = password
+        print("注册成功")
 
 def login():
     '用于登陆'
-    print('login')
+    username = input("username: ").strip()
+    password = input("password: ")
+    # if (username in userdb) and (userdb[username] == password):
+    if userdb.get(username) == password:
+        print("登陆成功!")
+    else:
+        print("登陆失败")
 
 def show_menu():
     '程序主体，实现代码逻辑'
