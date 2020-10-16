@@ -1,3 +1,5 @@
+import getpass
+
 userdb = {}
 
 def register():
@@ -15,7 +17,7 @@ def register():
 def login():
     '用于登陆'
     username = input("username: ").strip()
-    password = input("password: ")
+    password = getpass.getpass("password: ")
     # if (username in userdb) and (userdb[username] == password):
     if userdb.get(username) == password:
         print("登陆成功!")
