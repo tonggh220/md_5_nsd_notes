@@ -13,4 +13,3 @@ def lsdir(path):
 
 if __name__ == '__main__':
     lsdir(sys.argv[1])
-
