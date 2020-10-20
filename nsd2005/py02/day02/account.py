@@ -4,11 +4,37 @@ from time import strftime
 
 def save(fname):
     "用于记录收入"
-    print('save')
+    amount = int(input("金额: "))
+    comment = input("备注: ")
+    date = strftime("%Y-%m-%d")
+    # 取出收支记录
+    with open(fname, 'rb') as fobj:
+        records = pickle.load(fobj)
+    # 得到最新余额
+    balance = records[-1][-2] + amount
+    # 将收入情况追加为最后一笔记录
+    record = [date, amount, 0, balance, comment]
+    records.append(record)
+    # 将记录写回文件
+    with open(fname, 'wb') as fobj:
+        pickle.dump(records, fobj)
 
 def cost(fname):
     "用于记录开销"
-    print('cost')
+    amount = int(input("金额: "))
+    comment = input("备注: ")
+    date = strftime("%Y-%m-%d")
+    # 取出收支记录
+    with open(fname, 'rb') as fobj:
+        records = pickle.load(fobj)
+    # 得到最新余额
+    balance = records[-1][-2] - amount
+    # 将收入情况追加为最后一笔记录
+    record = [date, 0, amount, balance, comment]
+    records.append(record)
+    # 将记录写回文件
+    with open(fname, 'wb') as fobj:
+        pickle.dump(records, fobj)
 
 def query(fname):
     "用于查账"
