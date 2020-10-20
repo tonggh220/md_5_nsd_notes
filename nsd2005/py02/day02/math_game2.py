@@ -1,34 +1,23 @@
-# 10 + 8 = 18
-# Very Good!
-# Continue(y/n)? y
-# 23 + 12 = 30
-# Wrong Answer!
-# 23 + 12 = 40
-# Wrong Answer!
-# 23 + 12 = 50
-# Wrong Answer!
-# The Answer:
-# 23 + 12 = 35
-# Continue(y/n)? n
-# Bye-bye
-
 from random import randint, choice
+
+def add(x, y):
+    return x + y
+
+def sub(x, y):
+    return x - y
 
 def exam():
     "出题，用户作答"
+    funcs = {'+': add, '-': sub}
     # 随机生成两个整数
     nums = [randint(1, 100) for i in range(2)]
     nums.sort(reverse=True)  # 降序排列
-    # nums.reverse()
 
     # 随机选择加减法
     op = choice('+-')
 
     # 生成标准答案
-    if op == '+':
-        result = nums[0] + nums[1]
-    else:
-        result = nums[0] - nums[1]
+    result = funcs[op](*nums)
 
     # 用户作答，判断正误
     prompt = "%s %s %s = " % (nums[0], op, nums[1])
@@ -65,9 +54,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
