@@ -1,0 +1,11 @@
+class Role:
+    def __init__(self, name, weapon):
+        # 构造器方法，实例化自动调用时，注意，self不是关键字，可以是任何自定义的变量
+        # 绑定在实例身上的属性，在类中任意位置可见可用
+        self.name = name
+        self.weapon = weapon
+
+
+if __name__ == '__main__':
+    lb = Role('吕布', '方天画戟')  # 实例化，创建具体的实例对象
+    print(lb.name, lb.weapon)
