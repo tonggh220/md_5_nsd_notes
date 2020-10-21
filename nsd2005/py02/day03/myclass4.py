@@ -16,13 +16,17 @@ class Role:
         print(words)
 
 class Warrior(Role):
-    pass
+    def attack(self, target):
+        print('与%s近身肉搏' % target)
 
 class Mage(Role):
-    pass
+    def attack(self, target):
+        print('远程打击%s' % target)
 
 if __name__ == '__main__':
     lb = Warrior('吕布', '方天画戟')  # 实例化，创建具体的实例对象
     lb.speak('马中赤兔，人中吕布')
     zgl = Mage('诸葛亮', '羽扇')
     zgl.show_me()
+    lb.attack('关羽')
+    zgl.attack('曹操')
