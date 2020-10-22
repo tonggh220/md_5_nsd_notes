@@ -79,9 +79,31 @@ session = Session()
 # for dep in qset7:
 #     print(dep.id, dep.dep_name)
 # not in
-qset8 = session.query(Department).filter(~Department.id.in_([1, 3, 5]))
-for dep in qset8:
-    print(dep.id, dep.dep_name)
+# qset8 = session.query(Department).filter(~Department.id.in_([1, 3, 5]))
+# for dep in qset8:
+#     print(dep.id, dep.dep_name)
+# not null
+# qset9 = session.query(Department).filter(Department.dep_name.isnot(None))
+# for dep in qset9:
+#     print(dep.id, dep.dep_name)
+# 多表查询, 参数先写Employee，在join时就要与Department；反过来，道理一样
+# qset10 = session.query(Employee.emp_name, Department.dep_name).join(Department)
+# for data in qset10:
+#     print(data)
+###############################
+# 取数据时，除了使用for循环，还可以使用all和first方法。
+# all取出所有记录，放到列表中，first则只取出第一个结果
+# qset11 = session.query(Department.id, Department.dep_name).order_by(Department.id)
+# print(qset11.all())
+# print(qset11.first())
+# 更新
+# qset11 = session.query(Department).filter(Department.dep_name=='人事部')
+# hr = qset11.first()
+# hr.dep_name = '人力资源部'
+# 删除
+qset12 = session.query(Department).filter(Department.dep_name=='市场部')
+market = qset12.first()
+session.delete(market)
 
 ###############################
 # 确认
