@@ -5,9 +5,9 @@ print('starting...')
 ret_val = os.fork()
 if ret_val:
     print('in parent')
-    result = os.waitpid(-1, 0)   # 挂起父进程
+    result = os.waitpid(-1, 1)   # 不挂起父进程
     print(result)
-    time.sleep(15)
+    time.sleep(30)
     print('parent done')
 else:
     print('in child')
