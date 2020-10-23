@@ -27,4 +27,7 @@ if __name__ == '__main__':
     img_patt = '(http|https)://[\w./-]+\.(jpg|jpeg|png|gif)'
     img_list = get_patt(fname163, img_patt, 'gbk')
     for url in img_list:
-        wget.download(url, down_dir)
+        try:
+            wget.download(url, down_dir)
+        except:
+            pass
