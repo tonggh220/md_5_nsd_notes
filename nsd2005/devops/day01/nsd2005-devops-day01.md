@@ -125,6 +125,8 @@ urllib.error.HTTPError: HTTP Error 403: Forbidden
 - urllib的异常保存在urllib.error模块中，捕获异常时，需导入它
 
 ```python
+[root@localhost ~]# yum install -y httpd
+[root@localhost ~]# systemctl start httpd
 [root@localhost ~]# mkdir -m 000 /var/www/html/ban
 >>> url1 = 'http://127.0.0.1/ban'  # 没权限
 >>> url2 = 'http://127.0.0.1/abc'  # 没有该路径
