@@ -2,7 +2,16 @@ import wget
 import re
 import os
 
-def get_patt(fname, patt):
+def get_patt(fname, patt, charset=None):
+    result = []
+    cpatt = re.compile(patt)
+    with open(fname, encoding=charset) as fobj:
+        for line in fobj:
+            m = cpatt.search(line)
+            if m:
+                result.append(m.group())
+
+    return result
 
 if __name__ == '__main__':
     # 定义下载目录
@@ -15,7 +24,7 @@ if __name__ == '__main__':
         wget.download(url163, fname163)
 
     # 在网易首页中找到所有图片的Url
-    img_patt = ''
-    img_list = get_patt(fname163, img_patt)
+    img_patt = '(http|https)://[\w./-]+\.(jpg|jpeg|png|gif)'
+    img_list = get_patt(fname163, img_patt, 'gbk')
     for url in img_list:
         wget.download(url, down_dir)
