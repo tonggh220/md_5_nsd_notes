@@ -1,6 +1,7 @@
 import threading
 import sys
 import os
+import getpass
 import paramiko
 
 def rcmd(host, port=22, user='root', passwd=None, cmd=None):
@@ -16,6 +17,14 @@ def rcmd(host, port=22, user='root', passwd=None, cmd=None):
         print('[%s] \033[31;1mERROR\033[0m:\n%s' % (host, err.decode()))
     ssh.close()
 
-
 if __name__ == '__main__':
-    rcmd('127.0.0.1', 22, 'root', 'redhat', 'id root; id zhangsan')
+    ipfile = sys.argv[1]
+    user = 'root'
+    cmds = ' '.join(sys.argv[2:])  # 将命令拼接成字符串
+    passwd = getpass.getpass()
+    with open(ipfile) as fobj:
+        for line in fobj:
+            ip = line.strip()  # 去除行尾的\n
+            t = threading.Thread(target=rcmd, args=(ip, 22, 'root', passwd, cmds))
+            t.start()
+            # rcmd('127.0.0.1', 22, 'root', 'redhat', 'sleep 3; id root')
