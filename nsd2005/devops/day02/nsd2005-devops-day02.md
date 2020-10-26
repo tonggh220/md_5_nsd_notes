@@ -59,6 +59,23 @@ if __name__ == '__main__':
 >>> data = json.loads(jdata)
 >>> data['age']
 20
+
+>>> import json
+# 将字典转为json字符串后，存入文件
+>>> d1 = {'name': 'nb', 'age': 20}
+>>> with open('/tmp/j.txt', 'w') as fobj:
+...   json.dump(d1, fobj)
+... 
+# 把Json字符串从字典中取出，并转成Python可以识别的数据类型
+>>> with open('/tmp/j.txt') as fobj:
+...   user = json.load(fobj)
+... 
+>>> type(user)
+<class 'dict'>
+>>> user
+{'name': 'nb', 'age': 20}
+>>> user['name']
+'nb'
 ```
 
 - api：Application Programming Interface应用程序编程接口。编程接口就是服务器上对外开放的一个函数，通常以http协议开放。
