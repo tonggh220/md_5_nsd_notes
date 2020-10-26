@@ -1,3 +1,5 @@
+#!/bin/python3
+
 import threading
 import sys
 import os
@@ -18,6 +20,13 @@ def rcmd(host, port=22, user='root', passwd=None, cmd=None):
     ssh.close()
 
 if __name__ == '__main__':
+    if len(sys.argv) < 3:
+        print('Usage: %s ipfile commands' % sys.argv[0])
+        exit(1)
+    if not os.path.isfile(sys.argv[1]):
+        print('No such file:', sys.argv[1])
+        exit(2)
+
     ipfile = sys.argv[1]
     user = 'root'
     cmds = ' '.join(sys.argv[2:])  # 将命令拼接成字符串
