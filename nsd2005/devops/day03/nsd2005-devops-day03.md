@@ -249,6 +249,8 @@ PY_BIN=$(which python3)  # 第8行改为python3
 
 ## 编写模块
 
+- ansible模块：https://docs.ansible.com/ansible/latest/user_guide/modules.html
+
 ```shell
 # 创建保存自定义模块的路径
 [root@localhost myansible]# mkdir /opt/mylibs
