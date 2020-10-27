@@ -29,11 +29,11 @@ variable_manager = VariableManager(loader=loader, inventory=inventory)
 # 创建表示我们的工作（包括任务）的数据结构，这基本上是我们的yaml加载程序在内部执行的操作。
 play_source = dict(
     name="Ansible Play",
-    hosts='dbservers',  # 在哪些主机上执行任务
+    hosts='webservers',  # 在哪些主机上执行任务
     gather_facts='no',
     tasks=[
-        dict(action=dict(module='shell', args='ls'), register='shell_out'),
-        dict(action=dict(module='debug', args=dict(msg='{{shell_out.stdout}}')))
+        dict(action=dict(module='user', args='name=jerry state=absent'), register='shell_out'),
+        dict(action=dict(module='debug', args=dict(msg='{{shell_out}}')))
     ]
 )
 
