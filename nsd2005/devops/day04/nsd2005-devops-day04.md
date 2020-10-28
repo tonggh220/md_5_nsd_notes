@@ -360,10 +360,10 @@ origin	http://192.168.1.102/devops/myweb.git (push)
 [root@dev myweb]# git add .
 [root@dev myweb]# git commit -m "add index.html"
 [root@dev myweb]# git tag 2.0
-[root@dev myweb]# git push
-[root@dev myweb]# git push --tags
+[root@dev myweb]# git push -u origin --all
+[root@dev myweb]# git push -u origin --tags
 ```
 
 > 下载明天要用到的软件包：https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat-stable/
 >
-> https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat-stable/jenkins-2.235.3-1.1.noarch.rpm
+> https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat-stable/jenkins-2.235.1-1.1.noarch.rpm
