@@ -97,7 +97,7 @@ myweb
 ####  推送代码时自动构建项目
 
 - 修改jenkins项目配置 -> 构建触发器 -> 勾选Build when a change is pushed to GitLab. GitLab webhook URL: <http://192.168.1.103:8080/project/myweb> -> 点击 高级 -> 点击generate生成Secret token并复制它 -> 保存
-- 修改gitlab配置 -> 点击项目，如myweb -> 左边栏 设置 / 集成 -> 链接url <http://192.168.1.103:8080/project/myweb>  / 安全令牌填写jenkins中生成的Secret token ->  点击增加web钩子。在页面中间部分找到创建的web钩子，点击test -> Push events测试，返回Hook executed  successfully: HTTP 200表示成功。
+- 修改gitlab配置 -> 点击项目，如myweb -> 左边栏 设置 / 集成 -> 链接url <http://192.168.1.103:8080/project/myweb>  / 安全令牌填写jenkins中生成的Secret token -> 在触发器选项中勾选**标签推送事件** ->  点击增加web钩子。在页面中间部分找到创建的web钩子，点击test -> Tag push events测试，返回Hook executed  successfully: HTTP 200表示成功。
 - 测试
 
 ```shell
