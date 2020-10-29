@@ -109,7 +109,9 @@ myweb
 [root@node2 myweb]# echo 'new line.' >> index.html
 [root@node2 myweb]# git add .
 [root@node2 myweb]# git commit -m "modify index.html"
+[root@node2 myweb]# git tag 2.1
 [root@node2 myweb]# git push
+[root@node2 myweb]# git push --tags
 ```
 
 程序员推送代码到gitlab服务器后，jenkins项目将会自动构建，并通过机器人发送构建消息。
