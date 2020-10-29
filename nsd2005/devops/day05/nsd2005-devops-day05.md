@@ -27,7 +27,7 @@ app4(应用服务器)--下载-->jenkins
 ```shell
 [root@jenkins ~]# rpm -qa | grep java
 java-1.8.0-openjdk-1.8.0.161-2.b14.el7.x86_64
-[root@jenkins ~]# rpm -ihv jenkins-2.235.3-1.1.noarch.rpm 
+[root@jenkins ~]# rpm -ihv jenkins-2.235.1-1.1.noarch.rpm 
 [root@jenkins ~]# systemctl start jenkins
 [root@jenkins ~]# systemctl enable jenkins
 # 访问 http://x.x.x.x:8080
