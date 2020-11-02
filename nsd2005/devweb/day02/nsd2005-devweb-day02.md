@@ -337,19 +337,19 @@ js->javascript脚本
     <div class="row">
         <div class="col-lg-3 bg-primary col-md-4 col-sm-6">
             云计算<br>
-            nsd 1904
+            nsd 2005
         </div>
         <div class="col-lg-3 bg-danger col-md-4 col-sm-6">
             云计算<br>
-            nsd 1904
+            nsd 2005
         </div>
         <div class="col-lg-3 bg-success col-md-4 col-sm-6">
             云计算<br>
-            nsd 1904
+            nsd 2005
         </div>
         <div class="col-lg-3 bg-warning col-md-4 col-sm-6">
             云计算<br>
-            nsd 1904
+            nsd 2005
         </div>
     </div>
 </div>
