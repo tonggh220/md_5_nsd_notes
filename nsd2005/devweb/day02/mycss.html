@@ -17,16 +17,45 @@
         .c1 {
             color: darkcyan;
         }
+        .c2 {
+            font-weight: bold;
+        }
+        p.c2 {
+            text-decoration: underline;
+        }
+        p .c2 {
+            text-decoration: underline;
+        }
+        #id1 {
+            font-style: italic;
+        }
+        #id1, .c2 {
+            border: 2px solid green;
+        }
+        a:link {    /*访问前（历史记录中没有）的样式*/
+            text-decoration: none;
+        }
+        a:visited {   /*访问后（历史记录中有）的样式*/
+            color: darkgoldenrod;
+        }
+        a:hover {   /*鼠标悬停时的样式*/
+            font-size: 1.2em;  /*文字大小为原来的1.2倍*/
+        }
     </style>
 </head>
 <body>
 <h1>达内云计算 cloud computing</h1>
+<hr>
+<div>
+    <a href="http://www.tom.com" target="_blank">tom在线</a>
+</div>
+
 <p class="c1">达内云计算 cloud computing</p>
 <p>达内云计算 <span class="c1">cloud computing</span></p>
-<p>达内云计算 cloud computing</p>
-<p>达内云计算 cloud computing</p>
-<div>达内云计算 cloud computing</div>
-<div>达内云计算 cloud computing</div>
+<p class="c2">达内云计算 cloud computing</p>
+<p>达内云计算 <span class="c2">cloud computing</span></p>
+<div class="c2">达内云计算 cloud computing</div>
+<div id="id1">达内云计算 cloud computing</div>
 <div>达内云计算 cloud computing</div>
 <div>达内云计算 cloud computing</div>
 <div>达内云计算 cloud computing</div>
