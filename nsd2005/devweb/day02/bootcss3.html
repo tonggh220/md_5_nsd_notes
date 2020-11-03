@@ -5,15 +5,53 @@
     <title>bootcss3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
-    <ul>
-        <li><a href="#">HOME</a></li>
+    <!--
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#">HOME</a></li>
         <li><a href="#">NEWS</a></li>
         <li><a href="#">CONTACT</a></li>
         <li><a href="#">ABOUT</a></li>
     </ul>
+    <hr>
+    <ul class="nav nav-tabs nav-pills nav-justified">
+        <li class="active"><a href="#">HOME</a></li>
+        <li><a href="#">NEWS</a></li>
+        <li><a href="#">CONTACT</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">ABOUT</a></li>
+    </ul>
+    <hr>
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">HOME</a></li>
+        <li><a href="#">NEWS</a></li>
+        <li><a href="#">CONTACT</a></li>
+        <li><a href="#">ABOUT</a></li>
+    </ul>
+    -->
+    <div class="row">
+        <div class="col-sm-2">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#">HOME</a></li>
+                <li><a href="#">NEWS</a></li>
+                <li><a href="#">CONTACT</a></li>
+                <li><a href="#">ABOUT</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-10">
+            Hello World! <i class="glyphicon glyphicon-print"></i>
+            <span class="glyphicon glyphicon-flag"></span>
+        </div>
+    </div>
 </div>
 </body>
 </html>
