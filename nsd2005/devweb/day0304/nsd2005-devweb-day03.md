@@ -2,6 +2,9 @@
 
 ## django
 
+- https://docs.djangoproject.com/zh-hans/2.2/
+- https://docs.djangoproject.com/zh-hans/2.2/intro/tutorial01/
+
 ### MTV模式
 
 ```mermaid
