@@ -4,3 +4,8 @@ from django.shortcuts import render
 def index(request):
     # 通过render函数找到名为index.html的网页模板，返回给客户端
     return render(request, 'index.html')
+
+def detail(request, qid):
+    # qid用于接受来自于url的变量
+    # {'qid': qid}将成为detial.html的变量和值，即qid=数字
+    return render(request, 'detail.html', {'qid': qid})
