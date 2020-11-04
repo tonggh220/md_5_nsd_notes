@@ -12,8 +12,14 @@
                 </tr>
             </thead>
             <tbody>
-            
+                {% for choice in question.choice_set.all %}
+                    <tr>
+                        <td>{{ choice.choice_text }}</td>
+                        <td>{{ choice.votes }}</td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
+        <a class="btn btn-primary" href="{% url 'index' %}">返回首页</a>
     </div>
 {% endblock %}
