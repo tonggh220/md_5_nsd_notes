@@ -4,7 +4,8 @@
     <div class="row h4">
         <h1 class="text-center text-warning">{{ question.id }}号问题投票详情</h1>
         <h3>{{ question.question_text }}</h3>
-        <form action="">
+        <form action="{% url 'vote' question.id %}" method="post">
+            {% csrf_token %}
             {% for choice in question.choice_set.all %}
                 <div class="radio">
                     <label>

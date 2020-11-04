@@ -12,4 +12,5 @@ urlpatterns = [
     path('<int:qid>/result', views.result, name='result'),
     # re_path表示使用正则表达式，括号用于保存数据并作为参数传给函数
     # re_path(r'^(\d+)$', views.detail, name='detail')
+    path('<int:qid>/vote', views.vote, name='vote'),
 ]

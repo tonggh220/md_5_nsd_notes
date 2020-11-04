@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from polls.models import Question
 
 # 用户发起的请求，请求对象将会自动成为第一个参数传给函数
@@ -16,3 +16,10 @@ def detail(request, qid):
 
 def result(request, qid):
     return render(request, 'result.html', {'qid': qid})
+
+def vote(request, qid):
+    print('-' * 30)
+    print(dir(request))
+    print('-' * 30)
+    print(request.POST)
+    return redirect('result', qid)
