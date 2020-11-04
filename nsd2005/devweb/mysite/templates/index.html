@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-    <div id="tedu-nsd" class="carousel slide">
+    <div id="tedu-nsd" class="carousel slide row">
         <ol class="carousel-indicators">
             <li class="active" data-target="#tedu-nsd" data-slide-to="0"></li>
             <li data-target="#tedu-nsd" data-slide-to="1"></li>
@@ -35,20 +35,26 @@
             <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
     </div>
-
+    <div class="row h4">
+        <h1 class="text-center text-warning">投票首页</h1>
+        <ol>
+            {% for question in questions %}
+                <li>
+                    <a href="{% url 'detail' question.id %}" target="_blank">
+                        {{ question.question_text }}
+                    </a>
+                    {{ question.pub_date }}
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+    <div class="h4 text-center">
+        达内云计算学院 &copy;
+        <a href="http://www.tmooc.cn">达内科技</a>
+    </div>
 </div>
 
-<h1>投票首页</h1>
-<ol>
-    {% for question in questions %}
-        <li>
-            <a href="{% url 'detail' question.id %}" target="_blank">
-                {{ question.question_text }}
-            </a>
-            {{ question.pub_date }}
-        </li>
-    {% endfor %}
-</ol>
+
 
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
