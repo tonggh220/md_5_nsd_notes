@@ -1,5 +1,29 @@
 {% extends 'basic.html' %}
 {% block title %}添加主机{% endblock %}
 {% block content %}
-    {{ groups }}
+    <div class="row h4">
+        <hr>
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="bg-primary">
+            <tr>
+                <td>主机组</td>
+                <td>主机</td>
+            </tr>
+            </thead>
+            <tbody>
+                {% for group in groups %}
+                    <tr>
+                        <td>{{ group.groupname }}</td>
+                        <td>
+                            {% for host in group.host_set.all %}
+                                <div>
+                                    {{ host.hostname }}:{{ host.ip_addr }}
+                                </div>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
