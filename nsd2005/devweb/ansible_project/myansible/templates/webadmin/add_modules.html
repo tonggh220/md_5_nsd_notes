@@ -29,8 +29,12 @@
                         <td>
                             {% for arg in module.argument_set.all %}
                                 <div>
-                                    {{ arg.arg_text}}
-                                    <a href="{% url 'del_arg' arg.id %}">delete</a>
+                                    <div class="col-sm-8">
+                                        {{ arg.arg_text}}
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a class="btn btn-danger btn-xs" href="{% url 'del_arg' arg.id %}">delete</a>
+                                    </div>
                                 </div>
                             {% endfor %}
                         </td>
