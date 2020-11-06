@@ -30,6 +30,7 @@
                             {% for arg in module.argument_set.all %}
                                 <div>
                                     {{ arg.arg_text}}
+                                    <a href="{% url 'del_arg' arg.id %}">delete</a>
                                 </div>
                             {% endfor %}
                         </td>
