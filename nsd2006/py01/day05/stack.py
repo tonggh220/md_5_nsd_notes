@@ -1,6 +1,12 @@
+stack = []
+
 def push_it():
     "用于压栈"
-    print('push')
+    data = input("数据: ").strip()
+    if data:  # 如果data非空
+        stack.append(data)
+    else:
+        print("没有获取到数据")
 
 def pop_it():
     "用于出栈"
