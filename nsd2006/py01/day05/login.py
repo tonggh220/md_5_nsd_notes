@@ -1,3 +1,5 @@
+userdb = {}
+
 def register():
     '用于新用户注册'
     print('register')
