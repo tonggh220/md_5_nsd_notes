@@ -15,14 +15,17 @@ def exam():
         result = nums[0] - nums[1]
 
     # 用户作答，判断对错
+    i = 0
     prompt = '%s %s %s = ' % (nums[0], op, nums[1])
-    answer = int(input(prompt))
-    if answer == result:
-        print("不错哟～")
-    else:
+    while i < 3:
+        answer = int(input(prompt))
+        if answer == result:
+            print("不错哟～")
+            break
         print("不对哟～")
-
-    print("正确答案是：\n%s%s" % (prompt, result))
+        i += 1
+    else:
+        print("正确答案是：\n%s%s" % (prompt, result))
 
 def main():
     "主程序代码逻辑"
