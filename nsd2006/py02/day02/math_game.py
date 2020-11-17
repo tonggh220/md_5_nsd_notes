@@ -18,7 +18,12 @@ def exam():
     i = 0
     prompt = '%s %s %s = ' % (nums[0], op, nums[1])
     while i < 3:
-        answer = int(input(prompt))
+        try:
+            answer = int(input(prompt))
+        except:  # 不指定异常，可以捕获所有异常，不推荐
+            print()
+            continue
+
         if answer == result:
             print("不错哟～")
             break
@@ -31,7 +36,13 @@ def main():
     "主程序代码逻辑"
     while 1:
         exam()
-        yn = input("Continue(y/n)? ").strip()[0]  # 去除两端空格后，取第一个字符
+        try:
+            yn = input("Continue(Y/n)? ").strip()[0]  # 去除两端空格后，取第一个字符
+        except (KeyboardInterrupt, EOFError):
+            yn = 'n'
+        except IndexError:
+            continue
+
         if yn in 'nN':
             print('\nBye-bye')
             break
