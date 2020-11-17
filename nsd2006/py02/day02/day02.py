@@ -32,4 +32,4 @@ if __name__ == '__main__':
     result1 = map(func1, nums)
     result2 = map(lambda x: x + 100, nums)
     print(list(result1))
-    print(list(result2))
+    print(list(result2)) 
