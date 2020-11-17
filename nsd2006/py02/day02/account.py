@@ -4,8 +4,16 @@ from time import strftime
 
 def save(fname):
     "用于记录收入"
-    amount = int(input("金额: "))
-    comment = input("备注: ")
+    try:
+        amount = int(input("金额: "))
+        comment = input("备注: ")
+    except (KeyboardInterrupt, EOFError):
+        print('\nBye-bye')
+        exit(1)
+    except ValueError:
+        print("无效的金额")
+        return   # 函数的return类似于循环的break，break结束循环，return结束函数，默认返回None
+
     date = strftime("%Y-%m-%d")
     # 从记账文件中取出全部的收支记录，并计算余额
     with open(fname, 'rb') as fobj:
@@ -20,8 +28,16 @@ def save(fname):
 
 def cost(fname):
     "用于记录开销"
-    amount = int(input("金额: "))
-    comment = input("备注: ")
+    try:
+        amount = int(input("金额: "))
+        comment = input("备注: ")
+    except (KeyboardInterrupt, EOFError):
+        print('\nBye-bye')
+        exit(1)
+    except ValueError:
+        print("无效的金额")
+        return
+
     date = strftime("%Y-%m-%d")
     # 从记账文件中取出全部的收支记录，并计算余额
     with open(fname, 'rb') as fobj:
