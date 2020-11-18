@@ -25,3 +25,4 @@ if __name__ == '__main__':
     c1.func2()
     c1.func3()
     c1.func4()
+    # A.func4(c1)
