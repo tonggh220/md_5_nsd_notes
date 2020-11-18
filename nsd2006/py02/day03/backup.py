@@ -3,7 +3,13 @@ from time import strftime
 
 def full_backup(src, dst, md5file):
     "完全备份"
-    print('full backup')
+    # 拼接出备份文件名
+
+    # 打tar包
+
+    # 计算每个文件的md5值
+
+    # 将md5字典保存到文件
 
 def incr_backup(src, dst, md5file):
     "增量备份"
