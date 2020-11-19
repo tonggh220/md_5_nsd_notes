@@ -48,6 +48,15 @@ session = Session()
 # )
 # session.add_all([lb, gy, zf, zgl, zy, hz, wy])
 ####################################
+# 查询：如果参数是类名，返回的是由实例构成的查询集
+qset1 = session.query(Department)
+print(qset1)
+for dep in qset1:
+    print(dep.id, dep.dep_name)
+
+
+
+####################################
 # 如果是增删改操作，需要确认
 session.commit()
 # 关闭
