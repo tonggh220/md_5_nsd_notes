@@ -102,9 +102,24 @@ session = Session()
 #     print(dep.id, dep.dep_name)
 ####################################
 # 多表查询，参数写写Employees，join时参数就是Department。反之亦然
-qset10 = session.query(Employee.emp_name, Department.dep_name).join(Department)
-for data in qset10:
-    print(data)
+# qset10 = session.query(Employee.emp_name, Department.dep_name).join(Department)
+# for data in qset10:
+#     print(data)
+####################################
+# 取数据还可以使用first和all方法。all方法取出所有记录，放到列表中；first只取出第一个结果
+# qset11 = session.query(Department.dep_name, Employee.emp_name).join(Employee)
+# print(qset11.all())
+# print(qset11.first())
+####################################
+# 更新，把人事部改为人力资源部
+# qset12 = session.query(Department).filter(Department.dep_name=='人事部')
+# hr = qset12.first()
+# hr.dep_name = '人力资源部'
+####################################
+# 删除市场部
+qset13 = session.query(Department).filter(Department.dep_name=='市场部')
+market = qset13.first()
+session.delete(market)
 
 ####################################
 # 如果是增删改操作，需要确认
