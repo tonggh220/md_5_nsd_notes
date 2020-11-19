@@ -10,7 +10,10 @@ conn = pymysql.connect(
 cursor = conn.cursor()
 
 # 编写sql语句
-create_dep = ""
+create_dep = """CREATE TABLE departments(
+id INT, dep_name VARCHAR (20),
+PRIMARY KEY (id)
+)"""
 
 # 通过游标执行sql语句
 cursor.execute(create_dep)
