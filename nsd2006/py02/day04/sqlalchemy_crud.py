@@ -49,12 +49,15 @@ session = Session()
 # session.add_all([lb, gy, zf, zgl, zy, hz, wy])
 ####################################
 # 查询：如果参数是类名，返回的是由实例构成的查询集
-qset1 = session.query(Department)
-print(qset1)
-for dep in qset1:
-    print(dep.id, dep.dep_name)
-
-
+# qset1 = session.query(Department)
+# print(qset1)
+# for dep in qset1:
+#     print(dep.id, dep.dep_name)
+####################################
+# 查询：参数是类变量，返回的是元组构成的查询集
+qset2 = session.query(Employee.emp_name, Employee.email)
+for data in qset2:
+    print(data)
 
 ####################################
 # 如果是增删改操作，需要确认
