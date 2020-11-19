@@ -1,4 +1,5 @@
 from dbconn import Department, Employee, Session
+from datetime import datetime
 
 # 创建会话实例
 session = Session()
@@ -46,6 +47,11 @@ session = Session()
 #     id=7, emp_name='魏严', email='wy@163.com',
 #     birth_date='1990-08-01', dep_id=5
 # )
+# zs = Employee(
+#     id=8, emp_name='zhangsan', email='zs@163.com',
+#     birth_date=datetime(1980, 1, 1), dep_id=5
+# )
+# session.add(zs)
 # session.add_all([lb, gy, zf, zgl, zy, hz, wy])
 ####################################
 # 查询：如果参数是类名，返回的是由实例构成的查询集
@@ -55,9 +61,19 @@ session = Session()
 #     print(dep.id, dep.dep_name)
 ####################################
 # 查询：参数是类变量，返回的是元组构成的查询集
-qset2 = session.query(Employee.emp_name, Employee.email)
-for data in qset2:
-    print(data)
+# qset2 = session.query(Employee.emp_name, Employee.email)
+# for data in qset2:
+#     print(data)
+####################################
+# 排序
+# qset3 = session.query(Department).order_by(Department.id)
+# for dep in qset3:
+#     print(dep.id, dep.dep_name)
+####################################
+# 降序
+qset4 = session.query(Department).order_by(-Department.id)
+for dep in qset4:
+    print(dep.id, dep.dep_name)
 
 ####################################
 # 如果是增删改操作，需要确认
