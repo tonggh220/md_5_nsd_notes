@@ -81,10 +81,20 @@ session = Session()
 #     print(dep.id, dep.dep_name)
 ####################################
 # 模糊查询
-qset6 = session.query(Employee.emp_name, Employee.email)\
-    .filter(Employee.email.like('%@tedu.cn'))
-for data in qset6:
-    print(data)
+# qset6 = session.query(Employee.emp_name, Employee.email)\
+#     .filter(Employee.email.like('%@tedu.cn'))
+# for data in qset6:
+#     print(data)
+####################################
+# in
+# qset7 = session.query(Department).filter(Department.id.in_([1, 3, 5]))
+# for dep in qset7:
+#     print(dep.id, dep.dep_name)
+####################################
+# not in
+qset8 = session.query(Department).filter(~Department.id.in_([1, 3, 5]))
+for dep in qset8:
+    print(dep.id, dep.dep_name)
 
 ####################################
 # 如果是增删改操作，需要确认
