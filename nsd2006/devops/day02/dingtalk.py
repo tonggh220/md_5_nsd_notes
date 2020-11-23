@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = 'https://oapi.dingtalk.com/robot/send?access_token=429e5549e8e107e1849e1466d4164cc4b27a6ad30acc57d88bb1b2ab25a7c1f1'
+url = ''
 headers = {'Content-Type': 'application/json; charset=UTF-8'}
 # data = {
 #     "msgtype": "text",
