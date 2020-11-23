@@ -149,6 +149,11 @@ if __name__ == '__main__':
 >>> data = r.json()
 >>> import pprint
 >>> pprint.pprint(data)
+# 取出后天最高、最低温度
+>>> pprint.pprint(data['result']['daily'][2]['day']['temphigh'])
+'8'
+>>> pprint.pprint(data['result']['daily'][2]['night']['templow'])
+'-2'
 ```
 
 ### 使用钉钉机器人
