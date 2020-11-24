@@ -12,23 +12,22 @@ import ansible.constants as C
 Options = namedtuple('Options', ['connection', 'module_path', 'forks', 'become', 'become_method', 'become_user', 'check', 'diff'])
 options = Options(connection='ssh', module_path=['/to/mymodules'], forks=10, become=None, become_method=None, become_user=None, check=False, diff=False)
 
-# initialize needed objects
-loader = DataLoader() # Takes care of finding and reading yaml, json and ini files
+# Dataloader用于读取、分析json/yaml/ini文件，把它们表示成python能识别的数据类型
+loader = DataLoader()
 passwords = dict(vault_pass='secret')
 
-# create inventory, use path to host config file as source or hosts in a comma separated string
-inventory = InventoryManager(loader=loader, sources='localhost,')
-
-# variable manager takes care of merging all the different sources to give you a unifed view of variables available in each context
+# 主机清单。有两个实现方式，一个是使用逗号分隔所有的主机；另一个方式是使用主机清单文件列表
+# inventory = InventoryManager(loader=loader, sources='localhost,192.168.1.11')
+inventory = InventoryManager(loader=loader, sources=['myansible/hosts'])
+# 变量管理器
 variable_manager = VariableManager(loader=loader, inventory=inventory)
-
-# create datastructure that represents our play, including tasks, this is basically what our YAML loader does internally.
+# 创建play源
 play_source =  dict(
-        name = "Ansible Play",
-        hosts = 'localhost',
-        gather_facts = 'no',
+        name = "Ansible Play",  # play名
+        hosts = 'dbservers',    # 在哪些主机上执行命令
+        gather_facts = 'no',    # 不收集facts信息
         tasks = [
-            dict(action=dict(module='shell', args='ls'), register='shell_out'),
+            dict(action=dict(module='shell', args='ls /home'), register='shell_out'),
             dict(action=dict(module='debug', args=dict(msg='{{shell_out.stdout}}')))
          ]
     )
