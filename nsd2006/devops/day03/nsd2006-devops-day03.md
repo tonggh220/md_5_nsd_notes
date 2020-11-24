@@ -49,6 +49,8 @@ localhost
 [webservers]
 192.168.1.136
 
+[root@localhost myansible]# ansible all --list-hosts
+
 [root@localhost myansible]# yum install -y sshpass
 [root@localhost myansible]# ansible all -m ping -k
 SSH password: 
