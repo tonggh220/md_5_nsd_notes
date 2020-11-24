@@ -7,9 +7,10 @@ from ansible.playbook.play import Play
 from ansible.executor.task_queue_manager import TaskQueueManager
 import ansible.constants as C
 
-# since API is constructed for CLI it expects certain options to always be set, named tuple 'fakes' the args parsing options object
+# 为ansible设置默认选项
+# connection是连接方式。local表示本地执行；ssh表示远程连接服务器执行；smart表示智能选择
 Options = namedtuple('Options', ['connection', 'module_path', 'forks', 'become', 'become_method', 'become_user', 'check', 'diff'])
-options = Options(connection='local', module_path=['/to/mymodules'], forks=10, become=None, become_method=None, become_user=None, check=False, diff=False)
+options = Options(connection='ssh', module_path=['/to/mymodules'], forks=10, become=None, become_method=None, become_user=None, check=False, diff=False)
 
 # initialize needed objects
 loader = DataLoader() # Takes care of finding and reading yaml, json and ini files
