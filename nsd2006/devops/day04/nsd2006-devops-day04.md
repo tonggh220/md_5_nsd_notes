@@ -10,8 +10,8 @@
 
 ```mermaid
 graph TD
-dev(开发部)--递交-->qs(测试部)
-qs--反馈-->dev
+dev(开发部)--递交-->qa(测试部)
+qa--反馈-->dev
 dev--提交-->ops(运维部)
 ```
 
