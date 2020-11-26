@@ -1,6 +1,7 @@
 import requests
 import wget
 import os
+import hashlib
 
 
 def has_new_ver(ver_url, ver_fname):
@@ -21,6 +22,21 @@ def has_new_ver(ver_url, ver_fname):
 
 def file_ok(md5url, app_fname):
     "判断文件是否完好。完好返回True，否则返回False"
+    # 计算本地文件md5值
+    m = hashlib.md5()
+    with open(app_fname, 'rb') as fobj:
+        while 1:
+            data = fobj.read(4096)
+            if not data:
+                break
+            m.update(data)
+
+    # 取出网上md5值，进行比较
+    r = requests.get(md5url)
+    if m.hexdigest() == r.text.strip():  # 去除行尾的\n
+        return True
+    else:
+        return False
 
 def deploy(app_fname, deploy_dir, dest):
     "部署软件"
