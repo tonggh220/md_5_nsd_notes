@@ -1,10 +1,13 @@
 import requests
 import wget
+import os
 
 
 def has_new_ver(ver_url, ver_fname):
     "用于检查是否有新版本，有返回True，否则返回False"
 
+def file_ok(md5url, app_fname):
+    "判断文件是否完好。完好返回True，否则返回False"
 
 if __name__ == '__main__':
     # 判断是否有新版本，没有新版本就退出
@@ -21,6 +24,12 @@ if __name__ == '__main__':
     wget.download(app_url, download_dir)
 
     # 判断下载的文件是否完整，如果已损坏则删除它
+    md5url = app_url + '.md5'
+    app_fname = app_url.split('/')[-1]
+    app_fname = os.path.join(download_dir, app_fname)
+    if not file_ok(md5url, app_fname):
+        os.remove(app_fname)
+        exit(2)
 
     # 部署软件
 
