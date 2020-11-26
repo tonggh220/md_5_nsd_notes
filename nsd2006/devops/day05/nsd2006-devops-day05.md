@@ -94,6 +94,20 @@ myweb
 
 构建项目时，构建过程将会通过机器人发送消息
 
+#### jenkins主动轮询gitlab服务器
+
+- 修改jenkins项目配置 ->  构建触发器 -> 勾选Poll SCM，输入`H/3 * * * *`表示每隔3分钟查询git服务器。保存后，点击Git Polling Log查看结果。
+
+```shell
+# 推送代码到gitlab，查看构建日志，以及钉钉机器人发送的消息
+[root@dev myweb]# cp /etc/issue .
+[root@dev myweb]# git add .
+[root@dev myweb]# git commit -m "add issue"
+[root@dev myweb]# git push
+```
+
+
+
 ####  推送代码时自动构建项目
 
 - 修改jenkins项目配置 -> 构建触发器 -> 勾选Build when a change is pushed to GitLab. GitLab webhook URL: <http://192.168.1.103:8080/project/myweb> -> 点击 高级 -> 点击generate生成Secret token并复制它 -> 保存
