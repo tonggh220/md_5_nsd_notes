@@ -1,3 +1,14 @@
 img {
     width: 500px;
 }
+body {
+    background-color: silver;
+    color: blue;
+}
+h1 {
+    text-align: center;
+    color: purple;
+}
+hr {
+    color: red;
+}
