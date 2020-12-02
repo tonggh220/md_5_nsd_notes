@@ -2,6 +2,14 @@
 {% block title %}投票结果{% endblock %}
 {% block content %}
     <div class="row h4">
-        <h1 class="text-center text-warning">{{ qid }}号问题投票结果</h1>
+        <h1 class="text-center text-warning">{{ question.id }}号问题投票结果</h1>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="bg-primary">
+                <tr>
+                    <td>选项</td>
+                    <td>票数</td>
+                </tr>
+            </thead>
+        </table>
     </div>
 {% endblock %}
