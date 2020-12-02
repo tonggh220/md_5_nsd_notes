@@ -23,6 +23,11 @@ def vote(request, qid):
     question = Question.objects.get(id=qid)
     # request有一个名为POST的属性，存储用户通过post方法提供的数据。它是一个类字典对象
     choice_id = request.POST.get('choice_id')
+    # print('-' * 50)
+    # print(dir(request))
+    # print('-' * 50)
+    # print(request.POST)
+    # print('-' * 50)
     # 取出选项实例，将其票数加1
     choice = question.choice_set.get(id=choice_id)
     choice.votes += 1
