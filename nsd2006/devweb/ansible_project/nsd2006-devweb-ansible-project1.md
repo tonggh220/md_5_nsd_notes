@@ -5,7 +5,7 @@
 ### 启动前一个班的项目
 
 ```shell
-[root@localhost nsd2020]# cp -r nsd2003/devweb/ansible_project/myansible/ /tmp
+[root@localhost nsd2020]# cp -r nsd2005/devweb/ansible_project/myansible/ /tmp
 [root@localhost nsd2020]# cd /tmp/myansible/
 [root@localhost mysite]# mysql -uroot -ptedu.cn
 MariaDB [(none)]> CREATE DATABASE myansible2 DEFAULT CHARSET utf8mb4;
