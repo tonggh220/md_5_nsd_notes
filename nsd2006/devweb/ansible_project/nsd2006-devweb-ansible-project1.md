@@ -8,7 +8,7 @@
 [root@localhost nsd2020]# cp -r nsd2005/devweb/ansible_project/myansible/ /tmp
 [root@localhost nsd2020]# cd /tmp/myansible/
 [root@localhost mysite]# mysql -uroot -ptedu.cn
-MariaDB [(none)]> CREATE DATABASE myansible2 DEFAULT CHARSET utf8mb4;
+MariaDB [(none)]> CREATE DATABASE myansible DEFAULT CHARSET utf8mb4;
 [root@localhost myansible]# python3 manage.py migrate
 [root@localhost myansible]# python3 manage.py runserver 0:9000
 # 访问http://127.0.0.1:9000/
