@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from webadmin.models import HostGroup, Module, Host
+from webadmin.adhoc import adhoc
 
 def index(request):
     return render(request, 'webadmin/index.html')
@@ -33,6 +34,20 @@ def add_modules(request):
     return render(request, 'webadmin/add_modules.html', {'modules': modules})
 
 def tasks(request):
+    if request.method == 'POST':
+        ip = request.POST.get('ip')
+        group = request.POST.get('hostgroup')
+        module = request.POST.get('module')
+        param = request.POST.get('param')
+        if ip:  # 如果ip非空
+            target = ip
+        elif group:
+            target = group
+        else:
+            target = None
+        if target:  # 如果target非空
+            adhoc(['ansi_cfg/dhosts.py'], target, module, param)
+
     groups = HostGroup.objects.all()
     hosts = Host.objects.all()
     modules = Module.objects.all()
