@@ -10,7 +10,7 @@
                 <a href="#servers" data-toggle="tab">主机组</a>
             </li>
         </ul>
-        <div class="tab-content">
+        <div class="tab-content" style="margin: 10px 0">
             <div class="tab-pane active fade in" id="server">
                 主机
             </div>
@@ -18,5 +18,27 @@
                 主机组
             </div>
         </div>
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="bg-primary">
+                <tr>
+                    <td>模块</td>
+                    <td>参数</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for module in modules %}
+                    <tr>
+                        <td>{{ module.modulename }}</td>
+                        <td>
+                            {% for arg in module.argument_set.all %}
+                                <div>
+                                    {{ arg.arg_text }}
+                                </div>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endblock %}
