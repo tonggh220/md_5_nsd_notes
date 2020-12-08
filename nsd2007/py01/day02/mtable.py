@@ -22,3 +22,9 @@ l1 = [
     [20, 22, 25, 23]
 ]
 
+# for mylist in l1:
+#     print(mylist)
+
+for mylist in l1:
+    for data in mylist:
+        print(data)
