@@ -7,7 +7,18 @@
 #         print('Hello', end='\t')
 #     print()
 
-for i in range(1, 10):
-    for j in range(1, i + 1):
-        print('Hello', end='\t')
-    print()
+# for i in range(1, 10):
+#     for j in range(1, i + 1):
+#         print('Hello', end='\t')
+#     print()
+
+# for i in range(1, 10):
+#     for j in range(1, i + 1):
+#         print('%sx%s=%s' % (j, i, i * j), end='\t')
+#     print()
+
+l1 = [
+    ['zhangsan', 'lisi', 'wangwu', 'zhaoliu'],
+    [20, 22, 25, 23]
+]
+
