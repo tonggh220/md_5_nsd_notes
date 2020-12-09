@@ -13,4 +13,5 @@ def copy(src_fname, dst_fname):
     src_fobj.close()
     dst_fobj.close()
 
-copy(sys.argv[1], sys.argv[2])
+if __name__ == '__main__':
+    copy(sys.argv[1], sys.argv[2])
