@@ -6,6 +6,7 @@ def get_fname():
         fname = input("文件名: ")
         if not os.path.exists(fname):   # 如果文件不存在则退出
             break
+        print("文件已存在，请重试。")
 
     return fname
 
@@ -24,7 +25,8 @@ def get_content():
 
 def wfile(fname, content):
     "用于将内容content写入文件fname"
-
+    with open(fname, 'w') as fobj:
+        fobj.writelines(content)
 
 if __name__ == '__main__':
     # 获取文件名
