@@ -19,6 +19,7 @@ def get_content():
         line = input("(end to quit)> ")
         if line == 'end':
             break
+        # content.append(line + '\n')  # 行尾拼接\n
         content.append(line)
 
     return content
@@ -33,5 +34,7 @@ if __name__ == '__main__':
     fname = get_fname()
     # 获取内容
     content = get_content()
+    # 将content列表中的每个字符串拼接\n后再重新赋值给content
+    content = ["%s\n" % line for line in content]
     # 将内容与到文件
     wfile(fname, content)
