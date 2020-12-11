@@ -1,3 +1,5 @@
+import getpass
+
 userdb = {}
 
 def register():
@@ -13,7 +15,14 @@ def register():
 
 def login():
     '用于登陆'
-    print('login')
+    username = input("username: ")
+    password = getpass.getpass("password: ")
+    # 如果用户存在，并且字典中的密码与用户输入的密码一致
+    # if (username in userdb) and (userdb[username] == password):
+    if userdb.get(username) == password:
+        print("登陆成功")
+    else:
+        print("登陆失败")
 
 def show_menu():
     '程序主体，实现代码逻辑'
