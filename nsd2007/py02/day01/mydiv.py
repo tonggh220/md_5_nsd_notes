@@ -5,3 +5,11 @@ try:
     print('Done')
 except ValueError:
     print("必须输入非0数字")
+except ZeroDivisionError:
+    print("必须输入非0数字")
+except KeyboardInterrupt:
+    print('\nBye-bye')
+except EOFError:
+    print('\nBye-bye')
+
+
