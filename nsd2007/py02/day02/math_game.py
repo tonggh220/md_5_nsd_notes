@@ -31,14 +31,16 @@ def exam():
 
     # 用户作答，判断正误
     prompt = '%s %s %s = ' % (nums[0], op, nums[1])  # 拼接出算式
-    answer = int(input(prompt))
-    if answer == result:
-        print('Very Good!!!')
-    else:
+    n = 0
+    while n < 3:
+        answer = int(input(prompt))
+        if answer == result:
+            print('Very Good!!!')
+            break
         print('Wrong Answer!!!!')
-
-    # 给出正确答案
-    print('The Answer:\n%s%s' % (prompt, result))
+        n += 1
+    else:  # 如果用户3次全错才给出正确答案
+        print('The Answer:\n%s%s' % (prompt, result))
 
 def main():
     "主程序代码逻辑"
