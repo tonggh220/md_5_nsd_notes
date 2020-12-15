@@ -14,10 +14,16 @@
 
 def exam():
     "出题，用户作答"
+    print('exam')
 
 def main():
     "主程序代码逻辑"
+    while 1:
+        exam()
+        yn = input("Continue(y/n)? ").strip()[0]  # 取用户输入的第一个非空格字符
+        if yn in 'nN':
+            print('\nBye-bye')
+            break
 
 if __name__ == '__main__':
     main()
-
