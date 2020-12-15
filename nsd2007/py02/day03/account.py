@@ -5,8 +5,16 @@ from time import strftime
 
 def save(fname):
     "用于记录收入"
-    amount = int(input("金额: "))
-    comment = input("备注: ")
+    try:
+        amount = int(input("金额: "))
+        comment = input("备注: ")
+    except (KeyboardInterrupt, EOFError):
+        print('\nBye-bye')
+        exit(1)  # 如果用户按下ctrl+c/ctrl+d，彻底结束程序
+    except ValueError:
+        print("无效的金额")
+        return  # 函数的return类似于循环的break，一旦遇到return函数就会结束，返回到调用者，默认返回None
+
     date = strftime('%Y-%m-%d')
     # 在文件中取出全部的收支记录
     with open(fname, 'rb') as fobj:
@@ -24,8 +32,16 @@ def save(fname):
 
 def cost(fname):
     "用于记录开销"
-    amount = int(input("金额: "))
-    comment = input("备注: ")
+    try:
+        amount = int(input("金额: "))
+        comment = input("备注: ")
+    except (KeyboardInterrupt, EOFError):
+        print('\nBye-bye')
+        exit(1)  # 如果用户按下ctrl+c/ctrl+d，彻底结束程序
+    except ValueError:
+        print("无效的金额")
+        return
+
     date = strftime('%Y-%m-%d')
     # 在文件中取出全部的收支记录
     with open(fname, 'rb') as fobj:
@@ -72,7 +88,11 @@ def show_menu():
             pickle.dump(init_data, fobj)
 
     while 1:
-        choice = input(prompt).strip()
+        try:
+            choice = input(prompt).strip()
+        except (KeyboardInterrupt, EOFError):
+            choice = '3'   # 如果用户按下ctrl+c/ctrl+d，认为它选择了3
+
         if choice not in ['0', '1', '2', '3']:
             print("无效的选择，请重试。")
             continue
