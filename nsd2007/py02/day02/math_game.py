@@ -33,7 +33,12 @@ def exam():
     prompt = '%s %s %s = ' % (nums[0], op, nums[1])  # 拼接出算式
     n = 0
     while n < 3:
-        answer = int(input(prompt))
+        try:
+            answer = int(input(prompt))
+        except:  # 不指定异常，可以捕获所有异常。不推荐
+            print()  # 打印回车
+            continue
+
         if answer == result:
             print('Very Good!!!')
             break
@@ -46,7 +51,13 @@ def main():
     "主程序代码逻辑"
     while 1:
         exam()
-        yn = input("Continue(y/n)? ").strip()[0]  # 取用户输入的第一个非空格字符
+        try:
+            yn = input("Continue(y/n)? ").strip()[0]  # 取用户输入的第一个非空格字符
+        except (KeyboardInterrupt, EOFError):
+            yn = 'n'
+        except IndexError:
+            continue
+
         if yn in 'nN':
             print('\nBye-bye')
             break
