@@ -3,6 +3,19 @@
 from time import strftime
 import os
 import tarfile
+import hashlib
+
+def check_md5(fname):
+    "接收文件名，返回md5值"
+    m = hashlib.md5()
+    with open(fname, 'rb') as fobj:
+        while 1:
+            data = fobj.read(4096)
+            if not data:
+                break
+            m.update(data)
+
+    return m.hexdigest()
 
 
 def full_backup(src, dst, md5file):
@@ -17,6 +30,7 @@ def full_backup(src, dst, md5file):
     tar.close()
 
     # 计算每个文件的md5值
+    md5dict = {}
 
 def incr_backup(src, dst, md5file):
     "增量备份"
