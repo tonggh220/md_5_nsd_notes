@@ -18,7 +18,8 @@ class Role:
         print(words)
 
 if __name__ == '__main__':
-    lb = Role('吕布', '方天画戟')  # 自动调用__init__
+    # 实例本身将会自动作为第一个参数传递，本例中是lb
+    lb = Role('吕布', '方天画戟')  # 自动调用__init__，创建具体的实例对象
     lb.show_me()
     lb.speak('马中赤兔，人中吕布')
     zf = Role('张飞', '丈八蛇矛')
