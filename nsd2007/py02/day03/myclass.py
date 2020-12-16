@@ -14,3 +14,5 @@ class Role:
 if __name__ == '__main__':
     lb = Role('吕布', '方天画戟')  # 自动调用__init__
     lb.show_me()
+    zf = Role('张飞', '丈八蛇矛')
+    zf.show_me()
