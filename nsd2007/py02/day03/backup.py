@@ -58,6 +58,18 @@ def incr_backup(src, dst, md5file):
     with open(md5file, 'rb') as fobj:
         old_md5 = pickle.load(fobj)
 
+    # 找到有变化和新增的文件，进行备份
+    tar = tarfile.open(fname, 'w:gz')
+    for key in md5dict:
+        # if key not in old_md5 or md5dict[key] != old_md5[key]:
+        if old_md5.get(key) != md5dict[key]:
+            tar.add(key)
+    tar.close()
+
+    # 更新md5字典文件。因为每天都和前一天相比
+    with open(md5file, 'wb') as fobj:
+        pickle.dump(md5dict, fobj)
+
 if __name__ == '__main__':
     src = '/tmp/demo/security'
     dst = '/tmp/demo/backup'
