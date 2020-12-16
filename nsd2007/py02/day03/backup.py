@@ -2,10 +2,21 @@
 # cp -r /etc/security/ /tmp/demo/
 from time import strftime
 import os
+import tarfile
 
 
 def full_backup(src, dst, md5file):
     "完全备份"
+    # 拼接备份目标文件的绝对路径
+    fname = '%s_full_%s.tar.gz' % (os.path.basename(src), strftime('%Y%m%d'))
+    fname = os.path.join(dst, fname)
+
+    # 实现完全备份，也就是把整个目录打tar包
+    tar = tarfile.open(fname, 'w:gz')
+    tar.add(src)
+    tar.close()
+
+    # 计算每个文件的md5值
 
 def incr_backup(src, dst, md5file):
     "增量备份"
