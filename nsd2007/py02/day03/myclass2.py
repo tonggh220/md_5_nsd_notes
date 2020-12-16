@@ -14,3 +14,5 @@ class Weapon:
 if __name__ == '__main__':
     ji = Weapon('方天画戟', 100, '物理')
     print(ji.wname, ji.strength, ji.type)
+    lb = Role('吕布', ji)
+    print(lb.weapon.wname, lb.weapon.strength, lb.weapon.type)
