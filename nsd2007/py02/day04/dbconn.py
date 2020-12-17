@@ -20,13 +20,21 @@ class Department(Base):  # 必须继承于Base
     id = Column(Integer, primary_key=True)
     dep_name = Column(String(20), unique=True)  # String对应VARCHAR
 
-class Employees(Base):
+class Employee(Base):
     __tablename__ = 'employees'
     id = Column(Integer, primary_key=True)
     emp_name = Column(String(20))
     email = Column(String(50))
     birth_date = Column(Date)
     dep_id = Column(Integer, ForeignKey('departments.id'))
+
+class Salary(Base):
+    __tablename__ = 'salary'
+    id = Column(Integer, primary_key=True)
+    date = Column(Date)
+    emp_id = Column(Integer, ForeignKey('employees.id'))
+    basic = Column(Integer)
+    awards = Column(Integer)
 
 if __name__ == '__main__':
     # 数据库中如果不存在表，则创建；存在则忽略
