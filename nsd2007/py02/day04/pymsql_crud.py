@@ -26,16 +26,25 @@ cursor = conn.cursor()
 
 #######################################
 # 查询
-select1 = "SELECT id, dep_name FROM departments"
-cursor.execute(select1)
-result1 = cursor.fetchone()    # 取出一条数据
-result2 = cursor.fetchmany(2)  # 继续取出2条记录
-result3 = cursor.fetchall()    # 继续取出剩余所有记录
-print(result1)
-print('-' * 50)
-print(result2)
-print('-' * 50)
-print(result3)
+# select1 = "SELECT id, dep_name FROM departments"
+# cursor.execute(select1)
+# result1 = cursor.fetchone()    # 取出一条数据
+# result2 = cursor.fetchmany(2)  # 继续取出2条记录
+# result3 = cursor.fetchall()    # 继续取出剩余所有记录
+# print(result1)
+# print('-' * 50)
+# print(result2)
+# print('-' * 50)
+# print(result3)
+#######################################
+# 更新
+# update1 = "UPDATE departments SET dep_name=%s WHERE dep_name=%s"
+# cursor.execute(update1, ('人力资源部', '人事部'))
+#######################################
+# 删除
+delete1 = "DELETE FROM departments WHERE dep_name=%s"
+cursor.execute(delete1, ('财务部',))
+
 
 # 如果是增删改操作，必须执行确认
 conn.commit()
