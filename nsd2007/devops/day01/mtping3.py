@@ -4,7 +4,7 @@ import threading
 class Ping:
     def __init__(self, host):
         self.host = host
-    
+
     def __call__(self):
         # 实例像函数一样调用时，就是执行__call__中的代码
         result = subprocess.run(
