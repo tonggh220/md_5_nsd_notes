@@ -1,5 +1,6 @@
 import subprocess
 import os
+import time
 
 def ping(host):
     result = subprocess.run(
@@ -17,3 +18,6 @@ if __name__ == '__main__':
         if ret_val == 0:
             ping(ip)
             exit()
+
+    time.sleep(60)
+# watch -n 1 ps a
