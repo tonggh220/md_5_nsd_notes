@@ -2,6 +2,7 @@ import paramiko
 import sys
 import os
 import getpass
+import threading
 
 def rcmd(host, user, passwd, cmds):
     ssh = paramiko.SSHClient()
@@ -38,4 +39,6 @@ if __name__ == '__main__':
     with open(ipfile) as fobj:
         for line in fobj:
             ip = line.strip()  # 去除行尾的\n
-            rcmd(ip, user, passwd, commands)
+            # rcmd(ip, user, passwd, commands)
+            t = threading.Thread(target=rcmd, args=(ip, user, passwd, commands))
+            t.start()
