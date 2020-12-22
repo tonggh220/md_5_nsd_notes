@@ -37,11 +37,9 @@ play_source = dict(
     ]
 )
 
-# Create play object, playbook objects use .load instead of init or new methods,
-# this will also automatically create the task objects from the info provided in play_source
+# 创建Play
 play = Play().load(play_source, variable_manager=variable_manager, loader=loader)
-
-# Run it - instantiate task queue manager, which takes care of forking and setting up all objects to iterate over host list and tasks
+# 执行任务
 tqm = None
 try:
     tqm = TaskQueueManager(
@@ -53,7 +51,7 @@ try:
     )
     result = tqm.run(play)  # most interesting data for a play is actually sent to the callback's methods
 finally:
-    # we always need to cleanup child procs and the structres we use to communicate with them
+    # 不管异常是否发生，都要执行清理操作
     if tqm is not None:
         tqm.cleanup()
 
