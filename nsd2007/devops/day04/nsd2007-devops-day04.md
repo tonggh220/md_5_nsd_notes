@@ -169,6 +169,7 @@ ebooks  nsd1912  nsd2003  README.en.md  README.md  review
 46M	.
 
 # 撤出暂存区
+[root@dev myweb]# echo '2nd line.' >> readme.md 
 [root@dev myweb]# echo '3rd line.' >> readme.md 
 [root@dev myweb]# git add .
 [root@dev myweb]# git status
