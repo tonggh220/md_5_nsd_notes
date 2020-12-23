@@ -311,13 +311,13 @@ hosts  plan.txt
 - 安装
 
 ```shell
-[root@gitserver ~]# cd docker_gitlab/
-[root@gitserver docker_gitlab]# ls
-docker_pkgs  images
-[root@gitserver docker_gitlab]# yum install -y docker_pkgs/*rpm
-[root@gitserver docker_gitlab]# systemctl start docker
-[root@gitserver docker_gitlab]# systemctl enable docker
-[root@gitserver docker_gitlab]# docker load -i images/gitlab_zh.tar 
+[root@gitserver ~]# cd docker/
+[root@gitserver docker]# ls
+docker_rpms  images
+[root@gitserver docker]# yum install -y docker_rpms/*rpm
+[root@gitserver docker]# systemctl start docker
+[root@gitserver docker]# systemctl enable docker
+[root@gitserver docker]# docker load -i images/gitlab_zh.tar 
 [root@gitserver ~]# vim /etc/ssh/sshd_config 
 Port 2022
 [root@gitserver ~]# systemctl restart sshd
