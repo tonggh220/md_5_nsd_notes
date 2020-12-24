@@ -5,6 +5,19 @@ import requests
 
 def has_new_ver(ver_url, ver_fname):
     "检查是否有新版本，有返回True，没有返回False"
+    # 本地如果没有版本文件，则有新版本
+    if not os.path.isfile(ver_fname):
+        return True
+
+    # 如果本地和网上版本号不一样，则有新版本
+    with open(ver_fname) as fobj:
+        local_ver = fobj.read()
+
+    r = requests.get(ver_url)
+    if local_ver != r.text:
+        return True
+    else:
+        return False
 
 def file_ok(md5url, app_fname):
     "检查文件是否完好，完好返回True，否则返回False"
