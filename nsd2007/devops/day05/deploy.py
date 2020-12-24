@@ -9,7 +9,8 @@ def has_new_ver(ver_url, ver_fname):
 def file_ok(md5url, app_fname):
     "检查文件是否完好，完好返回True，否则返回False"
 
-
+def deploy(app_fname, deploy_dir, dest):
+    "部署软件"
 
 if __name__ == '__main__':
     # 检查是否有新版本，没有新版本就退出
@@ -35,5 +36,11 @@ if __name__ == '__main__':
         exit(2)
 
     # 部署软件
+    deploy_dir = '/var/www/deploy'
+    dest = '/var/www/html/nsd2007'
+    deploy(app_fname, deploy_dir, dest)
 
     # 更新版本号
+    if os.path.exists(ver_fname):
+        os.remove(ver_fname)
+    wget.download(ver_url, ver_fname)
