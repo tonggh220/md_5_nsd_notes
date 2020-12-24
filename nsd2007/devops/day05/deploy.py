@@ -2,7 +2,7 @@ import os
 import wget
 import requests
 import hashlib
-
+import tarfile
 
 def has_new_ver(ver_url, ver_fname):
     "检查是否有新版本，有返回True，没有返回False"
@@ -40,6 +40,22 @@ def file_ok(md5url, app_fname):
 
 def deploy(app_fname, deploy_dir, dest):
     "部署软件"
+    # 解压缩
+    tar = tarfile.open(app_fname)
+    tar.extractall(path=deploy_dir)
+    tar.close()
+
+    # 拼接出解压后目录的绝对路径
+    app_dir = os.path.basename(app_fname)
+    app_dir = app_dir.replace('.tar.gz', '')
+    app_dir = os.path.join(deploy_dir, app_dir)
+
+    # 如果软链接已存在，先删除它
+    if os.path.exists(dest):
+        os.remove(dest)
+
+    # 创建软链接
+    os.symlink(app_dir, dest)
 
 if __name__ == '__main__':
     # 检查是否有新版本，没有新版本就退出
