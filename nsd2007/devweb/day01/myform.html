@@ -6,12 +6,37 @@
 </head>
 <body>
 <div>
+    <form action="">
+        <p>1. 静态文件有：</p>
+        <label>
+            <input type="checkbox" name="q1" value="A"> css
+        </label>
+        <label>
+            <input type="checkbox" name="q1" value="B"> javascript
+        </label>
+        <label>
+            <input type="checkbox" name="q1" value="C"> python
+        </label>
+        <label>
+            <input type="checkbox" name="q1" value="D"> image
+        </label>
+        <p>
+            <input type="submit" value="提交">
+        </p>
+    </form>
+</div>
+<hr>
+<div>
     <form action="https://www.sogou.com/web" target="_blank">
-        <input type="radio" name="query" value="linux"> linux
-        <input type="radio" name="query" value="python"> python
+        <label>
+            <input type="radio" name="query" value="linux"> linux
+        </label>
+        <input id="py" type="radio" name="query" value="python">
+        <label for="py">python</label>
         <input type="radio" name="query" value="html"> html
         <input type="radio" name="query" value="css"> css
         <input type="submit" value="搜狗搜索">
+        <input type="reset" value="重置">
     </form>
 </div>
 <hr>
