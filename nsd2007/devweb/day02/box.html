@@ -21,9 +21,33 @@
             /*margin: 20px;*/
             margin: 10px auto;  /*左右外边距设置为自动，可以实现居中效果*/
         }
+        .c1 {
+            display: block;   /*转换成块级元素，以便设置大小*/
+            width: 200px;
+            height: 100px;
+            background: #0a469c;
+        }
+        .left {
+            background: lightblue;
+            width: 600px;
+            height: 100px;
+        }
+        .right {
+            background: lightseagreen;
+            width: 600px;
+            height: 100px;
+        }
     </style>
 </head>
 <body>
+<div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+</div>
+
+
+<span class="c1">Hello World!</span>
+
 <div class="box">
 this is a box model
 </div>
