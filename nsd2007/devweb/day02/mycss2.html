@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my css2</title>
+    <style>
+        div {
+            width: 500px;
+            border: 1px dotted black;  /*边框*/
+        }
+        img {
+            width: 100%;  /*占父元素的100%*/
+            visibility: hidden;
+        }
+        div:hover img {   /*鼠标悬停在div上时，它里面img的样式*/
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="http://pic1.win4000.com/wallpaper/0/58f5dfe4999bc.jpg">
+</div>
+</body>
+</html>
