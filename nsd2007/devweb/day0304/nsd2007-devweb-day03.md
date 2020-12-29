@@ -362,7 +362,7 @@ MariaDB [dj2007]> desc polls_choice;
 | votes       | int(11)      | NO   |     | NULL    |                |
 | q_id        | int(11)      | NO   | MUL | NULL    |                |
 +-------------+--------------+------+-----+---------+----------------+
-# 注意，在Choice模型中，q是外键，那么在表中字段名是：类变名_id
+# 注意，在Choice模型中，q是外键，那么在表中字段名是：类变量名_id
 
 # 修改外键字段的名字
 # polls/models.py
