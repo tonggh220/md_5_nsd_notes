@@ -94,7 +94,7 @@ USE_TZ = False
 Did you install mysqlclient?
 # 解决方法
 [root@localhost mysite]# yum install -y mariadb-devel
-[root@localhost mysite]# pip3 install mysqlclient
+[root@localhost mysite]# pip3 install mysqlclient==1.4.6
 # 再次启动开发服务器
 [root@localhost mysite]# python3 manage.py runserver
 # 访问http://127.0.0.1:8000/
