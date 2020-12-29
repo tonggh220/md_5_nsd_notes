@@ -9,4 +9,5 @@ urlpatterns = [
     # path()函数中的路径，可以支持变量。声明一个名为qid、类型为int的变量
     # qid指的是问题编号。除了int类型外，还可以有str和slug。slug基本不用
     path('<int:qid>', views.detail, name='detail'),
+    path('<int:qid>/result', views.result, name='result'),
 ]
