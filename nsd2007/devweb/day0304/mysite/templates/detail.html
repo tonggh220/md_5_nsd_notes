@@ -1,7 +1,7 @@
 {% extends 'basic.html' %}
 {% block title %}投票详情{% endblock %}
 {% block content %}
-    <h1 class="text-center text-warning">{{ qid }}号问题投票详情</h1>
+    <h1 class="text-center text-warning">{{ question.id }}号问题投票详情</h1>
     <h3>{{ question.question_text }}</h3>
     <form action="{% url 'vote' question.id %}" method="post">
         {% csrf_token %}   {% comment %}防止跨站攻击的安全设置{% endcomment %}
