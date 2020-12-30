@@ -10,4 +10,5 @@ urlpatterns = [
     # qid指的是问题编号。除了int类型外，还可以有str和slug。slug基本不用
     path('<int:qid>', views.detail, name='detail'),
     path('<int:qid>/result', views.result, name='result'),
+    path('<int:qid>/vote', views.vote, name='vote'),
 ]

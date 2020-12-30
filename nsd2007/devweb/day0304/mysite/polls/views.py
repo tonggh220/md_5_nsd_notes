@@ -19,3 +19,11 @@ def detail(request, qid):
 
 def result(request, qid):
     return render(request, 'result.html', {'qid': qid})
+
+def vote(request, qid):
+    print('-' * 50)
+    print(dir(request))
+    print('-' * 50)
+    print(request.POST)
+    print('-' * 50)
+    return render(request, 'result.html')
