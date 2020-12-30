@@ -173,6 +173,7 @@ def index(request):
 <ol>
     {% for question in questions %}
         <li>
+              {# detail是在urls.py中声明的路径名，它接受一个数字作为问题id #}
 {#            <a href="/polls/{{ question.id }}">#}
             <a href="{% url 'detail' question.id %}"  target="_blank">
                 {{ question.question_text }}
