@@ -255,7 +255,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 engine = create_engine(
-    'mysql+pymysql://root:tedu.cn@localhost/myansible?charset=utf8',
+    'mysql+pymysql://root:tedu.cn@localhost/myansible2?charset=utf8',
      encoding='utf8',
 )
 Base = declarative_base()
