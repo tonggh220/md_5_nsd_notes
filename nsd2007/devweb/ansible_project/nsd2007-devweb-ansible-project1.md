@@ -165,6 +165,7 @@ Ansible Webadmin
 from django.db import models
 
 class HostGroup(models.Model):
+    # 后台管理界面中，填加组时，显示为主机组
     groupname = models.CharField('主机组', max_length=50, unique=True)
 
     def __str__(self):
