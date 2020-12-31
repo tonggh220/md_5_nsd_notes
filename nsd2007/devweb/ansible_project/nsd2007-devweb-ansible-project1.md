@@ -105,6 +105,7 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'index/index.html')
 
+# 为了方便管理，将应用的模板文件放到应用目录下
 # mkdir templates/index
 # vim templates/index/index.html
 <!DOCTYPE html>
