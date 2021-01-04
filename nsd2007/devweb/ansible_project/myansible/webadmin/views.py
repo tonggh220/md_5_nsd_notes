@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from webadmin.models import HostGroup
+from webadmin.models import HostGroup, Module
 
 def index(request):
     return render(request, 'webadmin/index.html')
@@ -16,3 +16,7 @@ def add_hosts(request):
 
     groups = HostGroup.objects.all()
     return render(request, 'webadmin/add_hosts.html', {'groups': groups})
+
+def add_modules(request):
+    modules = Module.objects.all()
+    return render(request, 'webadmin/add_modules.html', {'modules': modules})
