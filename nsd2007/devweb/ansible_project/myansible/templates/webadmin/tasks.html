@@ -23,7 +23,14 @@
                 </select>
             </div>
             <div class="tab-pane fade" id="servers">
-                {{ groups }}
+                <select class="form-control" name="hostgroup">
+                    <option value="">无</option>
+                    {% for group in groups %}
+                        <option value="{{ group.groupname }}">
+                            {{ group.groupname }}
+                        </option>
+                    {% endfor %}
+                </select>
             </div>
         </div>
         <table class="table table-striped table-bordered table-hover">
