@@ -28,3 +28,6 @@ def add_modules(request):
 
     modules = Module.objects.all()
     return render(request, 'webadmin/add_modules.html', {'modules': modules})
+
+def tasks(request):
+    return render(request, 'webadmin/tasks.html')
