@@ -27,7 +27,10 @@
                     <td>{{ module.modulename }}</td>
                     <td>
                         {% for arg in module.arguement_set.all %}
-                            <div>{{ arg.arg_text }}</div>
+                            <div>
+                                {{ arg.arg_text }}
+                                <a href="{% url 'del_arg' arg.id %}">delete</a>
+                            </div>
                         {% endfor %}
                     </td>
                 </tr>

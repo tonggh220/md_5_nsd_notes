@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from webadmin.models import HostGroup, Module, Host
+from django.shortcuts import render, redirect
+from webadmin.models import HostGroup, Module, Host, Arguement
 from webadmin import adhoc
 
 def index(request):
@@ -52,3 +52,9 @@ def tasks(request):
     modules = Module.objects.all()
     context = {'hosts': hosts, 'groups': groups, 'modules': modules}
     return render(request, 'webadmin/tasks.html', context)
+
+def del_arg(request, arg_id):
+    arg = Arguement.objects.get(id=arg_id)
+    arg.delete()
+
+    return redirect('add_modules')
