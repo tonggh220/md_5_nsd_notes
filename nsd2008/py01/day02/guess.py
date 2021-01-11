@@ -13,4 +13,5 @@ while i < 7:
     else:
         print("猜对了")
         break
-print("The Answer:", n)
+else:  # 循环没有执行break，才会执行else中的语句
+    print("The Answer:", n)
