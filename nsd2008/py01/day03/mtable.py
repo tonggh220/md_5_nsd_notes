@@ -12,7 +12,13 @@
 # print()
 
 # 将上面的代码作为一个整体，执行3遍
-for i in range(1, 4):
-    for j in range(1, 4):
+# for i in range(1, 4):
+#     for j in range(1, 4):
+#         print('hello', end='\t')
+#     print()
+
+# 将上面代友改为第1行1个hello，第2行2个，第i行i个
+for i in range(1, 10):
+    for j in range(1, i + 1):
         print('hello', end='\t')
     print()
