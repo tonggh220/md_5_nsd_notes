@@ -17,8 +17,14 @@
 #         print('hello', end='\t')
 #     print()
 
-# 将上面代友改为第1行1个hello，第2行2个，第i行i个
+# 将上面代码改为第1行1个hello，第2行2个，第i行i个
+# for i in range(1, 10):
+#     for j in range(1, i + 1):
+#         print('hello', end='\t')
+#     print()
+
+# 实现99乘法表
 for i in range(1, 10):
     for j in range(1, i + 1):
-        print('hello', end='\t')
+        print('%sx%s=%s' % (j, i, i * j), end='\t')
     print()
