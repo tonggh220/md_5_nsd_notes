@@ -21,17 +21,22 @@ def get_content():
         line = input("(end to quit)> ")
         if line == 'end':
             break
+        # content.append(line + '\n')  # 在行尾加上回车\n
         content.append(line)
 
     return content
 
 def wfile(fname, content):
     "用于将内容content写入文件fname"
+    with open(fname, 'w') as fobj:
+        fobj.writelines(content)
 
 if __name__ == '__main__':
     # 获取文件名
     fname = get_fname()
     # 获取内容
     content = get_content()
+    # 将列表中每个字符串结尾拼接\n后，再赋值回给content
+    content = [line + '\n' for line in content]
     # 将内容与到文件
     wfile(fname, content)
