@@ -10,11 +10,15 @@ def push_it():
 
 def pop_it():
     "用于出栈"
-    print('pop')
+    if stack:  # 如果列表非空
+        data = stack.pop()
+        print("从栈中弹出了: %s" % data)
+    else:
+        print("栈已经为空")
 
 def view_it():
     "查询"
-    print('view')
+    print('%s' % stack)
 
 def show_menu():
     "用于显示菜单，实现代码逻辑"
