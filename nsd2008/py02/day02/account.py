@@ -24,6 +24,7 @@ def show_menu():
 
         if choice == '3':
             print('\nBye-bye')
+            break
 
         funcs[choice]()
 
