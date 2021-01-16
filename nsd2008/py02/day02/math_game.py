@@ -31,7 +31,12 @@ def exam():
     i = 0
     while i < 3:
         # 用户作答，判断对错
-        answer = int(input(prompt))
+        try:
+            answer = int(input(prompt))
+        except:  # 不指定具体异常，可以捕获所有异常。不推荐
+            print()
+            continue
+
         if answer == result:
             print('Very Good!!!')
             break
@@ -45,7 +50,13 @@ def main():
     while 1:
         exam()
         # 去除字符串两端空格后，取出第一个字符
-        yn = input("Continue(y/n)? ").strip()[0]
+        try:
+            yn = input("Continue(y/n)? ").strip()[0]
+        except (KeyboardInterrupt, EOFError):
+            yn = 'n'
+        except IndexError:
+            continue
+
         if yn in 'nN':
             print('\nBye-bye')
             break
