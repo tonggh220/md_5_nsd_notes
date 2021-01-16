@@ -1,20 +1,14 @@
-# 1 + 1 = 2
-# Very Good!!!
-# Continue(y/n)? y
-# 28 + 36 = 40
-# Wrong Answer!!!
-# 28 + 36 = 100
-# Wrong Answer!!!
-# 28 + 36 = 50
-# Wrong Answer!!!
-# The Answer: 28 + 36 = 64
-# Continue(y/n)? n
-# Bye-bye
-
 from random import randint, choice
+
+def add(x, y):
+    return x + y
+
+def sub(x, y):
+    return x - y
 
 def exam():
     "用于出题，用户作答"
+    funcs = {'+': add, '-': sub}
     # 随机生成两个数字，并降序排列
     nums = [randint(1, 100) for i in range(2)]
     nums.sort(reverse=True)
@@ -22,10 +16,7 @@ def exam():
     # 随机选择加减法
     op = choice('+-')
     # 计算出标准答案
-    if op == '+':
-        result = nums[0] + nums[1]
-    else:
-        result = nums[0] - nums[1]
+    result = funcs[op](*nums)
 
     prompt = '%s %s %s = ' % (nums[0], op, nums[1])
     i = 0
