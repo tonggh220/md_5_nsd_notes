@@ -6,8 +6,17 @@ def save(fname):
     "用于记录收入"
     # 获取日期、收入、余额和备注这几个字段
     date = strftime('%Y-%m-%d')
-    amount = int(input("金额: "))
-    comment = input("备注: ")
+    try:
+        amount = int(input("金额: "))
+        comment = input("备注: ")
+    except (KeyboardInterrupt, EOFError):
+        print('\nBye-bye')
+        exit(1)
+    except ValueError:
+        print("无效的金额")
+        # 函数的return类似于循环的break，它会结束函数，默认返回值为None
+        return
+
     # 从文件里取出记账内容
     with open(fname, 'rb') as fobj:
         records = pickle.load(fobj)
@@ -24,8 +33,16 @@ def cost(fname):
     "用于记录开销"
     # 获取日期、收入、余额和备注这几个字段
     date = strftime('%Y-%m-%d')
-    amount = int(input("金额: "))
-    comment = input("备注: ")
+    try:
+        amount = int(input("金额: "))
+        comment = input("备注: ")
+    except (KeyboardInterrupt, EOFError):
+        print('\nBye-bye')
+        exit(1)
+    except ValueError:
+        print("无效的金额")
+        # 函数的return类似于循环的break，它会结束函数，默认返回值为None
+        return
     # 从文件里取出记账内容
     with open(fname, 'rb') as fobj:
         records = pickle.load(fobj)
