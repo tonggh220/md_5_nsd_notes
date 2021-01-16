@@ -40,6 +40,18 @@ def cost(fname):
 
 def query(fname):
     "用于查询收支"
+    # 打印表头
+    print(
+        "%-12s%-8s%-8s%-12s%-20s" %
+        ('date', 'save', 'cost', 'balance', 'comment')
+    )
+    # 取出文件内容，打印
+    with open(fname, 'rb') as fobj:
+        records = pickle.load(fobj)
+
+    for record in records:
+        print("%-12s%-8s%-8s%-12s%-20s" % tuple(record))
+
 
 def show_menu():
     "实现主程序代码逻辑"
