@@ -22,6 +22,21 @@ def save(fname):
 
 def cost(fname):
     "用于记录开销"
+    # 获取日期、收入、余额和备注这几个字段
+    date = strftime('%Y-%m-%d')
+    amount = int(input("金额: "))
+    comment = input("备注: ")
+    # 从文件里取出记账内容
+    with open(fname, 'rb') as fobj:
+        records = pickle.load(fobj)
+    # 计算最新余额
+    balance = records[-1][-2] - amount
+    # 构建收入记录
+    record = [date, 0, amount, balance, comment]
+    records.append(record)
+    # 记录存到文件中
+    with open(fname, 'wb') as fobj:
+        pickle.dump(records, fobj)
 
 def query(fname):
     "用于查询收支"
