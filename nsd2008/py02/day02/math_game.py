@@ -26,13 +26,19 @@ def exam():
         result = nums[0] + nums[1]
     else:
         result = nums[0] - nums[1]
-    # 用户作答，判断对错
+
     prompt = '%s %s %s = ' % (nums[0], op, nums[1])
-    answer = int(input(prompt))
-    if answer == result:
-        print('Very Good!!!')
-    else:
+    i = 0
+    while i < 3:
+        # 用户作答，判断对错
+        answer = int(input(prompt))
+        if answer == result:
+            print('Very Good!!!')
+            break
         print('Wrong Answer!!!')
+        i += 1
+    else:
+        print('The Answer: %s%s' % (prompt, result))
 
 def main():
     "用于主程序代码逻辑"
