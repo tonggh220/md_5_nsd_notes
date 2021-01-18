@@ -29,6 +29,10 @@ def full_backup(src, dst, md5file):
 
     # 计算每个文件的md5值
     md5dict = {}
+    for path, folders, files in os.walk(src):
+        for file in files:
+            key = os.path.join(path, file)
+            md5dict[key] = check_md5(key)
 
     # 把md5值存入文件
     with open(md5file, 'wb') as fobj:
