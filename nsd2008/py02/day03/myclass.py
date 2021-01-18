@@ -22,3 +22,6 @@ if __name__ == '__main__':
     print(lb.name, lb.weapon, lb.mp, lb.hp)
     lb.show_me()
     lb.speak('马中赤兔，人中吕布！')
+    zf = Role('张飞', 300, 500, '丈八蛇矛')
+    zf.show_me()
+    zf.speak('吾乃燕人张飞张冀德')
