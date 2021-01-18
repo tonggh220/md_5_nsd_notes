@@ -1,6 +1,19 @@
 from time import strftime
 import os
 import tarfile
+import hashlib
+import pickle
+
+def check_md5(fname):
+    m = hashlib.md5()
+    with open(fname, 'rb') as fobj:
+        while 1:
+            data = fobj.read(4096)
+            if not data:
+                break
+            m.update(data)
+
+    return m.hexdigest()
 
 def full_backup(src, dst, md5file):
     "用于完全备份"
@@ -15,8 +28,11 @@ def full_backup(src, dst, md5file):
     tar.close()
 
     # 计算每个文件的md5值
+    md5dict = {}
 
     # 把md5值存入文件
+    with open(md5file, 'wb') as fobj:
+        pickle.dump(md5dict, fobj)
 
 def incr_backup(src, dst, md5file):
     "用于增量备份"
