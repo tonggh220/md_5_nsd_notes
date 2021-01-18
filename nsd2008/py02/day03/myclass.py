@@ -24,4 +24,4 @@ if __name__ == '__main__':
     lb.speak('马中赤兔，人中吕布！')
     zf = Role('张飞', 300, 500, '丈八蛇矛')
     zf.show_me()
-    zf.speak('吾乃燕人张飞张冀德')
+    zf.speak('吾乃燕人张飞张翼德')
