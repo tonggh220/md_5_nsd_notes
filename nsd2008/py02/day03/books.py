@@ -16,5 +16,3 @@ if __name__ == '__main__':
     linux = Book('Linux运维之道', '丁明一')  # 调用__init__
     print(linux)  # 调用__str__
     linux()
-
-
