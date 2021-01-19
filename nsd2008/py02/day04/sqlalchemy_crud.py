@@ -87,11 +87,23 @@ session = Session()
 #     print(dep.id, dep.dep_name)
 
 # not in
-qset8 = session.query(Department)\
-    .filter(~Department.id.in_([1, 3, 5]))
-for dep in qset8:
-    print(dep.id, dep.dep_name)
+# qset8 = session.query(Department)\
+#     .filter(~Department.id.in_([1, 3, 5]))
+# for dep in qset8:
+#     print(dep.id, dep.dep_name)
 
+# not null
+# qset9 = session.query(Department)\
+#     .filter(Department.dep_name.isnot(None))
+# for dep in qset9:
+#     print(dep.id, dep.dep_name)
+
+# 多表查询
+qset10 = session\
+    .query(Employees.emp_name, Department.dep_name)\
+    .join(Department)
+for data in qset10:
+    print(data)
 
 ###################################
 # 确认
