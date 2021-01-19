@@ -47,6 +47,16 @@ session = Session()
 # )
 # session.add_all([lb, gy, zf, zgl, zy, hz, wy])
 ##################################################
+# 查询，如果参数是类名，则返回实例集
+# qset1 = session.query(Department)
+# print(qset1)  # 此时qset1只是一条sql语句，当向它取值时，才会访问数据库
+# for dep in qset1:
+#     print(dep.id, dep.dep_name)
+#
+# 查询，如果参数是字段，则返回由元组构成的查询集
+qset2 = session.query(Employees.emp_name, Employees.email)
+for data in qset2:
+    print(data)
 
 
 # 确认
