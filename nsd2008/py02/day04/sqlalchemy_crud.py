@@ -54,10 +54,19 @@ session = Session()
 #     print(dep.id, dep.dep_name)
 #
 # 查询，如果参数是字段，则返回由元组构成的查询集
-qset2 = session.query(Employees.emp_name, Employees.email)
-for data in qset2:
-    print(data)
+# qset2 = session.query(Employees.emp_name, Employees.email)
+# for data in qset2:
+#     print(data)
 
+# 排序
+# qset3 = session.query(Department).order_by(Department.id)
+# for dep in qset3:
+#     print(dep.id, dep.dep_name)
+
+# 降序
+qset4 = session.query(Department).order_by(-Department.id)
+for dep in qset4:
+    print(dep.id, dep.dep_name)
 
 # 确认
 session.commit()
