@@ -27,16 +27,24 @@ cursor = conn.cursor()
 # )
 ##############################
 # 查询
-select1 = "SELECT * FROM departments ORDER BY id"
-cursor.execute(select1)
-result1 = cursor.fetchone()  # 取出一行
-print(result1)
-print('*' * 30)
-result2 = cursor.fetchmany(2)  # 继续取出2行
-print(result2)
-print('*' * 30)
-result3 = cursor.fetchall()  # 继续向后取出所有行
-print(result3)
+# select1 = "SELECT * FROM departments ORDER BY id"
+# cursor.execute(select1)
+# result1 = cursor.fetchone()  # 取出一行
+# print(result1)
+# print('*' * 30)
+# result2 = cursor.fetchmany(2)  # 继续取出2行
+# print(result2)
+# print('*' * 30)
+# result3 = cursor.fetchall()  # 继续向后取出所有行
+# print(result3)
+##############################
+# 更新
+# update1 = "UPDATE departments SET dep_name=%s WHERE dep_name=%s"
+# cursor.execute(update1, ('人力资源部', '人事部'))
+##############################
+# 删除
+delete1 = "DELETE FROM departments WHERE id=%s"
+cursor.execute(delete1, (5, ))
 
 ##############################
 # 确认
