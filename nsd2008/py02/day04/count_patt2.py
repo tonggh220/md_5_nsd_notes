@@ -16,7 +16,7 @@ class CountPatt:
 
 if __name__ == '__main__':
     fname = 'access_log'
-    ip = '^(\d+\.){3}\d'  # 1234.5678.1.23 192.168.1.23
+    ip = '^(\d+\.){3}\d+'  # 1234.5678.1.23 192.168.1.23
     br = 'Chrome|Firefox|MSIE'
     cp1 = CountPatt()
     result1 = cp1.count_patt(fname, ip)

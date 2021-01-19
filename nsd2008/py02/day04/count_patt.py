@@ -18,7 +18,7 @@ def count_patt(fname, patt):
 
 if __name__ == '__main__':
     fname = 'access_log'
-    ip = '^(\d+\.){3}\d'  # 1234.5678.1.23 192.168.1.23
+    ip = '^(\d+\.){3}\d+'  # 1234.5678.1.23 192.168.1.23
     br = 'Chrome|Firefox|MSIE'
     result1 = count_patt(fname, ip)
     result2 = count_patt(fname, br)
