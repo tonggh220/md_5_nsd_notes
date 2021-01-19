@@ -99,11 +99,31 @@ session = Session()
 #     print(dep.id, dep.dep_name)
 
 # 多表查询
-qset10 = session\
-    .query(Employees.emp_name, Department.dep_name)\
-    .join(Department)
-for data in qset10:
-    print(data)
+# qset10 = session\
+#     .query(Employees.emp_name, Department.dep_name)\
+#     .join(Department)
+# for data in qset10:
+#     print(data)
+
+# 取值时，除了for循环，还可以使有all和first
+# all取出所有记录。first只取出第一个记录
+# qset11 = session\
+#     .query(Department.dep_name, Employees.emp_name)\
+#     .join(Employees)
+# print(qset11.all())
+# print(qset11.first())
+
+# 将人事部改为人力资源部
+# qset12 = session.query(Department)\
+#     .filter(Department.dep_name=='人事部')
+# hr = qset12.first()
+# hr.dep_name = '人力资源部'
+
+# 删除市场部
+qset13 = session.query(Department)\
+    .filter(Department.dep_name=='市场部')
+market = qset13.first()
+session.delete(market)
 
 ###################################
 # 确认
