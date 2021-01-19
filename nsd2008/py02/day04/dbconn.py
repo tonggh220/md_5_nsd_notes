@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -17,6 +17,14 @@ class Department(Base):
     __tablename__ = 'departments'  # 固定名称，声明与哪张表关联
     id = Column(Integer, primary_key=True)
     dep_name = Column(String(20), unique=True)
+
+class Employees(Base):
+    __tablename__ = 'employees'
+    id = Column(Integer, primary_key=True)
+    emp_name = Column(String(20))
+    email = Column(String(50))
+    birth_date = Column(Date)
+    dep_id = Column(Integer, ForeignKey('departments.id'))
 
 if __name__ == '__main__':
     # 如果库中无表，则创建，有表则忽略
