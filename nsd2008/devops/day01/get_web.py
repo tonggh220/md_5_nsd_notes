@@ -26,6 +26,8 @@ if __name__ == '__main__':
 
     # 在网易的首页文件中取出所有图片url
     img_patt = '(http|https)://[\w/.-]+\.(jpg|jpeg|png|gif)'
+    # 检查网易首页文件最上面的几行，发现它用的字符编码是gbk
+    # 所以打开文件时要添加encoding='gbk'
     img_list = get_patt(fname163, img_patt, 'gbk')
 
     # 下载图片
