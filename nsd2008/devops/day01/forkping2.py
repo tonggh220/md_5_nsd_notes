@@ -19,4 +19,4 @@ if __name__ == '__main__':
             ping(ip)
             exit()
 
-    time.sleep(600)
+    time.sleep(60)
