@@ -13,16 +13,32 @@ headers = {'Content-Type': 'application/json; charset=UTF-8'}
 # }
 ################################
 # 获取用户的token: b5479950bf43060f0035d68845b71d8f
+# data = {
+#     "jsonrpc": "2.0",
+#     "method": "user.login",
+#     "params": {
+#         "user": "Admin",
+#         "password": "zabbix"
+#     },
+#     "id": 1
+# }
+################################
+# 获取Linux servers组的ID: 2
 data = {
     "jsonrpc": "2.0",
-    "method": "user.login",
+    "method": "hostgroup.get",
     "params": {
-        "user": "Admin",
-        "password": "zabbix"
+        "output": "extend",
+        "filter": {
+            "name": [
+                # "Zabbix servers",
+                "Linux servers"
+            ]
+        }
     },
+    "auth": "b5479950bf43060f0035d68845b71d8f",
     "id": 1
 }
-
 
 
 ################################
