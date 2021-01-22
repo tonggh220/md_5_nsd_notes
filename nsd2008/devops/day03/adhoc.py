@@ -7,18 +7,22 @@ from ansible.playbook.play import Play
 from ansible.executor.task_queue_manager import TaskQueueManager
 import ansible.constants as C
 
-# since API is constructed for CLI it expects certain options to always be set, named tuple 'fakes' the args parsing options object
+# 配置选项
+# connection表示连接方式，可以使用local进行本地执行
+# 也可以使用ssh远程连接执行，也可以使用smart自动判断
 Options = namedtuple('Options', ['connection', 'module_path', 'forks', 'become', 'become_method', 'become_user', 'check', 'diff'])
-options = Options(connection='local', module_path=['/to/mymodules'], forks=10, become=None, become_method=None, become_user=None, check=False, diff=False)
+options = Options(connection='smart', module_path=['/to/mymodules'], forks=10, become=None, become_method=None, become_user=None, check=False, diff=False)
 
-# initialize needed objects
-loader = DataLoader() # Takes care of finding and reading yaml, json and ini files
+# Dataloader负责查找并解析ini/yaml/json文件，将其转换成python可以识别的数据类型
+loader = DataLoader()
 passwords = dict(vault_pass='secret')
 
-# create inventory, use path to host config file as source or hosts in a comma separated string
-inventory = InventoryManager(loader=loader, sources='localhost,')
+# 主机清单文件的配置。有两种方法，一种是用逗号隔开各个主机名；
+# 另一种方法是使用主机清单文件
+inventory = InventoryManager(loader=loader, sources=['myansible/hosts'])
+# inventory = InventoryManager(loader=loader, sources='localhost,')
 
-# variable manager takes care of merging all the different sources to give you a unifed view of variables available in each context
+# 变量管理器
 variable_manager = VariableManager(loader=loader, inventory=inventory)
 
 # create datastructure that represents our play, including tasks, this is basically what our YAML loader does internally.
