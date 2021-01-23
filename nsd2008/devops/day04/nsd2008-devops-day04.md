@@ -124,6 +124,10 @@ mytest
 #	修改：      readme.md
 #
 修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
+# 提交修改内容到版本库
+[root@dev myweb]# git add .
+[root@dev myweb]# git commit -m "modify readme.md"
+
 
 # 创建.gitignore来阻止某些文件加入到跟踪
 [root@dev myweb]# echo '8-1 xxxx' > plan.txt
