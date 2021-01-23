@@ -138,6 +138,12 @@ plan.txt
 .gitignore
 [root@dev myweb]# git status
 # 位于分支 master
+无文件要提交，干净的工作区
+
+
+[root@dev myweb]# echo 'new line' >> readme.md 
+[root@dev myweb]# git status
+# 位于分支 master
 # 尚未暂存以备提交的变更：
 #   （使用 "git add <file>..." 更新要提交的内容）
 #   （使用 "git checkout -- <file>..." 丢弃工作区的改动）
@@ -153,6 +159,7 @@ plan.txt
 无文件要提交，干净的工作区
 [root@dev myweb]# cat readme.md 
 Hello World
+2nd line
 
 # 技巧。如果发送的git目录太大，可以把工作区内容删除。接收方再恢复
 # 发送方
