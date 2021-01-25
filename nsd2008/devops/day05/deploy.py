@@ -1,3 +1,5 @@
+import requests
+import wget
 
 def has_new_ver(ver_url, ver_fname):
     "用于判断是否有新版本，有返回True，否则返回False"
@@ -12,6 +14,10 @@ if __name__ == '__main__':
         exit(1)
 
     # 下载最新版本的代码
+    download_dir = '/var/www/download'
+    r = requests.get(ver_url)
+    app_url = 'http://192.168.1.103/deploy/pkgs/myweb-%s.tar.gz' % r.text
+    wget.download(app_url, download_dir)
 
     # 如果下载的代码已损坏，则删除它
 
