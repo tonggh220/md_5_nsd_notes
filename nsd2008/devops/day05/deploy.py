@@ -1,9 +1,12 @@
 import requests
 import wget
+import os
 
 def has_new_ver(ver_url, ver_fname):
     "用于判断是否有新版本，有返回True，否则返回False"
 
+def file_ok(md5url, app_fname):
+    "如果md5值一样返回True，否则返回False"
 
 if __name__ == '__main__':
     # 检查是否有新版本
@@ -20,6 +23,13 @@ if __name__ == '__main__':
     wget.download(app_url, download_dir)
 
     # 如果下载的代码已损坏，则删除它
+    md5url = app_url + '.md5'
+    app_fname = app_url.split('/')[-1]
+    app_fname = os.path.join(download_dir, app_fname)
+    if not file_ok(md5url, app_fname):
+        os.remove(app_fname)
+        print("文件已损坏，请重新下载")
+        exit(2)
 
     # 部署代码
 
