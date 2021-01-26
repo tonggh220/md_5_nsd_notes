@@ -5,9 +5,15 @@
     <title>MyForm</title>
 </head>
 <body>
+<hr>
 <form action="https://www.sogou.com/web" target="_blank">
-    <input type="radio" name="query" value="python">python <br>
-    <input type="radio" name="query" value="html">html <br>
+    <label>
+        <input type="radio" name="query" value="python">python
+    </label>
+    <br>
+    <input id="id1" type="radio" name="query" value="html">
+    <label for="id1">html</label>
+    <br>
     <input type="radio" name="query" value="css">css <br>
     <input type="radio" name="query" value="js">js <br>
     <input type="submit" value="搜狗搜索">
