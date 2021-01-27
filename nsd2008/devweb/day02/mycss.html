@@ -22,8 +22,17 @@
         .c1 {
             color: purple;
         }
-        .c2 {
+        /*.c2 {
             text-decoration: underline;
+        }*/   /*具有class="c2"属性的元素*/
+        /*div.c2 {
+            text-decoration: underline;
+        }*/  /*具有class="c2"属性的div*/
+        div .c2 {
+            text-decoration: underline;
+        }  /*div中具有class="c2"的子元素*/
+        #id1 {
+            text-align: right;
         }
     </style>
 </head>
@@ -33,7 +42,7 @@
 <div class="c1">达内云计算 Cloud Computing</div>
 <div class="c2">达内云计算 Cloud Computing</div>
 <div>达内云计算 <span class="c2">Cloud Computing</span></div>
-<div>达内云计算 Cloud Computing</div>
+<div id="id1">达内云计算 Cloud Computing</div>
 <p class="c1">达内云计算 Cloud Computing</p>
 <p class="c2">达内云计算 Cloud Computing</p>
 <p>达内云计算 Cloud Computing</p>
