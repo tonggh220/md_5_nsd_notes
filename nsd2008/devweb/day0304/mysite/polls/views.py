@@ -6,3 +6,5 @@ def index(request):
     # 通过render函数找到名为index.html的网页模板文件，返回给用户
     return render(request, 'index.html')
 
+def detail(request):
+    return render(request, 'detail.html')

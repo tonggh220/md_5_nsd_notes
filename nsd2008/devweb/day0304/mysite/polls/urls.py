@@ -6,4 +6,5 @@ urlpatterns = [
     # 如果polls/后面为空，则调用函数views.index进行处理
     # name='index'是给url http://127.0.0.1/polls/起的名字
     path('', views.index, name="index"),
+    path('1', views.detail, name='detail'),
 ]
