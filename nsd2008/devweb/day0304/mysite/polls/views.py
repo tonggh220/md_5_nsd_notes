@@ -6,5 +6,7 @@ def index(request):
     # 通过render函数找到名为index.html的网页模板文件，返回给用户
     return render(request, 'index.html')
 
-def detail(request):
-    return render(request, 'detail.html')
+def detail(request, qid):
+    # qid用于接收来自于url的参数
+    # {'qid': qid}将成为detail.html的变量和值，即：qid=数字
+    return render(request, 'detail.html', {'qid': qid})
