@@ -128,7 +128,7 @@ Superuser created successfully.
 [root@localhost mysite]# ls
 manage.py  mysite  polls  templates
 # 集成应用到项目
-# mysite/settings.py
+# vim mysite/settings.py
 INSTALLED_APPS = [
     ... ...
     'polls',
