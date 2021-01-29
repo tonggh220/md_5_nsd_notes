@@ -17,7 +17,8 @@ def detail(request, qid):
     # return render(request, 'detail.html', {'qid': qid})
 
 def result(request, qid):
-    return render(request, 'result.html', {'qid': qid})
+    question = Question.objects.get(id=qid)
+    return render(request, 'result.html', {'question': question})
 
 def vote(request, qid):
     # print('#' * 50)
