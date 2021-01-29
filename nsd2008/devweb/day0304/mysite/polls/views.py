@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from polls.models import Question
 
 # 用户发起请求，请求将为成为一个对象，作为第一个参数传给函数
@@ -32,5 +32,7 @@ def vote(request, qid):
     choice = question.choice_set.get(id=choice_id)
     choice.votes += 1
     choice.save()
+    # 重定向到投票结果页, result是urls.py中定义的url名称
+    return redirect('result', qid)
 
-    return render(request, 'result.html', {'qid': qid})
+    # return render(request, 'result.html', {'qid': qid})
