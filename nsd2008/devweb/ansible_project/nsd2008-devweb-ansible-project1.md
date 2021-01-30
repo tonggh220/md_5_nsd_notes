@@ -318,7 +318,7 @@ def index(request):
     return render(request, 'webadmin/index.html')
 
 # 通过ansible-cmdb生成主机信息页
-[root@localhost ansi_cfg]# ansible dbservers -m setup --tree /tmp/myhosts
+[root@localhost ansi_cfg]# ansible all -m setup --tree /tmp/myhosts
 [root@localhost ansi_cfg]# ansible-cmdb /tmp/myhosts > ../templates/webadmin/index.html
 
 # 修改templates/index/index.html中主机信息的超链接
