@@ -5,5 +5,7 @@ def index(request):
     return render(request, 'webadmin/index.html')
 
 def add_hosts(request):
+    if request.method == 'POST':
+        pass
     groups = HostGroup.objects.all()
     return render(request, 'webadmin/add_hosts.html', {'groups': groups})
