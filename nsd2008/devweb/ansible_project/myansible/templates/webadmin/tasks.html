@@ -43,7 +43,12 @@
             <tbody>
                 {% for module in modules %}
                     <tr>
-                        <td>{{ module.modulename }}</td>
+                        <td>
+                            <label>
+                                <input type="radio" name="module" value="{{ module.modulename }}">
+                                {{ module.modulename }}
+                            </label>
+                        </td>
                         <td>
                             {% for arg in module.argument_set.all %}
                                 <div>{{ arg.arg_text }}</div>
