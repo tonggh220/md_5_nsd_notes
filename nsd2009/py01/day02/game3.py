@@ -16,7 +16,8 @@ computer = random.choice(all_choice)
 # (1) 剪刀
 # (2) 布
 # 请选择(0/1/2): """)
-player = input(prompt)
+i = int(input(prompt))  # 将用户输入的字符转成数字
+player = all_choice[i]
 # 输出人机选择
 print("Your choice: %s, Computer's choice: %s" % (player, computer))
 
