@@ -1,0 +1,3 @@
+import star
+
+star.pstar()
