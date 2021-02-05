@@ -5,7 +5,7 @@ def mk_fib():
     for i in range(n - 2):
         fib.append(fib[-1] + fib[-2])
 
-    print(fib)
+    return fib  # 返回fib代表的列表
 
-mk_fib()
-mk_fib()
+a = mk_fib()  # 调用mk_fib函数后，得到的值赋值给变量a
+print(a)
