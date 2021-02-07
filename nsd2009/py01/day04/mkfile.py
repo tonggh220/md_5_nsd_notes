@@ -20,6 +20,7 @@ def get_content():
         if line == "end":
             break
         content.append(line)
+        # content.append(line + '\n')
 
     return content
 
@@ -33,5 +34,7 @@ if __name__ == '__main__':
     fname = get_fname()
     # 获取内容
     content = get_content()
+    # 将列表中每个字符串结尾增加\n
+    content = ['%s\n' % line for line in content]
     # 将内容写入文件
     wfile(fname, content)
