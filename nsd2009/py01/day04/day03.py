@@ -10,6 +10,8 @@
 #     print(i, users[i])
 
 users = ['tom', 'jerry', 'jack', 'rose']
+# >>> list(enumerate(users))
+# enumerate(users)是由元组构成的，所以data是元组
 # for data in enumerate(users):
 #     print(data)
 
