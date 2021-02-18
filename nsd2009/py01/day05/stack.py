@@ -10,11 +10,14 @@ def push_it():
 
 def pop_it():
     "用于出栈"
-    print('pop')
+    if stack:  # 如果stack非空
+        print("从栈中弹出: \033[31;1m%s\033[0m" % stack.pop())
+    else:
+        print("\033[31;1m栈已经是空的\033[0m")
 
 def view_it():
     "查询"
-    print('view')
+    print('\033[32;1m%s\033[0m' % stack)
 
 def show_menu():
     "用于显示菜单，实现代码逻辑"
