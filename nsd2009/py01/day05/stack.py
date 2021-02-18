@@ -1,6 +1,12 @@
+stack = []  # 使用列表模拟栈
+
 def push_it():
     "用于压栈"
-    print('push')
+    data = input("数据: ").strip()
+    if data:  # 如果data非空
+        stack.append(data)
+    else:
+        print("未获取到数据。")
 
 def pop_it():
     "用于出栈"
