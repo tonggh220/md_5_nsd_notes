@@ -17,11 +17,16 @@ def exam():
 
     # 用户作答，判断正误
     prompt = "%s %s %s = " % (nums[0], op, nums[-1])
-    answer = int(input(prompt))
-    if answer == result:
-        print('非常棒！！！')
-    else:
+    i = 0
+    while i < 3:
+        answer = int(input(prompt))
+        if answer == result:
+            print('非常棒！！！')
+            break
         print('不对哟！')
+        i += 1
+    else:
+        print('正确答案：\n%s%s' % (prompt, result))
 
 def main():
     "主程序代码逻辑"
