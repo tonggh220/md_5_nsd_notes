@@ -19,11 +19,29 @@ def save(fname):
 
 def cost(fname):
     "用于记录支出"
-    print('cost')
+    date = strftime('%Y-%m-%d')
+    amount = int(input("金额: "))
+    comment = input("备注: ")
+    # 在文件中取出所有收支记录
+    with open(fname, 'rb') as fobj:
+        records = pickle.load(fobj)
+    # 计算最新余额
+    balance = records[-1][-2] - amount
+    # 将最新一笔支出追加到大列表中，并保存至文件
+    records.append([date, 0, amount, balance, comment])
+    with open(fname, 'wb') as fobj:
+        pickle.dump(records, fobj)
 
 def query(fname):
     "用于查询收支"
-    print('query')
+    # 在文件中取出所有收支记录
+    with open(fname, 'rb') as fobj:
+        records = pickle.load(fobj)
+    # 打印表头
+    print('%-15s%-8s%-8s%-12s%-20s' % ('date', 'save', 'cost', 'balance', 'comment'))
+    # 打印收支记录
+    for record in records:
+        print('%-15s%-8s%-8s%-12s%-20s' % tuple(record))
 
 def show_menu():
     "程序主体代码逻辑"
