@@ -16,6 +16,12 @@ def exam():
         result = nums[0] - nums[1]
 
     # 用户作答，判断正误
+    prompt = "%s %s %s = " % (nums[0], op, nums[-1])
+    answer = int(input(prompt))
+    if answer == result:
+        print('非常棒！！！')
+    else:
+        print('不对哟！')
 
 def main():
     "主程序代码逻辑"
