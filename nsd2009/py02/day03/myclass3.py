@@ -20,13 +20,17 @@ class Role:
         print(words)
 
 class Warrior(Role):  # Warrior是Role的子类。Role叫父类或基类
-    pass
+    def attack(self, target):
+        print('与%s近身肉搏' % target)
 
 class Mage(Role):
-    pass
+    def attack(self, target):
+        print('远程打击%s' % target)
 
 if __name__ == '__main__':
     lb = Warrior('吕布', '方天画戟')
     zgl = Mage('诸葛亮', '羽扇')
     lb.show_me()
     zgl.show_me()
+    lb.attack('刘备')
+    zgl.attack('曹操')
