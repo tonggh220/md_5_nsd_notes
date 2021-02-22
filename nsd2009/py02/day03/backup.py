@@ -54,9 +54,18 @@ def incr_backup(src, dst, md5file):
     # 取出前一天的md5值
     with open(md5file, 'rb') as fobj:
         old_md5 = pickle.load(fobj)
-    
 
+    # 找到改变的文件和新增的文件，进行备份
+    tar = tarfile.open(fname, 'w:gz')
+    for k in md5dict:
+        # if (k not in old_md5) or (md5dict[k] != old_md5[k]):
+        if old_md5.get(k) != md5dict[k]:
+            tar.add(k)
+    tar.close()
 
+    # 保存新md5值到文件
+    with open(md5file, 'wb') as fobj:
+        pickle.dump(md5dict, fobj)
 
 if __name__ == '__main__':
     src = '/tmp/demo/security'
