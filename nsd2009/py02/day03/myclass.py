@@ -9,8 +9,12 @@ class Role:
         self.hp = hp
         self.mp = mp
 
+    def show_me(self):
+        # 绑定在实例身上的属性，在类中任意位置可见可用
+        print('我是%s，擅用%s' % (self.name, self.weapon))
+
 if __name__ == '__main__':
     # 实例本身将会自动作为第一个参数传递，本例中是lb
     lb = Role('吕布', '方天画戟')  # 自动调用__init__，创建具体的实例对象
     print(lb.name, lb.weapon, lb.hp, lb.mp)
-
+    lb.show_me()
