@@ -20,7 +20,7 @@ class Warrior(Role):
         # Role.__init__(self, name, weapon, hp=500, mp=300)
         # ------------------------------
         # 上面明确调用父类方法的作法，也可以用super来实现
-        super(Warrior, self).__init__(name, weapon, hp=500, mp=300)
+        super(Warrior, self).__init__(name, weapon, hp, mp)
         self.qq = qq
 
 if __name__ == '__main__':
