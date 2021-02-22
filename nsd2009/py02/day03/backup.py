@@ -40,6 +40,23 @@ def full_backup(src, dst, md5file):
 
 def incr_backup(src, dst, md5file):
     "增量备份"
+    # 拼接出备份文件名
+    fname = '%s_incr_%s.tar.gz' % (os.path.basename(src), strftime('%Y%m%d'))
+    fname = os.path.join(dst, fname)
+
+    # 计算文件md5值
+    md5dict = {}
+    for path, folders, files in os.walk(src):
+        for file in files:
+            k = os.path.join(path, file)
+            md5dict[k] = check_md5(k)
+
+    # 取出前一天的md5值
+    with open(md5file, 'rb') as fobj:
+        old_md5 = pickle.load(fobj)
+    
+
+
 
 if __name__ == '__main__':
     src = '/tmp/demo/security'
