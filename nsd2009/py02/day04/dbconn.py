@@ -26,6 +26,14 @@ class Employee(Base):
     birth_date = Column(Date)
     dep_id = Column(Integer, ForeignKey('departments.id'))
 
+class Salary(Base):
+    __tablename__ = 'salary'
+    id = Column(Integer, primary_key=True)
+    date = Column(Date)
+    emp_id = Column(Integer, ForeignKey('employees.id'))
+    basic = Column(Integer)
+    awards = Column(Integer)
+
 if __name__ == '__main__':
     # 如果库中无表则创建，有表则不执行
     Base.metadata.create_all(engine)
