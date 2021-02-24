@@ -30,4 +30,7 @@ if __name__ == '__main__':
 
     # 下载图片
     for img_url in img_list:
-        wget.download(img_url, dir163)
+        try:
+            wget.download(img_url, dir163)
+        except:
+            pass
