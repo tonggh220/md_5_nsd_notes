@@ -12,18 +12,14 @@ Options = namedtuple('Options',
                      ['connection', 'module_path', 'forks', 'become', 'become_method', 'become_user', 'check', 'diff'])
 options = Options(connection='ssh', module_path=['/to/mymodules'], forks=10, become=None, become_method=None,
                   become_user=None, check=False, diff=False)
-
 # Dataloader用于查找并将ini/yaml/json等文件内容转为python可以识别的数据类型
 loader = DataLoader()
 passwords = dict(vault_pass='secret')
-
 # 主机清单。可以使用逗号将各个主机分开，也可以采用主机清单文件
 inventory = InventoryManager(loader=loader, sources=['myansible/hosts'])
 # inventory = InventoryManager(loader=loader, sources='localhost,')
-
 # 变量管理器，分析变量
 variable_manager = VariableManager(loader=loader, inventory=inventory)
-
 # 创建用于执行命令的、构成play的源
 play_source = dict(
     name="Ansible Play",  # play名字
@@ -34,12 +30,10 @@ play_source = dict(
         dict(action=dict(module='debug', args=dict(msg='{{shell_out}}')))
     ]
 )
-
-# Create play object, playbook objects use .load instead of init or new methods,
-# this will also automatically create the task objects from the info provided in play_source
+# 生成Play对象
 play = Play().load(play_source, variable_manager=variable_manager, loader=loader)
 
-# Run it - instantiate task queue manager, which takes care of forking and setting up all objects to iterate over host list and tasks
+# 使用任务队列管理器执行任务
 tqm = None
 try:
     tqm = TaskQueueManager(
@@ -49,11 +43,10 @@ try:
         options=options,
         passwords=passwords,
     )
-    result = tqm.run(play)  # most interesting data for a play is actually sent to the callback's methods
+    result = tqm.run(play)
 finally:
-    # we always need to cleanup child procs and the structres we use to communicate with them
+    # 在远程主机上清理环境
     if tqm is not None:
         tqm.cleanup()
 
-    # Remove ansible tmpdir
     shutil.rmtree(C.DEFAULT_LOCAL_TMP, True)
