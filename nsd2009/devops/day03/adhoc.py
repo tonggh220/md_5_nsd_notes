@@ -17,20 +17,21 @@ options = Options(connection='ssh', module_path=['/to/mymodules'], forks=10, bec
 loader = DataLoader()
 passwords = dict(vault_pass='secret')
 
-# create inventory, use path to host config file as source or hosts in a comma separated string
-inventory = InventoryManager(loader=loader, sources='localhost,')
+# 主机清单。可以使用逗号将各个主机分开，也可以采用主机清单文件
+inventory = InventoryManager(loader=loader, sources=['myansible/hosts'])
+# inventory = InventoryManager(loader=loader, sources='localhost,')
 
-# variable manager takes care of merging all the different sources to give you a unifed view of variables available in each context
+# 变量管理器，分析变量
 variable_manager = VariableManager(loader=loader, inventory=inventory)
 
-# create datastructure that represents our play, including tasks, this is basically what our YAML loader does internally.
+# 创建用于执行命令的、构成play的源
 play_source = dict(
-    name="Ansible Play",
-    hosts='localhost',
+    name="Ansible Play",  # play名字
+    hosts='webservers',   # 在哪些主机上执行任务
     gather_facts='no',
-    tasks=[
+    tasks=[  # 使用哪个模块，执行哪些任务
         dict(action=dict(module='shell', args='ls'), register='shell_out'),
-        dict(action=dict(module='debug', args=dict(msg='{{shell_out.stdout}}')))
+        dict(action=dict(module='debug', args=dict(msg='{{shell_out}}')))
     ]
 )
 
