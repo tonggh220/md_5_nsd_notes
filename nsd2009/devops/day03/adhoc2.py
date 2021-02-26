@@ -18,7 +18,6 @@ def adhoc(host_file, target, module, args):
     passwords = dict(vault_pass='secret')
     # 主机清单。可以使用逗号将各个主机分开，也可以采用主机清单文件
     inventory = InventoryManager(loader=loader, sources=host_file)
-    # inventory = InventoryManager(loader=loader, sources='localhost,')
     # 变量管理器，分析变量
     variable_manager = VariableManager(loader=loader, inventory=inventory)
     # 创建用于执行命令的、构成play的源
