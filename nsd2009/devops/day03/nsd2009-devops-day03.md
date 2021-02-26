@@ -236,7 +236,8 @@ Vault password:
 [root@localhost myansible]# which ansible-cmdb 
 /usr/local/bin/ansible-cmdb
 [root@localhost myansible]# vim $(which ansible-cmdb)
-which -a python3 | while read -r TRY_PY_BIN  # 第14行改为python3
+# 第14行改为python3，如下所示：
+which -a python3 | while read -r TRY_PY_BIN  
 [root@localhost myansible]# ansible-cmdb /tmp/out/ > /tmp/hosts.html
 [root@localhost myansible]# firefox /tmp/hosts.html
 注：如果网页按钮无法正常使用，则
@@ -287,6 +288,17 @@ if __name__ == '__main__':
 [root@localhost wget-3.2]# ls
 PKG-INFO  README.txt  setup.py  wget.py
 [root@localhost wget-3.2]# python setup.py install
+
+
+# 也可以先安装pip，再通过pip安装wget
+[root@localhost ~]# wget https://files.pythonhosted.org/packages/8e/76/66066b7bc71817238924c7e4b448abdb17eb0c92d645769c223f9ace478f/pip-20.0.2.tar.gz
+
+# pip的安装方法与安装wget方法一样
+[root@localhost ~]# tar xf pip-20.0.2.tar.gz
+[root@localhost ~]# cd pip-20.0.2.tar.gz
+[root@localhost pip-20.0.2]# python setup.py install
+# 通过pip安装wget
+[root@localhost ~]# pip install wget
 ```
 
 - 编写下载模块
