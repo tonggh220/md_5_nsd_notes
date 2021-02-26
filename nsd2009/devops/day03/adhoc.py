@@ -13,8 +13,8 @@ Options = namedtuple('Options',
 options = Options(connection='ssh', module_path=['/to/mymodules'], forks=10, become=None, become_method=None,
                   become_user=None, check=False, diff=False)
 
-# initialize needed objects
-loader = DataLoader()  # Takes care of finding and reading yaml, json and ini files
+# Dataloader用于查找并将ini/yaml/json等文件内容转为python可以识别的数据类型
+loader = DataLoader()
 passwords = dict(vault_pass='secret')
 
 # create inventory, use path to host config file as source or hosts in a comma separated string
