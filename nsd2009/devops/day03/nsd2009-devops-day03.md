@@ -31,7 +31,7 @@ autocmd FileType yaml setlocal sw=2 ts=2 et ai
 nnoremap <C-a> <Home>
 nnoremap <C-e> <End>
 nnoremap <F2> :set nu! nu?<CR>
-nnoremap ; : 
+nnoremap ; :
     
 [root@localhost day03]# mkdir myansible
 [root@localhost day03]# cd myansible
