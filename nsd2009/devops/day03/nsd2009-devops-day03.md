@@ -22,7 +22,6 @@
 filetype plugin on
 let g:pydiction_location = '/root/.vim/bundle/pydiction/complete-dict'
 syntax on
-"set cursorline
 set scrolloff=7
 set ai
 set ts=4
