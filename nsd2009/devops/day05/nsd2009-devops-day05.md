@@ -52,7 +52,7 @@ java-1.8.0-openjdk-1.8.0.161-2.b14.el7.x86_64
 
 - 安装插件
 
-Manage Jenkins -> Manage Plugins ->  Available选项卡，按ctrl+f进行搜索并勾选Git Parameter / Localization:  Chinese(Simplified) / DingTalk / GitLab -> 点击Install without restart  -> 勾选Restart Jenkins when installation is complete and no jobs are  running
+Manage Jenkins -> Manage Plugins ->  Available选项卡，在search搜索框搜索并勾选Git Parameter / Localization:  Chinese(Simplified) / DingTalk / GitLab -> 点击Install without restart  -> 勾选Restart Jenkins when installation is complete and no jobs are  running
 
 ##  jenkins应用
 
