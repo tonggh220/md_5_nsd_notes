@@ -29,9 +29,28 @@
         .nav ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
         }
         .nav ul li {
             float: left;
+        }
+        .clear {
+            clear: both;
+        }
+        .nav ul li a {
+            display: block;
+            width: 200px;
+            font-size: 20px;
+            text-decoration: none;
+            text-align: center;
+            background-color: #BEBEBE;
+            height: 50px;
+            line-height: 50px;
+            color: white;
+            border-bottom: 2px solid darkred;
+        }
+        .nav ul li a:hover {
+            background-color: darkred;
         }
     </style>
 </head>
@@ -49,10 +68,12 @@
             <li><a href="#">HTML</a></li>
         </ul>
     </div>
+    <div class="clear"></div>
     <div class="main">
         <div class="left">111</div>
         <div class="right">222</div>
     </div>
+    <div class="clear"></div>
     <div class="footer">
         <a href="http://linux.tedu.cn">达内云计算学院</a> &copy; 达内教育
     </div>
