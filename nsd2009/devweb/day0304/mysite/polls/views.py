@@ -11,3 +11,7 @@ def detail(request, qid):
     # {'qid': qid}将成为detail.html的变量和值，即 qid=数字
     return render(request, 'detail.html', {'qid': qid})
 
+def result(request, qid):
+    # {'qid': qid}将成为detail.html的变量和值，即 qid=数字
+    return render(request, 'result.html', {'qid': qid})
+
