@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from polls.models import Question
 
 # 用户发起的请求，请求将会成为一个对象，作为第一个参数传给函数
@@ -20,4 +20,15 @@ def detail(request, qid):
 def result(request, qid):
     # {'qid': qid}将成为detail.html的变量和值，即 qid=数字
     return render(request, 'result.html', {'qid': qid})
+
+def vote(request, qid):
+    question = Question.objects.get(id=qid)
+    # request有名为POST的属性，存储用户通过Post方法提交的数据。
+    # 它是一个字典对象
+    choice_id = request.POST.get('choice_id')
+    choice = question.choice_set.get(id=choice_id)
+    choice.votes += 1
+    choice.save()
+    # 重定向到投票结果页, result是urls.py中定义的url名称
+    return redirect('result', question.id)
 
