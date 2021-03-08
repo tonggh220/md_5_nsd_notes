@@ -18,8 +18,11 @@ def detail(request, qid):
     # return render(request, 'detail.html', {'qid': qid})
 
 def result(request, qid):
+    question = Question.objects.get(id=qid)
+    return render(request, 'result.html', {'question': question})
+
     # {'qid': qid}将成为detail.html的变量和值，即 qid=数字
-    return render(request, 'result.html', {'qid': qid})
+    # return render(request, 'result.html', {'qid': qid})
 
 def vote(request, qid):
     question = Question.objects.get(id=qid)
