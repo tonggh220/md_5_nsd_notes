@@ -5,6 +5,14 @@
     <title>投票首页</title>
 </head>
 <body>
+{% comment %}
+{% for q in questions %}
+    <div>
+        {{ q.id }}/{{ q.question_text }}/{{ q.pub_date }}
+    </div>
+{% endfor %}
+{% endcomment %}
+
 <h1>投票首页</h1>
 <ol>
     {% for question in questions %}
