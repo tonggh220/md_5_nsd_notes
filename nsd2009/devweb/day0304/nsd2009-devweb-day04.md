@@ -153,7 +153,7 @@ from django.shortcuts import render
 from polls.models import Question
 ... ...
 def index(request):
-    # 取出所有的问题，除序排列
+    # 取出所有的问题，按时间降序排列
     questions = Question.objects.order_by('-pub_date')
     # index函数通过render函数找到一个网页模板文件，返回给客户端
     return render(request, 'index.html', {'questions': questions})
