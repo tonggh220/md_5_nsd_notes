@@ -19,6 +19,7 @@ def get_content():
         line = input('(输入end结束)> ')
         if line == 'end':
             break
+        # content.append(line + '\n')
         content.append(line)
 
     return content
@@ -33,5 +34,6 @@ if __name__ == '__main__':
     fname = get_fname()
     # 获取内容
     content = get_content()
+    content = [f'{line}\n' for line in content]
     # 将内容写入文件
     wfile(fname, content)
