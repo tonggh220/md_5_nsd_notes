@@ -1,10 +1,30 @@
+import getpass
+
+users = {}
+
+
 def register():
     '用于新用户注册'
-    print('register')
+    username = input("uername: ").strip()
+    if username:
+        if username in users:
+            print('用户已存在。')
+        else:
+            password = input("password: ")
+            users[username] = password
+    else:
+        print('用户名不能为空')
+
 
 def login():
     '用于登陆'
-    print('login')
+    username = input("username: ").strip()
+    password = getpass.getpass("password: ")
+    if users.get(username) == password:
+        print('登陆成功')
+    else:
+        print('登陆失败')
+
 
 def show_menu():
     '程序主体，实现代码逻辑'
@@ -25,6 +45,7 @@ def show_menu():
             break
 
         funcs[choice]()
+
 
 if __name__ == '__main__':
     show_menu()
