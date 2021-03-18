@@ -1,14 +1,24 @@
+stack = []  # 函数外面创建的变量是全局变量，从创建位置开始，到程序结束，一直可见可用
+
 def push_it():
     "用于压栈"
-    print('push')
+    data = input('数据: ').strip()
+    if data:  # 如果data非空
+        stack.append(data)
+    else:
+        print('\033[31;1m没有获取到数据\033[0m')
 
 def pop_it():
     "用于出栈"
-    print('pop')
+    if stack:
+        data = stack.pop()
+        print(f'从栈中弹出了: \033[31;1m{data}\033[0m')
+    else:
+        print('\033[31;1m栈已经为空\033[0m')
 
 def view_it():
     "查询"
-    print('view')
+    print(f'\033[32;1m{stack}\033[0m')
 
 def show_menu():
     "用于显示菜单，实现代码逻辑"
