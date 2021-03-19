@@ -8,4 +8,3 @@ for i in range(1, 10000001):
 end = time.time()
 
 print(result, end - start)
-
