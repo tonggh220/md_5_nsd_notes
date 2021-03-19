@@ -28,6 +28,20 @@
 # print('Done')
 
 ####################################
+# try:
+#     num = int(input("number: "))
+#     result = 100 / num
+# except (ValueError, ZeroDivisionError):
+#     print('请输入非0数字')
+# except (KeyboardInterrupt, EOFError):
+#     print('\nBye-bye')
+#     exit(1)
+# else:
+#     print(result)
+#
+# print('Done')
+
+####################################
 try:
     num = int(input("number: "))
     result = 100 / num
@@ -38,6 +52,5 @@ except (KeyboardInterrupt, EOFError):
     exit(1)
 else:
     print(result)
-
-print('Done')
-
+finally:
+    print('Done')
