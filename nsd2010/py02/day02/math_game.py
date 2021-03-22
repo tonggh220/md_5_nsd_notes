@@ -34,7 +34,12 @@ def exam():
     n = 0
 
     while n < 3:
-        answer = int(input(prompt))
+        try:
+            answer = int(input(prompt))
+        except:  # 裸except可以捕获所有异常，不推荐
+            print()
+            continue
+
         if answer == result:
             print('你真棒!!!')
             break
@@ -47,7 +52,13 @@ def main():
     '主程序代码逻辑'
     while 1:
         exam()
-        yn = input('Continue(Y/n)? ').strip()[0]  # 取出用户输入的第一个非空字符
+        try:
+            yn = input('Continue(Y/n)? ').strip()[0]  # 取出用户输入的第一个非空字符
+        except IndexError:
+            continue
+        except (KeyboardInterrupt, EOFError):
+            yn = 'n'
+
         if yn in 'nN':
             print('\nBye-bye')
             break
