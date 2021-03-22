@@ -28,13 +28,20 @@ def exam():
         result = nums[0] + nums[1]
     else:
         result = nums[0] - nums[1]
+
     # 用户作答，判断正误
     prompt = f'{nums[0]} {op} {nums[1]} = '
-    answer = int(input(prompt))
-    if answer == result:
-        print('你真棒!!!')
-    else:
+    n = 0
+
+    while n < 3:
+        answer = int(input(prompt))
+        if answer == result:
+            print('你真棒!!!')
+            break
         print('不对哟!!!')
+        n += 1
+    else:
+        print(f'正确答案是:\n{prompt}{result}')
 
 def main():
     '主程序代码逻辑'
