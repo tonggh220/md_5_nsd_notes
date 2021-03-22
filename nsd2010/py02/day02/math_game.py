@@ -12,9 +12,29 @@
 # Continue(Y/n): n
 # Bye-bye
 
+from random import randint, choice
+
 def exam():
     '用于出题，用户作答'
-    print('exam')
+    # 随机生成两个整数
+    nums = [randint(1, 100) for i in range(2)]
+    nums.sort(reverse=True)  # 降序排列
+    # nums.reverse()
+
+    # 随机选择加减法
+    op = choice('+-')
+    # 计算出标准答案
+    if op == '+':
+        result = nums[0] + nums[1]
+    else:
+        result = nums[0] - nums[1]
+    # 用户作答，判断正误
+    prompt = f'{nums[0]} {op} {nums[1]} = '
+    answer = int(input(prompt))
+    if answer == result:
+        print('你真棒!!!')
+    else:
+        print('不对哟!!!')
 
 def main():
     '主程序代码逻辑'
