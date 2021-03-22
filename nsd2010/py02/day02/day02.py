@@ -1,9 +1,28 @@
-def func1():
-    print('from func1')
-    func2()
+# def func1():
+#     print('from func1')
+#     func2()
+#
+# def func2():
+#     print('from fn2')
+#
+# if __name__ == '__main__':
+#     func1()
 
-def func2():
-    print('from fn2')
+from random import randint
+
+def func1(x):
+    return x % 2  # 整数除以2，结果只可能是1或0，0为假，非0为真
 
 if __name__ == '__main__':
-    func1()
+    nums = [randint(1, 100) for i in range(10)]
+    print(nums)
+    result1 = filter(func1, nums)
+    print(list(result1))
+    result2 = filter(lambda x: x % 2, nums)
+    print(list(result2))
+
+
+
+
+
+
