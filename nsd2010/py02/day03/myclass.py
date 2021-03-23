@@ -12,6 +12,7 @@ class Role:
         print(f'我是{self.name}，擅用{self.weapon}')
 
     def speak(self, words):
+        # 没有绑在实例身上的变量，只是函数的局部变量，只能用在当前函数中
         hh = 'hehe'
         print(hh, words)
 
