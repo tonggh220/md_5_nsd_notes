@@ -1,6 +1,7 @@
 import os
 import tarfile
 import hashlib
+import pickle
 from time import strftime
 
 def check_md5(fname):
@@ -25,7 +26,14 @@ def full_backup(src, dst, md5file):
 
     # 计算当前文件的md5值
     md5dict = {}
+    for path, folders, files in os.walk(src):
+        for file in files:
+            key = os.path.join(path, file)
+            md5dict[key] = check_md5(key)
 
+    # 保存md5字典到md5file
+    with open(md5file, 'wb') as fobj:
+        pickle.dump(md5dict, fobj)
 
 
 def incr_backup(src, dst, md5file):
