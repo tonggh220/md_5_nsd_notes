@@ -1,8 +1,32 @@
 import os
+import tarfile
+import hashlib
 from time import strftime
+
+def check_md5(fname):
+    m = hashlib.md5()
+    with open(fname, 'rb') as fobj:
+        while 1:
+            data = fobj.read(4096)
+            if not data:
+                break
+            m.update(data)
+    return m.hexdigest()
 
 def full_backup(src, dst, md5file):
     '完全备份'
+    # 拼接出备份文件的文件名
+    fname = f'{os.path.basename(src)}_full_{strftime("%Y%m%d")}.tar.gz'
+    fname = os.path.join(dst, fname)
+
+    # 备份，打tar包
+    with tarfile.open(fname, 'w:gz') as tar:
+        tar.add(src)
+
+    # 计算当前文件的md5值
+    md5dict = {}
+
+
 
 def incr_backup(src, dst, md5file):
     '增量备份'
