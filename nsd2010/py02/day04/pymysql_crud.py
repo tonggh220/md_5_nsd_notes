@@ -20,20 +20,27 @@ cursor = conn.cursor()
 # cursor.executemany(insert1, [(2, '财务部'), (3, '运维部'), (4, '开发部'), (5, '测试部'), (6, '市场部'), (7, '销售部')])
 ##############################################
 # 查询
-select1 = 'SELECT * FROM departments ORDER BY dept_id'
-cursor.execute(select1)
+# select1 = 'SELECT * FROM departments ORDER BY dept_id'
+# cursor.execute(select1)
 # 取出一行记录
-result1 = cursor.fetchone()
+# result1 = cursor.fetchone()
 # 继续取出2行记录
-result2 = cursor.fetchmany(2)
+# result2 = cursor.fetchmany(2)
 # 继续取出全部
-result3 = cursor.fetchall()
-print(result1)
-print('#' * 50)
-print(result2)
-print('#' * 50)
-print(result3)
-
+# result3 = cursor.fetchall()
+# print(result1)
+# print('#' * 50)
+# print(result2)
+# print('#' * 50)
+# print(result3)
+##############################################
+# 修改
+# update1 = 'UPDATE departments SET dept_name=%s WHERE dept_name=%s'
+# cursor.execute(update1, ('人力资源部', '人事部'))
+##############################################\
+# 删除
+delete1 = 'DELETE FROM departments WHERE dept_id=%s'
+cursor.execute(delete1, (7,))
 
 ##############################################
 # 确认
