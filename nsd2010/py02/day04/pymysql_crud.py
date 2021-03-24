@@ -37,7 +37,7 @@ cursor = conn.cursor()
 # 修改
 # update1 = 'UPDATE departments SET dept_name=%s WHERE dept_name=%s'
 # cursor.execute(update1, ('人力资源部', '人事部'))
-##############################################\
+##############################################
 # 删除
 delete1 = 'DELETE FROM departments WHERE dept_id=%s'
 cursor.execute(delete1, (7,))
