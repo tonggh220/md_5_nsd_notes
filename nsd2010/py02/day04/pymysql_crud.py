@@ -13,11 +13,27 @@ conn = pymysql.connect(
 cursor = conn.cursor()
 ##############################################
 # 编写SQL语句
-insert1 = 'INSERT INTO departments VALUES (%s, %s)'
+# insert1 = 'INSERT INTO departments VALUES (%s, %s)'
 # 插入一行记录
-cursor.execute(insert1, (1, '人事部'))
+# cursor.execute(insert1, (1, '人事部'))
 # 插入多行记录
-cursor.executemany(insert1, [(2, '财务部'), (3, '运维部'), (4, '开发部'), (5, '测试部'), (6, '市场部'), (7, '销售部')])
+# cursor.executemany(insert1, [(2, '财务部'), (3, '运维部'), (4, '开发部'), (5, '测试部'), (6, '市场部'), (7, '销售部')])
+##############################################
+# 查询
+select1 = 'SELECT * FROM departments ORDER BY dept_id'
+cursor.execute(select1)
+# 取出一行记录
+result1 = cursor.fetchone()
+# 继续取出2行记录
+result2 = cursor.fetchmany(2)
+# 继续取出全部
+result3 = cursor.fetchall()
+print(result1)
+print('#' * 50)
+print(result2)
+print('#' * 50)
+print(result3)
+
 
 ##############################################
 # 确认
