@@ -91,9 +91,22 @@ session = Session()
 #     print(dep.id, dep.dep_name)
 
 # not null
-qset9 = session.query(Department).filter(Department.id.isnot(None))
-for dep in qset9:
-    print(dep.id, dep.dep_name)
+# qset9 = session.query(Department).filter(Department.id.isnot(None))
+# for dep in qset9:
+#     print(dep.id, dep.dep_name)
+
+# 多表查询: query参数先写Employee，join的时候参数为Department
+# qset10 = session.query(Employee.emp_name, Department.dep_name).join(Department)
+# for data in qset10:
+#     print(data)
+
+# 取数据时，除了使用for循环，还可以使用all和first方法
+# all取出所有记录，放到列表中；first只取出第一个结果
+qset11 = session.query(Department.dep_name, Employee.emp_name).join(Employee)
+print(qset11.all())
+print('#' * 50)
+print(qset11.first())
+
 
 ##################################################
 # 确认
