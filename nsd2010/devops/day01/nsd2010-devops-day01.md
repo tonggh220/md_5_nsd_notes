@@ -1,4 +1,4 @@
-# nsd2009-devops-day01
+# nsd2010-devops-day01
 
 ## 多进程
 
@@ -87,7 +87,7 @@ b'<!--[if IE'
 # 安装
 [root@localhost day01]# pip3 install wget
 >>> import wget
->>> url = 'http://n.sinaimg.cn/ent/4_img/upload/eca303e9/125/w690h1035/20200924/2843-iwtqvyk9763395.jpg'
+>>> url = 'http://n.sinaimg.cn/ent/4_img/upload/eca303e9/125/w690h1035/20201024/2843-iwtqvyk9763395.jpg'
 >>> wget.download(url, '/tmp/g.jpg')
 ```
 
