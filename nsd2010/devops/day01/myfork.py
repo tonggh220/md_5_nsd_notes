@@ -20,7 +20,3 @@ for i in range(3):
     if not ret_val:
         print('hello world!')
         exit()
-
-
-
-
