@@ -137,7 +137,7 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 >>> from urllib import error
 >>> try:
 ...   request.urlopen(url1)
-... except error.HTTPError as e:
+... except error.HTTPError as e:  # 把异常保存为变量e
 ...   print('Error:', e)
 ... 
 Error: HTTP Error 403: Forbidden
