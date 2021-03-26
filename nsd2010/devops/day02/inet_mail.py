@@ -25,4 +25,4 @@ if __name__ == '__main__':
     host = 'smtp.qq.com'
     # 密码不是登陆密码，而是授权码
     passwd = getpass.getpass()
-    inet_mail(body, sender, receivers, subject, host, passwd)
+    inet_mail(body, subject, sender, receivers, host, 25, passwd)
