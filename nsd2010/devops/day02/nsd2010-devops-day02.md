@@ -116,25 +116,34 @@ if __name__ == '__main__':
 {'weatherinfo': {'city': '北京', 'cityid': '101010100', 'temp': '27.9', 'WD': '南风', 'WS': '小于3级' '28%', 'AP': '1002hPa', 'njd': '暂无实况', 'WSE': '<3', 'time': '17:55', 'sm': '2.1', 'isRadar': '1'adar': 'JC_RADAR_AZ9010_JB'}}
 ```
 
-- requests.get方法传参，使用params完成。
-
-```python
->>> url4 = 'https://www.sogou.com/web'
->>> params = {'query': 'linux'}
->>> r = requests.get(url4, params=params)
->>> r.text
-```
-
 - requests相关方法通过headers传递请求头
 
 ```python
->>> url5 = 'http://www.jianshu.com'
+>>> url4 = 'http://www.jianshu.com'
 >>> headers = {"User-Agent":"Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0"}
->>> r = requests.get(url5, headers=headers)
+>>> r = requests.get(url4, headers=headers)
+>>> r.text
+```
+
+- requests.get方法传参，使用params完成。
+
+```python
+>>> url5 = 'https://www.sogou.com/web'
+>>> params = {'query': 'linux'}
+>>> r = requests.get(url5, params=params)
 >>> r.text
 ```
 
 - request.post发送数据时，使用data完成
+
+```python
+>>> url6 = 'https://t.cn/weather'
+>>> data = {'query': 'linux'}
+>>> r = requests.post(url6, data=json.dumps(data))
+>>> r.json()
+```
+
+
 
 ### 使用阿里云开发者平台
 
