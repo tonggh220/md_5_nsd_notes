@@ -238,6 +238,8 @@ Vault password:
 [root@localhost myansible]# vim $(which ansible-cmdb)
 # 第14行改为python3，如下所示：
 which -a python3 | while read -r TRY_PY_BIN  
+# 如果使用较早版本的ansible-cmdb，则修改第8行为
+PY_BIN=$(which python3)
 [root@localhost myansible]# ansible-cmdb /tmp/out/ > /tmp/hosts.html
 [root@localhost myansible]# firefox /tmp/hosts.html
 注：如果网页按钮无法正常使用，则
