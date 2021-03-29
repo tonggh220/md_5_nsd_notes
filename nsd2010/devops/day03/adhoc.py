@@ -38,12 +38,10 @@ play_source = dict(
         dict(action=dict(module='debug', args=dict(msg='{{result}}')))
     ]
 )
-
-# Create play object, playbook objects use .load instead of init or new methods,
-# this will also automatically create the task objects from the info provided in play_source
+# 整合上述配置资源，形成Play对象
 play = Play().load(play_source, variable_manager=variable_manager, loader=loader)
 
-# Run it - instantiate task queue manager, which takes care of forking and setting up all objects to iterate over host list and tasks
+# 通过任务队列管理器运行它
 tqm = None
 try:
     tqm = TaskQueueManager(
@@ -53,7 +51,7 @@ try:
         options=options,
         passwords=passwords,
     )
-    result = tqm.run(play)  # most interesting data for a play is actually sent to the callback's methods
+    result = tqm.run(play)
 finally:
     # we always need to cleanup child procs and the structres we use to communicate with them
     if tqm is not None:
