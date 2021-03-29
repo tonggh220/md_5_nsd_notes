@@ -34,8 +34,8 @@ play_source = dict(
     hosts='webservers',   # 在哪些主机上执行任务
     gather_facts='no',   # 不收集facts变量
     tasks=[              # 在目标主机上执行的任务
-        dict(action=dict(module='shell', args='ls'), register='shell_out'),
-        dict(action=dict(module='debug', args=dict(msg='{{shell_out.stdout}}')))
+        dict(action=dict(module='user', args='name=tom state=present'), register='result'),
+        dict(action=dict(module='debug', args=dict(msg='{{result}}')))
     ]
 )
 
