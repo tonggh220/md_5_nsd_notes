@@ -1,4 +1,5 @@
-
+import requests
+import wget
 
 def has_new_ver(ver_url, ver_fname):
     '如果有新版本返回True，否则返回False'
@@ -13,6 +14,10 @@ if __name__ == '__main__':
         exit(1)
 
     # 下载新版本软件包
+    download_dir = '/var/www/download'
+    r = requests.get(ver_url)
+    app_url = f'http://192.168.1.103/deploy/pkgs/myweb-{r.text}.tar.gz.md5'
+    wget.download(app_url, download_dir)
 
     # 判断文件是否完好，如已损坏则删除它并退出
 
