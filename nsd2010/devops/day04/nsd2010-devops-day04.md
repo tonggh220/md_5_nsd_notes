@@ -19,6 +19,22 @@ dev--提交-->ops(运维部)
   - 解释执行：python / shell / php
   - 编译执行：c / c++ / go / java
 
+  ```c
+  [root@localhost day04]# vim hello.c
+  #include <stdio.h>
+  
+  int main(void)
+  {
+      printf("Hello World!\n");
+      return 0;
+  }
+  [root@localhost day04]# gcc -o hello hello.c
+  [root@localhost day04]# ./hello
+  Hello World!
+  ```
+  
+  
+  
 - CI/CD流程
 
 ```mermaid
