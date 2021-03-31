@@ -1,9 +1,12 @@
 import requests
 import wget
+import os
 
 def has_new_ver(ver_url, ver_fname):
     '如果有新版本返回True，否则返回False'
 
+def file_ok(md5url, app_fname):
+    '如果文件完好返回True，否则返回False'
 
 if __name__ == '__main__':
     # 判断是否有新版本，没有则退出
@@ -16,10 +19,16 @@ if __name__ == '__main__':
     # 下载新版本软件包
     download_dir = '/var/www/download'
     r = requests.get(ver_url)
-    app_url = f'http://192.168.1.103/deploy/pkgs/myweb-{r.text}.tar.gz.md5'
+    app_url = f'http://192.168.1.103/deploy/pkgs/myweb-{r.text}.tar.gz'
     wget.download(app_url, download_dir)
 
     # 判断文件是否完好，如已损坏则删除它并退出
+    md5url = app_url + '.md5'
+    app_fname = app_url.split('/')[-1]
+    app_fname = os.path.join(download_dir, app_fname)
+    if not file_ok(md5url, app_fname):
+        print('文件已损坏')
+        exit(2)
 
     # 部署软件
 
