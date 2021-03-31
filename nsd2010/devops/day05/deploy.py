@@ -1,6 +1,8 @@
 import requests
 import wget
 import os
+import hashlib
+import tarfile
 
 def has_new_ver(ver_url, ver_fname):
     '如果有新版本返回True，否则返回False'
@@ -21,9 +23,38 @@ def has_new_ver(ver_url, ver_fname):
 
 def file_ok(md5url, app_fname):
     '如果文件完好返回True，否则返回False'
+    # 计算本地文件的md5值
+    m = hashlib.md5()
+    with open(app_fname, 'rb') as fobj:
+        while 1:
+            data = fobj.read(4096)
+            if not data:
+                break
+            m.update(data)
+
+    r = requests.get(md5url)
+    if m.hexdigest() == r.text.strip():  # 去除文件结尾的\n
+        return True
+    else:
+        return False
 
 def deploy(app_fname, deploy_dir, dest):
     '部署软件'
+    # 解压
+    with tarfile.open(app_fname) as tar:
+        tar.extractall(path=deploy_dir)
+
+    # 拼接出解压目录的绝对路径
+    app_dir = os.path.basename(app_fname)
+    app_dir = app_dir.replace('.tar.gz', '')
+    app_dir = os.path.join(deploy_dir, app_dir)
+
+    # 如果dest已存在，则删除它
+    if os.path.exists(dest):
+        os.remove(dest)
+
+    # 创建软链接
+    os.symlink(app_dir, dest)
 
 if __name__ == '__main__':
     # 判断是否有新版本，没有则退出
