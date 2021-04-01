@@ -8,8 +8,11 @@
 
 <div>
     <form action="http://cn.bing.com/images/search" target="_blank">
-        <input type="radio" name="q" value="linux"> linux
-        <input type="radio" name="q" value="mysql"> mysql
+        <label>
+            <input type="radio" name="q" value="linux"> linux
+        </label>
+        <input id="db" type="radio" name="q" value="mysql">
+        <label for="db">mysql</label>
         <input type="radio" name="q" value="python"> python
         <input type="radio" name="q" value="html"> html
         <input type="submit" value="必应搜图">
