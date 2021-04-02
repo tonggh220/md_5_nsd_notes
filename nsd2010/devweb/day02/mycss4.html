@@ -9,11 +9,23 @@
             background-color: lightgray;
             margin: 10px auto;  /*左右外边距设置为自动，则居中*/
         }
+        .c1, .c2 {
+            width: 600px;
+            display: block;   /*转换为块级元素*/
+        }
+        .c1 {
+            background-color: lightblue;
+        }
+        .c2 {
+            background-color: lightcoral;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     my test
+    <span class="c1">left</span>
+    <span class="c2">right</span>
 </div>
 </body>
 </html>
