@@ -8,6 +8,29 @@
             width: 1200px;
             margin: 10px auto;
         }
+        .nav ul {
+            list-style-type: none;  /*移除项目编号*/
+            margin: 0;
+            padding: 0;
+        }
+        .nav li {   /*水平布局*/
+            float: left;
+        }
+        .nav a {
+            text-decoration: none;   /*去除下画线*/
+            display: block;   /*转成块级元素以设置宽度*/
+            width: 200px;
+            height: 30px;
+            text-align: center;
+            font-size: 20px;
+            line-height: 30px;  /*设置写文字时的行高，文字默认居中显示*/
+            background-color: #BEBEBE;
+            border-bottom: 2px solid darkred;
+        }
+        .nav a:hover {
+            color: white;
+            background-color: darkred;
+        }
     </style>
 </head>
 <body>
