@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mycss2</title>
+    <style>
+        a:link {   /*访问前的样式*/
+            font-size: 30px;
+        }
+        a:hover {   /*鼠标悬停时的样式*/
+            color: darkred;
+            text-decoration: none;
+        }
+        a:visited {   /*访问后的样式*/
+            color: gray;
+        }
+        .c1 {
+            width: 500px;
+            border: 1px purple solid;  /*宽度为1px的实线边框*/
+        }
+        .c2 {
+            width: 100%;  /*宽度是父元素的100％*/
+            visibility: hidden;  /*隐藏*/
+        }
+        .c1:hover .c2 {   /*当鼠标悬停在.c1上时，它内部.c2的样式*/
+            visibility: visible;   /*可见*/
+        }
+    </style>
+</head>
+<body>
+<div class="c1">
+    <img class="c2" src="https://img02.sogoucdn.com/app/a/100520021/84908a8f8d10fea4e57edaca3d9b3df8">
+</div>
+<div>
+    <a href="http://www.tom.com" target="_blank">tom</a>
+</div>
+</body>
+</html>
