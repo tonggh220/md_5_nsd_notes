@@ -12,3 +12,6 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
     # models.CASCADE表示级联删除，也就是在删除问题的时候，把相关的选项也一并删除
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.question}=>{self.choice_text}'
