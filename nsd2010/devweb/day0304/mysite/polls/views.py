@@ -5,3 +5,7 @@ from django.shortcuts import render
 def index(request):
     # index函数通过render函数找到一个网页模板文件，返回给客户端
     return render(request, 'index.html')
+
+def detail(request, qid):   # qid用于接收来自于url的参数
+    # {'qid': qid}将成为detail.html的变量和值，即 qid=数字
+    return render(request, 'detail.html', {'qid': qid})
