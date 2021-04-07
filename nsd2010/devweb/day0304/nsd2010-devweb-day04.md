@@ -162,7 +162,7 @@ def index(request):
 ... ...
 
 # 在网页中展示问题
-# 在网页模模板中，写在{}中间的内容是模板语法，在外面的是html语法内容
+# 在网页模板中，写在{}中间的内容是模板语法，在外面的是html语法内容
 # templates/index.html
 <!DOCTYPE html>
 <html lang="en">
