@@ -17,8 +17,9 @@ def detail(request, qid):   # qid用于接收来自于url的参数
     # return render(request, 'detail.html', {'qid': qid})
 
 def result(request, qid):   # qid用于接收来自于url的参数
+    question = Question.objects.get(id=qid)
     # {'qid': qid}将成为detail.html的变量和值，即 qid=数字
-    return render(request, 'result.html', {'qid': qid})
+    return render(request, 'result.html', {'question': question})
 
 def vote(request, qid):
     question = Question.objects.get(id=qid)
