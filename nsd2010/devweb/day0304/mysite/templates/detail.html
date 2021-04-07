@@ -1,5 +1,7 @@
 {% extends 'basic.html' %}
 {% block title %}投票详情{% endblock %}
 {% block content %}
-    <h1 class="text-warning text-center">{{ qid }}号问题投票详情</h1>
+    <h1 class="text-warning text-center">{{ question.id }}号问题投票详情</h1>
+    {{ question }}
+    {{ question.choice_set.all }}
 {% endblock %}
