@@ -38,8 +38,10 @@
 '北戴河'
 >>> c1.votes
 0
->>> c1.question
+>>> c1.question   # 得到的是c1选项对应的问题实例
 <Question: 问题:出游去哪玩？>
+>>> c1.question_id
+3
 
 # 创建选项方法二：使用objects管理器
 >>> c2 = Choice.objects.get_or_create(choice_text='杭州', question=q1)[0]
