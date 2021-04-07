@@ -19,3 +19,13 @@ def detail(request, qid):   # qid用于接收来自于url的参数
 def result(request, qid):   # qid用于接收来自于url的参数
     # {'qid': qid}将成为detail.html的变量和值，即 qid=数字
     return render(request, 'result.html', {'qid': qid})
+
+def vote(request, qid):
+    print('#' * 50)
+    print(dir(request))  # 查看request有哪些属性
+    print('#' * 50)
+    print(request.method)  # 查看request使用的方法
+    print('#' * 50)
+    print(request.POST)    # request.POST是一个类字典对象，记录表单数据
+    print('#' * 50)
+    return render(request, 'result.html')
