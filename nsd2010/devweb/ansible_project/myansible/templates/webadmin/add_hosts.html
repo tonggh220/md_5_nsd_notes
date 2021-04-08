@@ -1,1 +1,41 @@
 {% extends 'basic.html' %}
+{% block title %}添加主机{% endblock %}
+{% block content %}
+    <form action="" class="form-inline h4">
+        <div class="form-group">
+            主机组：<input class="form-control" type="text">
+        </div>
+        <div class="form-group">
+            主机：<input class="form-control" type="text">
+        </div>
+        <div class="form-group">
+            IP地址：<input class="form-control" type="text">
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="提 交">
+        </div>
+    </form>
+    <hr>
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="bg-primary">
+            <tr>
+                <td>主机组</td>
+                <td>主机</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for group in groups %}
+                <tr>
+                    <td>{{ group.groupname }}</td>
+                    <td>
+                        {% for host in group.host_set.all %}
+                            <div>{{ host.hostname }}:{{ host.ip_addr }}</div>
+                        {% endfor %}
+
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}
