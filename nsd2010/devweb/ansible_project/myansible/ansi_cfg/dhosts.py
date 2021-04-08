@@ -26,4 +26,12 @@ class Host(Base):
 if __name__ == '__main__':
     session = Session()
     qset = session.query(HostGroup.groupname, Host.ip_addr).join(Host)
-    print(qset.all())
+    # print(qset.all())
+    result = {}
+    for g, ip in qset:
+        if g not in result:   # 如果组还不是字典的key则创建结构
+            result[g] = {}
+            result[g]['hosts'] = []
+        result[g]['hosts'].append(ip)
+
+    print(result)
