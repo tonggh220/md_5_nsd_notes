@@ -32,11 +32,9 @@
                         {% for host in group.host_set.all %}
                             <div>{{ host.hostname }}:{{ host.ip_addr }}</div>
                         {% endfor %}
-
                     </td>
                 </tr>
             {% endfor %}
-
         </tbody>
     </table>
 {% endblock %}
