@@ -27,6 +27,9 @@ def add_modules(request):
             m = Module.objects.get_or_create(modulename=module)[0]
             if param:  # 如果param非空
                 m.argument_set.get_or_create(arg_text=param)
-                
+
     modules = Module.objects.all()
     return render(request, 'webadmin/add_modules.html', {'modules': modules})
+
+def tasks(request):
+    return render(request, 'webadmin/tasks.html')
