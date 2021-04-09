@@ -322,6 +322,9 @@ socket=127.0.0.1:8000
 # EPEL官方站点：https://fedoraproject.org/wiki/EPEL/zh-cn
 # 根据官方站点说明，配置epel源，只要执行以下命令即可
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+# 也可以使用国内镜像站点
+yum install http://mirrors.sohu.com/fedora-epel/epel-release-latest-7.noarch.rpm
+
 [root@localhost ~]# ls /etc/yum.repos.d/epel*
 /etc/yum.repos.d/epel.repo  /etc/yum.repos.d/epel-testing.repo
 [root@localhost ~]# yum install -y nginx
