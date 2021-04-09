@@ -20,5 +20,13 @@ def add_hosts(request):
     return render(request, 'webadmin/add_hosts.html', {'groups': groups})
 
 def add_modules(request):
+    if request.method == 'POST':
+        module = request.POST.get('module').strip()
+        param = request.POST.get('param').strip()
+        if module:   # 如果module非空
+            m = Module.objects.get_or_create(modulename=module)[0]
+            if param:  # 如果param非空
+                m.argument_set.get_or_create(arg_text=param)
+                
     modules = Module.objects.all()
     return render(request, 'webadmin/add_modules.html', {'modules': modules})
