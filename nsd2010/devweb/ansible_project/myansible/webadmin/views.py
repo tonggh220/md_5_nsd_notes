@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from webadmin.models import HostGroup, Module, Host
+from webadmin.adhoc import adhoc
 
 # Create your views here.
 def index(request):
@@ -32,6 +33,21 @@ def add_modules(request):
     return render(request, 'webadmin/add_modules.html', {'modules': modules})
 
 def tasks(request):
+    if request.method == 'POST':
+        ip = request.POST.get('ip')
+        group = request.POST.get('hostgroup')
+        module = request.POST.get('module')
+        param = request.POST.get('param')
+        if ip:   # 如果ip非空就对单一主机执行任务
+            target = ip   # 设置执行任务的目标
+        elif group:
+            target = group
+        else:
+            target = None
+
+        if target:   # 如果target的值不是None
+            adhoc(['ansi_cfg/dhosts.py'], target, module, param)
+
     hosts = Host.objects.all()
     groups = HostGroup.objects.all()
     modules = Module.objects.all()
