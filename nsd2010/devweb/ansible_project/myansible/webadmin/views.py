@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from webadmin.models import HostGroup
+from webadmin.models import HostGroup, Module
 
 # Create your views here.
 def index(request):
@@ -18,3 +18,7 @@ def add_hosts(request):
 
     groups = HostGroup.objects.all()
     return render(request, 'webadmin/add_hosts.html', {'groups': groups})
+
+def add_modules(request):
+    modules = Module.objects.all()
+    return render(request, 'webadmin/add_modules.html', {'modules': modules})
