@@ -18,5 +18,25 @@
                 主机组
             </div>
         </div>
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="bg-primary">
+                <tr>
+                    <td>模块</td>
+                    <td>参数</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for module in modules %}
+                    <tr>
+                        <td>{{ module.modulename }}</td>
+                        <td>
+                            {% for arg in module.argument_set.all %}
+                                <div>{{ arg.arg_text }}</div>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </form>
 {% endblock %}
