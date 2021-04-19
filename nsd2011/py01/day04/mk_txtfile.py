@@ -13,6 +13,17 @@ def get_fname():
 
 def get_content():
     "用于获取用户输入的多行文本"
+    # 定义用于保存结果的列表
+    content = []
+
+    print('请输入内容，在单独的一行上输入end结束！')
+    while 1:
+        line = input('输入end结束> ')
+        if line == 'end':
+            break
+        content.append(line)
+
+    return content
 
 def wfile(fname, content):
     "用于将内容content写入文件fname"
