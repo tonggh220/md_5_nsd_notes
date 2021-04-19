@@ -12,5 +12,14 @@ users = ['tom', 'jerry', 'zhangsan', 'lisi']
 # for data in enumerate(users):
 #     print(data)
 
-for i, user in enumerate(users):
-    print(i, user)
+# for i, user in enumerate(users):
+#     print(i, user)
+
+num = input('number: ')
+for ch in num:
+    if ch not in '0123456789':
+        print('不全是数字')
+        break
+else:
+    print('全是数字')
+
