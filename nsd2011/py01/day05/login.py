@@ -1,3 +1,5 @@
+import getpass
+
 userdb = {}  # 用于保存用户密码
 
 def register():
@@ -13,7 +15,26 @@ def register():
 
 def login():
     '用于登陆'
-    print('login')
+    username = input('username: ').strip()
+    password = getpass.getpass('password: ')
+    if userdb.get(username) == password:
+        print('登陆成功')
+    else:
+        print('登陆失败')
+    ####################
+    # if (username in userdb) and (userdb[username] == password):
+    #     print('登陆成功')
+    # else:
+    #     print('登陆失败')
+    ####################
+    # if username in userdb:
+    #     if userdb[username] == password:
+    #         print('登陆成功')
+    #     else:
+    #         print('登陆失败')
+    # else:
+    #     print('登陆失败')
+    ####################
 
 def show_menu():
     '程序主体，实现代码逻辑'
