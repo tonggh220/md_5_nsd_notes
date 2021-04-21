@@ -35,6 +35,21 @@
 # print('ok')
 
 
+# ###########################
+# try:
+#     num = int(input('number: '))
+#     result = 100 / num
+# except (ValueError, ZeroDivisionError):
+#     print('请输入非0整数')
+# except (KeyboardInterrupt, EOFError):
+#     print('\nBye-bye')
+#     exit()  # 程序遇到exit时，彻底结束
+# else:  # 不发生异常才执行的语句
+#     print(result)
+#
+# print('ok')
+
+
 ###########################
 try:
     num = int(input('number: '))
@@ -46,5 +61,5 @@ except (KeyboardInterrupt, EOFError):
     exit()  # 程序遇到exit时，彻底结束
 else:  # 不发生异常才执行的语句
     print(result)
-
-print('ok')
+finally:  # 不管异常是否发生，都要执行的语句
+    print('ok')
