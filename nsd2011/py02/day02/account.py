@@ -1,13 +1,16 @@
+import pickle
+import os
+from time import strftime
 
-def save():
+def save(fname):
     '用于记录收入'
     print('save')
 
-def cost():
+def cost(fname):
     '用于记录开销'
     print('cost')
 
-def query():
+def query(fname):
     '用于查询收支记录'
     print('query')
 
@@ -19,6 +22,12 @@ def show_menu():
 (2) 查账
 (3) 退出
 请选择(0/1/2/3/): '''
+    fname = 'account.data'
+    # 记账文件如果不存在，则初始化它
+    if not os.path.exists(fname):
+        init_data = [[strftime('%Y-%m-%d'), 0, 0, 10000, 'init data']]
+        with open(fname, 'wb') as fobj:
+            pickle.dump(init_data, fobj)
 
     while 1:
         choice = input(prompt).strip()
@@ -30,7 +39,7 @@ def show_menu():
             print('\nBye-bye')
             break
 
-        funcs[choice]()
+        funcs[choice](fname)
 
 if __name__ == '__main__':
     show_menu()
