@@ -8,6 +8,17 @@ class Role:
         self.hp = hp
         self.mp = mp
 
+    def show_me(self):
+        # 绑定在实例身上的属性，在类中任意位置可见可用
+        print(f'我是{self.name}，擅用{self.weapon}')
+
+    def speak(self, words):
+        # 没有绑在实例身上的属性，就是局部变量，只能在当前函数中使用
+        hh = '呵呵'
+        print(hh, words)
+
 if __name__ == '__main__':
     lb = Role('吕布', '方天画戟')  # 自动调用__init__，创建具体的实例对象
     print(lb.name, lb.weapon, lb.hp, lb.mp)
+    lb.show_me()
+    lb.speak('马中赤兔，人中吕布')
