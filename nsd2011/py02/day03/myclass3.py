@@ -19,11 +19,13 @@ class Role:
 
 class Warrior(Role):  # 括号中的Role是父类或基类
     'Role的子类'
-    pass
+    def attack(self, target):
+        print(f'与{target}近身肉搏')
 
 class Mage(Role):
     'Role的子类'
-    pass
+    def attack(self, target):
+        print(f'远程打击{target}')
 
 if __name__ == '__main__':
     lb = Warrior('吕布', '方天画戟')
@@ -32,3 +34,5 @@ if __name__ == '__main__':
     lb.speak('马中赤兔，人中吕布')
     zgl.show_me()
     zgl.speak('大梦谁先觉，平生我自知。')
+    lb.attack('董卓')
+    zgl.attack('曹操')
