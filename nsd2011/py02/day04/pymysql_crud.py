@@ -16,14 +16,27 @@ cursor = conn.cursor()
 
 ###################################
 # 编写sql语句
-insert1 = 'INSERT INTO departments VALUES(%s, %s)'
+# insert1 = 'INSERT INTO departments VALUES(%s, %s)'
 
 # 插入一行数据
-cursor.execute(insert1, (1, '人事部'))
+# cursor.execute(insert1, (1, '人事部'))
 # 插入多行数据
-cursor.executemany(insert1, [(2, '运维部'), (3, '开发部'), (4, '测试部'), (5, '财务部')])
+# cursor.executemany(insert1, [(2, '运维部'), (3, '开发部'), (4, '测试部'), (5, '财务部')])
 ###################################
+# 查询
+select1 = 'SELECT * FROM departments'
+cursor.execute(select1)
+result1 = cursor.fetchone()    # 取一行记录
+result2 = cursor.fetchmany(2)  # 继续向后取2行记录
+result3 = cursor.fetchall()    # 继续向后取出全部记录
+print(result1)
+print('*' * 30)
+print(result2)
+print('*' * 30)
+print(result3)
 
+
+###################################
 # 确认
 conn.commit()
 
