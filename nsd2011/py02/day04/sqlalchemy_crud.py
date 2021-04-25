@@ -100,10 +100,21 @@ session = Session()
 
 # 多表查询: query参数先写Employees，join的时候参数为Department
 # select emp_name, dep_name from employees as e inner join departments as d on e.dep_id=d.id;
-qset10 = session.query(Employee.emp_name, Department.dep_name)\
-    .join(Department)
-for data in qset10:
-    print(data)
+# qset10 = session.query(Employee.emp_name, Department.dep_name)\
+#     .join(Department)
+# for data in qset10:
+#     print(data)
+
+#########################################
+# 取数据时，除了使用for循环，还可以使用all和first方法
+# all取出所有记录，放到列表中；first只取出第一个结果
+qset11 = session.query(Department.dep_name, Employee.emp_name)\
+    .join(Employee)
+print(qset11.all())
+print('*' * 30)
+print(qset11.first())
+
+
 #########################################
 # 确认
 session.commit()
