@@ -13,7 +13,9 @@ conn = pymysql.connect(
 cursor = conn.cursor()
 
 # 编写sql语句
-sql1 = ''
+sql1 = '''CREATE TABLE departments(
+id INT PRIMARY KEY AUTO_INCREMENT, dep_name VARCHAR(10)
+)'''
 
 # 执行sql语句
 cursor.execute(sql1)
