@@ -17,6 +17,14 @@ class Department(Base):
     id = Column(Integer, primary_key=True)
     dep_name = Column(String(10), unique=True)
 
+class Employee(Base):
+    __tablename__ = 'employees'
+    id = Column(Integer, primary_key=True)
+    emp_name = Column(String(20))
+    email = Column(String(50))
+    birth_date = Column(Date)
+    dep_id = Column(Integer, ForeignKey('departments.id'))
+
 if __name__ == '__main__':
     # 如果库中无表则创建，有表则不执行
     Base.metadata.create_all(engine)
