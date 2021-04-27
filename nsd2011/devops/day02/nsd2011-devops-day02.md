@@ -151,7 +151,7 @@ if __name__ == '__main__':
 - 查天气：搜索天气，找到“杭州网尚科技” -> 0元购买 -> 管理控制台
 
 ```python
->>> url = 'http://jisutqybmf.market.alicloudapi.com/weather/query'
+>>> url = 'http://jisuqgtq.market.alicloudapi.com/weather/query'
 >>> headers = {'Content-Type': 'application/json; charset=UTF-8', 'Authorization': 'APPCODE 你管理后台中查询到的appcode'}
 >>> params = {'citycode': '101010100'}
 >>> r = requests.get(url, headers=headers, params=params)
