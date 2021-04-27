@@ -14,15 +14,35 @@ headers = {'Content-Type': 'application/json; charset=UTF-8'}
 ##################################
 # 获取隐私信息，需要token。
 # 获取用户的token: 10b50e8ba54728a0b976fc1ce3ea74c5
+# data = {
+#     "jsonrpc": "2.0",
+#     "method": "user.login",
+#     "params": {
+#         "user": "Admin",
+#         "password": "zabbix"
+#     },
+#     "id": 1
+# }
+##################################
+# 查询组，获取Linux servers组ID: 2
 data = {
     "jsonrpc": "2.0",
-    "method": "user.login",
+    "method": "hostgroup.get",
     "params": {
-        "user": "Admin",
-        "password": "zabbix"
+        "output": "extend",
+        "filter": {
+            "name": [
+                # "Zabbix servers",
+                "Linux servers"
+            ]
+        }
     },
+    "auth": "10b50e8ba54728a0b976fc1ce3ea74c5",
     "id": 1
 }
+##################################
+# 获取Template os linux模板信息
+
 ######################################
 r = requests.post(url, headers=headers, data=json.dumps(data))
 print(r.json())  # 只关心result对应的部分
