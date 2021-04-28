@@ -1,6 +1,7 @@
 ---
 - name: configure webservers
   hosts: webservers
+  gather_facts: no
   tasks:
     - name: install httpd
       yum:
@@ -15,6 +16,7 @@
 
 - name: configure dbservers
   hosts: dbservers
+  gather_facts: no
   tasks:
     - name: install mariadb-server
       yum:
