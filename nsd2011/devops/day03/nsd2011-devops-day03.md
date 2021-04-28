@@ -50,6 +50,9 @@ localhost
 
 [root@localhost myansible]# ansible all --list-hosts
 
+[root@localhost ~]# cd /etc/yum.repos.d/
+[root@localhost yum.repos.d]# wget http://mirrors.163.com/.help/CentOS7-Base-163.repo
+[root@localhost yum.repos.d]# cd -
 [root@localhost myansible]# yum install -y sshpass
 [root@localhost myansible]# ansible all -m ping -k
 SSH password: 
