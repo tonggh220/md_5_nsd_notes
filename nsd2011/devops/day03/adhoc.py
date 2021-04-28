@@ -12,14 +12,15 @@ Options = namedtuple('Options', ['connection', 'module_path', 'forks', 'become',
 options = Options(connection='smart', module_path=['/to/mymodules'], forks=10, become=None, become_method=None, become_user=None, check=False, diff=False)
 # options = Options(connection='local', module_path=['/to/mymodules'], forks=10, become=None, become_method=None, become_user=None, check=False, diff=False)
 
-# initialize needed objects
-loader = DataLoader() # Takes care of finding and reading yaml, json and ini files
+# 负责查找和读取yaml，json和ini文件
+loader = DataLoader()
 passwords = dict(vault_pass='secret')
 
-# create inventory, use path to host config file as source or hosts in a comma separated string
-inventory = InventoryManager(loader=loader, sources='localhost,')
+# 主机清单。有两种方式，一种是使用逗号将所有主机分隔的字符串；另一种是主机清单文件列表
+inventory = InventoryManager(loader=loader, sources=['myansible/hosts'])
+# inventory = InventoryManager(loader=loader, sources='localhost,')
 
-# variable manager takes care of merging all the different sources to give you a unifed view of variables available in each context
+# 变量管理器
 variable_manager = VariableManager(loader=loader, inventory=inventory)
 
 # create datastructure that represents our play, including tasks, this is basically what our YAML loader does internally.
