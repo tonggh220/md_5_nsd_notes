@@ -19,6 +19,7 @@ dev--提交-->ops(运维部)
   - 解释执行：python / shell / php
   - 编译执行：c / c++ / go / java
 
+- C语言程序示例
   ```c
   [root@localhost day04]# vim hello.c
   #include <stdio.h>
@@ -33,18 +34,35 @@ dev--提交-->ops(运维部)
   Hello World!
   ```
   
-  
-  
+- go语言程序示例
+```go
+[root@localhost day04]# vim nihao.go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("世界你好")
+}
+
+[root@localhost day04]# go build nihao.go 
+[root@localhost day04]# ./nihao 
+世界你好
+```
+
+
 - CI/CD流程
 
 ```mermaid
 graph LR
-dev(程序员)--提交-->scm(git服务器)
-jenkins(jenkins)--克隆-->scm
-app1(应用服务器)--下载-->jenkins
+dev(程序员dev:1.101)--提交-->scm(git服务器:1.102)
+jenkins(jenkins:1.103)--克隆-->scm
+subgraph cluster
+app1(应用服务器:master)--下载-->jenkins
 app2(应用服务器)--下载-->jenkins
 app3(应用服务器)--下载-->jenkins
 app4(应用服务器)--下载-->jenkins
+end
 ```
 
 ## git应用
