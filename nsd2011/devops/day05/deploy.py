@@ -2,6 +2,7 @@ import requests
 import wget
 import os
 import hashlib
+import tarfile
 
 def has_new_ver(ver_url, ver_fname):
     '判断是否有新版本，有新版本返回True，否则返回False'
@@ -40,6 +41,21 @@ def file_ok(md5url, app_fname):
 
 def deploy(app_fname, deploy_dir, dest):
     '用于部署软件'
+    # 解压缩
+    with tarfile.open(app_fname) as tar:
+        tar.extractall(path=deploy_dir)
+
+    # 拼接出解压后目录的绝对路径
+    app_dir = os.path.basename(app_fname)
+    app_dir = app_dir.replace('.tar.gz', '')
+    app_dir = os.path.join(deploy_dir, app_dir)
+
+    # 如果软链接已存在，先删除它
+    if os.path.exists(dest):
+        os.remove(dest)
+
+    # 创建软链接
+    os.symlink(app_dir, dest)
 
 if __name__ == '__main__':
     # 判断是否有新版本，没有新版本则退出
@@ -59,7 +75,7 @@ if __name__ == '__main__':
     md5url = app_url + '.md5'
     app_fname = app_url.split('/')[-1]
     app_fname = os.path.join(download_dir, app_fname)
-    if not file_ok(app_url, app_fname):
+    if not file_ok(md5url, app_fname):
         print('文件已损坏')
         os.remove(app_fname)
         exit(2)
