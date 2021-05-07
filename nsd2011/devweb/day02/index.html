@@ -12,6 +12,9 @@
             width: 1020px;
             height: 200px;
         }
+        .clear {
+            clear: both;
+        }
         ul {
             list-style-type: none;
             padding: 0;
@@ -19,6 +22,21 @@
         }
         li {
             float: left;
+        }
+        li a {
+            display: block;
+            font-size: 20px;
+            text-decoration: none;
+            width: 170px;
+            background-color: #BEBEBE;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-bottom: 3px solid darkred;
+            color: white;
+        }
+        li a:hover {
+            background-color: darkred;
         }
     </style>
 </head>
@@ -37,6 +55,7 @@
             <li><a href="#">JAVASCRIPT</a></li>
         </ul>
     </div>
+    <div class="clear"></div>
     <div class="content">
         <div class="left">left</div>
         <div class="right">right</div>
