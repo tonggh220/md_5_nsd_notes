@@ -15,9 +15,23 @@
         .c1:hover .c2 {   /*设置鼠标悬停时，内部c2的样式*/
             visibility: visible;
         }
+        html {
+            font-size: 16px;
+        }
+        .c3 {
+            font-size: 2rem;  /*根元素html大小的2倍*/
+        }
+        .c4 {
+            font-size: 2em;  /*当前大小的2倍*/
+        }
     </style>
 </head>
 <body>
+<div>达内</div>
+<div class="c3">
+    达内
+    <div class="c4">达内</div>
+</div>
 <div class="c1">
     <img class="c2" src="https://img02.sogoucdn.com/app/a/100520021/139c9d802f14f0c8c6f15c66ed6a9be2">
 </div>
