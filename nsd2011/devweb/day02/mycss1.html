@@ -8,9 +8,9 @@
             margin: 0;   /*外边距*/
             padding: 0;  /*内边距*/
         }
-        body {
+        /*body {
             background-color: silver;
-        }
+        }*/
         h1 {
             text-align: center;
             background-color: lightsalmon;
@@ -31,12 +31,24 @@
         p,div {
             font-size: 20px;
         }
+        a:link {   /*访问前样式*/
+            text-decoration: none;
+        }
+        a:hover {   /*鼠标悬停时的样式*/
+            font-size: 1.5em;
+        }
+        a:visited {    /*访问后的样式*/
+            color: gray;
+        }
     </style>
 </head>
 <body>
 <h1 class="c1">达内云计算 Cloud Computing</h1>
 <h2 id="id1">达内云计算 Cloud Computing</h2>
 <h3>达内云计算 Cloud Computing</h3>
+<div>
+    <a href="http://www.redhat.com">redhat</a>
+</div>
 <div class="c1">达内云计算 Cloud Computing</div>
 <div>达内云计算 <span class="c1">Cloud Computing</span></div>
 <div>达内云计算 Cloud Computing</div>
