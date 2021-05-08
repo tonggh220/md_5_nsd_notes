@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    # 从http://server_ip/后面进行匹配
     path('admin/', admin.site.urls),
+    # 路径是polls/，这种url交给polls应用的urls.py文件处理
     path('polls/', include('polls.urls')),
 ]
