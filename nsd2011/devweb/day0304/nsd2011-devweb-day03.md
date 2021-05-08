@@ -418,7 +418,7 @@ class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
     def __str__(self):
-        return '%s=>选项:%s' % (self.question, self.choice_text)
+        return f'{self.question}=>选项:{self.choice_text}'
 # 对模型的字段修改才会改变数据库，修改方法不改变，所以不用执行迁移命令
 # 访问管理后台，发现问题和选项已经按要求显示
 ```
