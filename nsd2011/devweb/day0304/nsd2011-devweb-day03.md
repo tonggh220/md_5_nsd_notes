@@ -410,7 +410,7 @@ class Question(models.Model):
     pub_date = models.DateTimeField()
 
     def __str__(self):
-        return '问题:%s' % self.question_text
+        return f'问题:{self.question_text}'
 
 class Choice(models.Model):
     choice_text = models.CharField(max_length=200)
