@@ -11,3 +11,8 @@ def detail(request, qid):
     # qid用于接收来自于url的参数
     # {'qid': qid}将成为detail.html的变量和值，即 qid=数字
     return render(request, 'detail.html', {'qid': qid})
+
+def result(request, qid):
+    # qid用于接收来自于url的参数
+    # {'qid': qid}将成为detail.html的变量和值，即 qid=数字
+    return render(request, 'result.html', {'qid': qid})
