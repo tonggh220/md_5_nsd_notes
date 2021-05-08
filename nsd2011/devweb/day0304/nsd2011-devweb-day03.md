@@ -67,7 +67,7 @@ mytest
 
 ```python
 # 为项目创建数据库
-[root@localhost pypkgs]# mysql -uroot -ptedu.cn
+[root@localhost ~]# mysql -uroot -ptedu.cn
 MariaDB [(none)]> CREATE DATABASE dj2011 DEFAULT CHARSET utf8mb4;
 
 # 修改项目配置文件
