@@ -1,21 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>投票首页</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 <body>
-<h1>投票首页</h1>
-<ol>
-    {% for question in questions %}
-        <li>
-            {# detail是在urls.py中声明的路径名，它接受一个数字作为问题id #}
-            <a href="{% url 'detail' question.id %}" target="_blank">
-                {{ question.question_text }}
-            </a>
-            {{ question.pub_date }}
-        </li>
-    {% endfor %}
-</ol>
+<div class="container h4">
+    <div class="row"></div>
+    <div class="row">
+        <h1 class="text-center text-warning">投票首页</h1>
+        <ol>
+            {% for question in questions %}
+                <li>
+                    {# detail是在urls.py中声明的路径名，它接受一个数字作为问题id #}
+                    <a href="{% url 'detail' question.id %}" target="_blank">
+                        {{ question.question_text }}
+                    </a>
+                    {{ question.pub_date }}
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+    <div class="row text-center">
+        达内云计算学院 &copy; <a href="#">达内科技</a>
+    </div>
+</div>
 </body>
 </html>
