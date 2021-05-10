@@ -10,4 +10,5 @@ urlpatterns = [
     # 类型除了int外，还有str和slug
     path('<int:qid>', views.detail, name='detail'),
     path('<int:qid>/result', views.result, name='result'),
+    path('<int:qid>/vote', views.vote, name='vote'),
 ]
