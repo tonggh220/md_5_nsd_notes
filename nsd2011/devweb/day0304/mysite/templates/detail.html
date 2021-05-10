@@ -6,13 +6,16 @@
         <h3>{{ question.question_text }}</h3>
         <form action="">
             {% for choice in question.choice_set.all %}
-                <div>
+                <div class="radio">
                     <label>
-                        <input type="radio">
+                        <input type="radio" name="choice_id" value="{{ choice.id }}">
                         {{ choice.choice_text }}
                     </label>
                 </div>
             {% endfor %}
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="提 交">
+            </div>
         </form>
     </div>
 {% endblock %}
