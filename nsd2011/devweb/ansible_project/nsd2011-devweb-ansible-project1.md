@@ -121,8 +121,8 @@ Ansible Webadmin
 </body>
 </html>
 
-# 启动开发服务器，监听在0.0.0.0:9000端口
-[root@localhost myansible]# python3 manage.py runserver 0:9000
+# 启动开发服务器
+[root@localhost myansible]# python3 manage.py runserver
 
 # 使用模板继承，模板采用投票应用的basic.html
 [root@localhost myansible]# cp ../../day0304/mysite/templates/basic.html templates/
