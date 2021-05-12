@@ -14,7 +14,14 @@
             {% csrf_token %}
             <div class="tab-content h4">
                 <div class="tab-pane active fade in" id="server">
-                    主机
+                    <select class="form-control" name="ip">
+                        <option value="">无</option>
+                        {% for host in hosts %}
+                            <option value="{{ host.ip_addr }}">
+                                {{ host.hostname }}:{{ host.ip_addr }}
+                            </option>
+                        {% endfor %}
+                    </select>
                 </div>
                 <div class="tab-pane fade" id="servers">
                     主机组
