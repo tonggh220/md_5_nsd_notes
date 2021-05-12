@@ -24,7 +24,14 @@
                     </select>
                 </div>
                 <div class="tab-pane fade" id="servers">
-                    主机组
+                    <select class="form-control" name="hostgroup">
+                        <option value="">无</option>
+                        {% for group in groups %}
+                            <option value="{{ group.groupname }}">
+                                {{ group.groupname }}
+                            </option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
             <table class="table table-bordered table-hover table-striped">
@@ -37,7 +44,12 @@
                 <tbody>
                     {% for module in modules %}
                         <tr>
-                            <td>{{ module.modulename }}</td>
+                            <td>
+                                <label>
+                                    <input type="radio" name="module" value="{{ module.modulename }}">
+                                    {{ module.modulename }}
+                                </label>
+                            </td>
                             <td>
                                 {% for arg in module.argument_set.all %}
                                     <div>{{ arg.arg_text }}</div>
