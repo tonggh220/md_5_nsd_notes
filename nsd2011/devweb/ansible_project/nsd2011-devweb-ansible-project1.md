@@ -225,7 +225,7 @@ for item in [HostGroup, Host, Module, Argument]:
 [defaults]
 inventory = dhosts.py   # 使用动态主机清单
 remote_user = root
-host_key_cheking = no
+host_key_checking = no
 [root@localhost ansi_cfg]# touch dhosts.py
 [root@localhost ansi_cfg]# chmod +x dhosts.py
 ```
